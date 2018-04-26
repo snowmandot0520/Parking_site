@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
           <Route exact path='/' component={Home}/>
           <Route exact path='/login' component={Login}/>
         </div>
