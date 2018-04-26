@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from './../../components/nav/Nav'
+import Button from 'material-ui/Button'
 
-class Homepage extends React.Component {
+class Nav extends React.Component {
 
     constructor(){
         super();
@@ -13,12 +13,11 @@ class Homepage extends React.Component {
     render(){
         return(
             <div>
-                <Nav />
-                <div>This is the homepage!</div>
+                <Button variant="raised" color="primary">This is a Button</Button>
             </div>
         )
     }
 
 }
 
-export default Homepage;
+export default Nav;
