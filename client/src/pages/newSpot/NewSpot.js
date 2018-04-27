@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Payment extends React.Component {
+class NewSpot extends React.Component {
     
     constructor(){
         super();
@@ -11,9 +11,9 @@ class Payment extends React.Component {
 
     render(){
         return(
-            <div>This is the payment page!</div>
+            <div>This is the newSpot page!</div>
         )
     }
 }
 
-export default Payment;
+export default NewSpot;
