@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from './../../components/nav/Nav';
 
 class Login extends React.Component {
     
