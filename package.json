@@ -19,11 +19,15 @@
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.1.0",
     "connect-mongo": "^2.0.1",
     "express": "^4.15.4",
     "express-session": "^1.15.6",
     "mongoose": "^5.0.15",
     "morgan": "^1.9.0",
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "reactstrap": "^5.0.0"
   }
 }

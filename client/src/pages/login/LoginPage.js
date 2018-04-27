@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './../../components/nav/Nav';
+import Header from './../../components/header/Header';
 
 class Login extends React.Component {
     
@@ -12,7 +12,23 @@ class Login extends React.Component {
 
     render(){
         return(
-            <div>This is the login page!</div>
+            <div className="container" id="full-body">
+        
+                <div className="row">
+                    <Header/>
+                </div>
+                
+                <button type="button" className="btn btn-lg btn-outline-primary home-buttons">Sign In</button>
+                <button type="button" className="btn btn-lg btn-outline-primary home-buttons">Sign Up</button>
+            
+        
+                <div className="row">
+                    <nav className="navbar navbar-light fixed-bottom justify-content-center" id="footer">
+                        <span id="footer-text">Ⓒ Copyright 2018</span>
+                    </nav>
+                </div>
+    
+            </div>
         )
     }
 }
