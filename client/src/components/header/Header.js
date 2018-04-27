@@ -1,19 +1,7 @@
 import React from 'react';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col,
-    Jumbotron,
-    Button
-  } from 'reactstrap';
+
  
+  import './Header.css';
 
 class Header extends React.Component {
 
@@ -27,10 +15,15 @@ class Header extends React.Component {
     render(){
         return(
             <div>
-                <nav className="navbar navbar-light d-flex justify-content-center" id="home-nav">
-                    <a className="navbar-brand text-center" id="home-title" href="#">Landing Pad</a>
-                    
-                </nav>
+                <div class="row" id="top-line">
+                    <div className="text-center" id="options">
+                        <a className="navbar-brand activity" href="#">Activity</a>
+                        <a className="navbar-brand activity" href="#">Parking</a>
+                        <a className="navbar-brand activity" href="#">FAQs</a>
+                    </div>
+                    <i className="material-icons home-icon">settings_applications</i>
+                    <i className="material-icons home-icon">account_box</i>
+                </div>
             </div>
         )
     }
