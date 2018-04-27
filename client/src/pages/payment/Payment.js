@@ -1,4 +1,7 @@
 import React from 'react';
+import Footer from './../../components/footer/Footer';
+
+import './Payment.css';
 
 class Payment extends React.Component {
     

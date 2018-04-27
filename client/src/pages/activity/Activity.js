@@ -1,4 +1,7 @@
 import React from 'react';
+import Footer from './../../components/footer/Footer';
+
+import './Activity.css';
 
 class Activity extends React.Component {
     
@@ -33,7 +36,7 @@ class Activity extends React.Component {
                             <span id="footer-text">Ⓒ Copyright 2018</span>
                         </nav>
                 </div>
-
+                <Footer />
             </div>
         )
     }

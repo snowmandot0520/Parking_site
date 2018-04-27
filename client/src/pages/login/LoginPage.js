@@ -1,6 +1,10 @@
 import React from 'react';
-import Header from './../../components/header/Header';
+import Title from './../../components/title/Title';
 import Background from './../../components/background/Background';
+import Footer from './../../components/footer/Footer';
+import { Button } from 'reactstrap';
+
+import './LoginPage.css';
 
 class Login extends React.Component {
     
@@ -15,19 +19,15 @@ class Login extends React.Component {
         return(
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
-                    <Header/>
+                    <Title/>
+                    <p id="description">A parking rental app</p>
                     <div className="row">
                     </div>
-                        <button type="button" className="btn btn-lg btn-outline-primary home-buttons">Sign In</button>
-                        <button type="button" className="btn btn-lg btn-outline-primary home-buttons">Sign Up</button>
-                    
-                    
-            
-                    <div className="row">
-                        <nav className="navbar navbar-light fixed-bottom justify-content-center" id="footer">
-                            <span id="footer-text">Ⓒ Copyright 2018</span>
-                        </nav>
+                    <div className=" fixed-bottom btn-div">
+                        <Button outline color="primary" className="simple-btn">Sign In</Button>
+                        <Button outline color="primary" className="simple-btn">Sign Up</Button>
                     </div>
+                    <Footer/>
                 </Background>
             </div>
         )

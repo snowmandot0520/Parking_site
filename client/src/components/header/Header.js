@@ -31,7 +31,6 @@ class Header extends React.Component {
                     <a className="navbar-brand text-center" id="home-title" href="#">Landing Pad</a>
                     
                 </nav>
-                <p id="description">A parking rental app</p>
             </div>
         )
     }

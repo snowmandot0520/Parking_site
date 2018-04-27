@@ -1,4 +1,7 @@
 import React from 'react';
+import Footer from './../../components/footer/Footer';
+
+import './FindParking.css';
 
 class FindParking extends React.Component {
     
@@ -48,12 +51,8 @@ class FindParking extends React.Component {
             
                 <button type="button" className="btn btn-lg btn-outline-primary" id="park-button">Start a new search</button>
                 
-            
-                <div className="row">
-                    <nav className="navbar navbar-light fixed-bottom justify-content-center" id="footer">
-                        <span id="footer-text">Ⓒ Copyright 2018</span>
-                    </nav>
-                </div>
+    
+                <Footer />
             </div>
         
         )

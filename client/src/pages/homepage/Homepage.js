@@ -1,6 +1,9 @@
 import React from 'react';
 import Header from './../../components/header/Header';
 import Background from './../../components/background/Background';
+import Footer from './../../components/footer/Footer';
+
+import './Homepage.css';
 
 class Homepage extends React.Component {
 
@@ -42,6 +45,7 @@ class Homepage extends React.Component {
                                 <span id="footer-text">Ⓒ Copyright 2018</span>
                             </nav>
                     </div>
+                    <Footer />
                 </Background>
             </div>
         )
