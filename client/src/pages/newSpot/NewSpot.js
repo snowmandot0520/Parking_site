@@ -1,4 +1,7 @@
 import React from 'react';
+import Footer from './../../components/footer/Footer';
+
+import './NewSpot.css';
 
 class NewSpot extends React.Component {
     
@@ -11,7 +14,9 @@ class NewSpot extends React.Component {
 
     render(){
         return(
-            <div>This is the newSpot page!</div>
+            <div>This is the newSpot page!
+                <Footer />
+            </div>
         )
     }
 }

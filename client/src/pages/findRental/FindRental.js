@@ -1,4 +1,7 @@
 import React from 'react';
+import Footer from './../../components/footer/Footer';
+
+import './FindRental.css';
 
 class FindRental extends React.Component {
     
@@ -11,7 +14,10 @@ class FindRental extends React.Component {
 
     render(){
         return(
-            <div>This is the findRental page!</div>
+            <div>This is the findRental page!
+
+                <Footer />
+            </div>
         )
     }
 }

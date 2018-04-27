@@ -1,0 +1,18 @@
+#home-nav {
+    width: 100%;
+    padding-top: 40px;
+    background-color: transparent;
+    /* box-shadow: 4px 4px 3px rgba(0,0,0,0.1); */
+    height: 100px;
+    
+}
+    #home-title {
+        color: #95CC39;
+        text-shadow: 1.5px 1.5px rgb(182, 181, 181);
+        font-weight: 400;
+        font-size: 80px; 
+        /* font-family: 'Pacifico', Helvetica, sans-serif; */
+        font-family: 'Cookie', Helvetica, sans-serif;
+        /* text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05); */
+        text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.336); 
+    }

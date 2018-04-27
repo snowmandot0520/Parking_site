@@ -1,4 +1,7 @@
 import React from 'react';
+import Footer from './../../components/footer/Footer';
+
+import './Favorites.css';
 
 class Favorites extends React.Component {
     
@@ -33,7 +36,7 @@ class Favorites extends React.Component {
                             <span id="footer-text">Ⓒ Copyright 2018</span>
                         </nav>
                 </div>
-
+                <Footer />
             </div>
         )
     }

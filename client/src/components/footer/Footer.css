@@ -1,0 +1,12 @@
+#footer {
+    background-color: #CCCCCC;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+    #footer-text {
+        color: gray;
+        font-family: Roboto, sans-serif;
+        font-weight: normal;
+        font-size: 13px;
+    }

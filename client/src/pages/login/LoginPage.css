@@ -1,11 +1,31 @@
-.container {
-    width: 100%;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-    margin-right: 0px;
-    margin-left: 0px;   
+.simple-btn {
+    color: white;
+    /* border: white; */
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+.simple-btn:hover {
+    color: #95CC39 !important;
 }
 
-#full-body {
-    padding: 0px !important;
+.btn-div {
+    /* margin-bottom: 30px; */
+}
+#description {
+    color: white;
+    /* font-family: 'Pacifico', Helvetica, sans-serif; */
+    font-weight: normal;
+    font-family: 'Dawning of a New Day', cursive;
+    font-size: 35px; 
+    margin: 0;   
 }
