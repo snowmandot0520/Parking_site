@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-right: 0px;
+    margin-left: 0px;   
+}
+
+#full-body {
+    padding: 0px !important;
+}
