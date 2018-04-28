@@ -2,7 +2,9 @@ import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
 import Title from './../../components/title/Title';
-import { Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button, ListGroup, 
+    ListGroupItem, Badge } from 'reactstrap';
 
 import './FindRental.css';
 
@@ -36,7 +38,26 @@ class FindRental extends React.Component {
 
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
-                    
+                        <div className ="" id="spacer">
+                            <Card outline color="secondary">
+                                <CardImg top width="100%" src="https://image.shutterstock.com/image-photo/modest-residential-house-red-car-260nw-624348332.jpg" alt="Parking Spot Image" />
+                                <CardBody>
+                                    <CardTitle>48 Greener Avenue</CardTitle>
+                                    <CardSubtitle>0.04 mi away</CardSubtitle>
+                                    <ListGroup>
+                                        <ListGroupItem>Available 04/20/2018 - 06/03/2018</ListGroupItem>
+                                        <ListGroupItem>48 Greener Avenue, Fisher, KY 44206</ListGroupItem>
+                                        <ListGroupItem>Price Per Hour: $15.00</ListGroupItem>
+                                        <ListGroupItem>Private Residence Driveway</ListGroupItem>
+                                        <ListGroupItem>Description: --------</ListGroupItem>
+                                    </ListGroup>
+                                    <Button>Add To Favorites</Button>
+                                    <Button>Rent</Button>
+                                </CardBody>
+                            </Card>
+                            <p> </p>
+                            
+                        </div>
                     </div>
                 </div>
             
