@@ -4,7 +4,7 @@
 
 .park-btn {
     color: white;
-    /* border: white; */
+    border: solid white 1px;
     box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
     padding-left: 30px !important;
     padding-right: 30px !important;
@@ -20,4 +20,6 @@
 }
 .park-btn:hover {
     color: #95CC39 !important;
+    background-color: white !important; 
+    border: solid white 1px;
 }
