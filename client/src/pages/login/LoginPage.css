@@ -18,9 +18,13 @@
     color: #95CC39 !important;
 }
 
-.btn-div {
-    /* margin-bottom: 30px; */
+#sign-in {
+    margin-right: 150px;
 }
+#sign-up {
+    margin-left: 150px;
+}
+
 #description {
     color: white;
     /* font-family: 'Pacifico', Helvetica, sans-serif; */
