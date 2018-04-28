@@ -36,6 +36,7 @@ class Favorites extends React.Component {
                             <Card outline color="secondary">
                                 <CardBody>
                                     <CardTitle>Meridian Ave Public Parking Lot</CardTitle>
+                                    <CardSubtitle>Public Parking</CardSubtitle>
                                     <CardLink href="#">Directions To Here</CardLink>                                    
                                     <p> </p>
                                     <Button id="Popover1" onClick={this.toggle}>View</Button>
@@ -51,6 +52,7 @@ class Favorites extends React.Component {
                             <Card outline color="secondary">
                                 <CardBody>
                                     <CardTitle>3501 Cardinal Rd</CardTitle>
+                                    <CardSubtitle>Private Rental from @bbking43</CardSubtitle>
                                     <CardLink href="#">Directions To Here</CardLink>                                    
                                     <p> </p>
                                     <Button id="Popover1" onClick={this.toggle}>View</Button>
@@ -65,22 +67,8 @@ class Favorites extends React.Component {
                             <p> </p>
                             <Card outline color="secondary">
                                 <CardBody>
-                                    <CardTitle>Sandstone Parking Garage</CardTitle>
-                                    <CardLink href="#">Directions To Here</CardLink>                                    
-                                    <p> </p>
-                                    <Button id="Popover1" onClick={this.toggle}>View</Button>
-                                    <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                                        <PopoverBody>
-                                            <CardImg top width="100%" src="" />
-                                        </PopoverBody>
-                                    </Popover>  
-                                    <Button>Delete</Button>                              
-                                </CardBody>
-                            </Card>
-                            <p> </p>
-                            <Card outline color="secondary">
-                                <CardBody>
                                     <CardTitle>29 Pine St, #38</CardTitle>
+                                    <CardSubtitle>Private Rental from @rRrR47rR</CardSubtitle>
                                     <CardLink href="#">Directions To Here</CardLink>                                    
                                     <p> </p>
                                     <Button id="Popover1" onClick={this.toggle}>View</Button>
@@ -90,6 +78,22 @@ class Favorites extends React.Component {
                                         </PopoverBody>
                                     </Popover>     
                                     <Button>Delete</Button>                           
+                                </CardBody>
+                            </Card>
+                            <p> </p>
+                            <Card outline color="secondary">
+                                <CardBody>
+                                    <CardTitle>Sandstone Parking Garage</CardTitle>
+                                    <CardSubtitle>Public Parking</CardSubtitle>
+                                    <CardLink href="#">Directions To Here</CardLink>                                    
+                                    <p> </p>
+                                    <Button id="Popover1" onClick={this.toggle}>View</Button>
+                                    <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
+                                        <PopoverBody>
+                                            <CardImg top width="100%" src="" />
+                                        </PopoverBody>
+                                    </Popover>  
+                                    <Button>Delete</Button>                              
                                 </CardBody>
                             </Card>
                         </div>
