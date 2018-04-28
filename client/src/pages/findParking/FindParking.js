@@ -28,7 +28,7 @@ class FindParking extends React.Component {
                         </div>
                     </div>
                     <div className="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-outline-primary home-buttons">Nearby Spots</button>
+                        <button type="button" className="btn btn-outline-primary home-buttons">Nearby</button>
                         <button type="button" className="btn btn-outline-primary home-buttons">Recent</button>
                         <button type="button" className="btn btn-outline-primary home-buttons">Favorites</button>
                     </div>

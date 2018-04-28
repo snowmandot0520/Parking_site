@@ -8,14 +8,13 @@
     #options {
         width: 80%;
     }
-    
         .activity {
             font-family: Roboto, sans-serif;
             font-weight: normal;
-            font-size: 14px !important;
+            font-size: 18px !important;
             color: white;
             text-transform: uppercase;
-            margin-left: 10px;
+            margin-left: 25px;
         }
         .activity:hover {
             color: #95CC39;

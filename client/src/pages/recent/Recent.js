@@ -5,9 +5,9 @@ import Title from './../../components/title/Title';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-import './Activity.css';
+import './Recent.css';
 
-class Activity extends React.Component {
+class Recent extends React.Component {
     
     constructor(){
         super();
@@ -77,4 +77,4 @@ class Activity extends React.Component {
     }
 }
 
-export default Activity;
+export default Recent;
