@@ -23,7 +23,7 @@ class Activity extends React.Component {
                 
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="activity-div">
-                        <div id="spacer">
+                        <div className ="text-center" id="spacer">
                             <Card outline color="secondary">
                                 <CardImg top width="100%" src="http://planphilly.com/uploads/media_items/tesla-plugged-in-at-the-ev-only-zone-on-delancey-street.0.440.3264.1566.860.413.c.jpg" alt="Parking Spot Image" />
                                 <CardBody>
