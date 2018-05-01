@@ -21,9 +21,9 @@ class AddSpace extends React.Component {
 
     sendSpace = () => {
         axios
-            .post('/', this.state)
+            .post('/spaces', this.state)
             .then(data => console.log(data))
-            .then(err => console.log(err))
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -33,6 +33,12 @@ class AddSpace extends React.Component {
                     id='coord'
                     name='coord'
                     value={this.state.coord}
+                    onChange={this.updateSpace}
+                />
+                <input 
+                    id='uid'
+                    name='userId'
+                    value={this.state.userId}
                     onChange={this.updateSpace}
                 />
                 <button onClick={this.sendSpace}>Submit</button>
