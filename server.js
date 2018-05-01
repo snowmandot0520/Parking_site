@@ -13,13 +13,14 @@ const dbConnection = require("./models"); // loads our connection to the mongo d
 const passport = require("./passport");
 
 // ===== Middleware ====
-app.use(morgan("dev"))
-app.use(
-	bodyParser.urlencoded({
-		extended: false
-	})
-)
-app.use(bodyParser.json())
+
+// let's set up some basic middleware for our express app
+// logs requests to the console. not necessary to make passport work, but useful
+app.use(morgan('dev'));
+
+// Use body-parser for reading application/json into objects
+app.use(bodyparser.json());
+
 app.use(
 	session({
 		secret: process.env.APP_SECRET || 'this is the default passphrase',
@@ -35,12 +36,7 @@ app.use(passport.session()) // will call the deserializeUser
 
 // ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
-	const path = require('path')
-	console.log('YOU ARE IN THE PRODUCTION ENV')
-	app.use('/static', express.static(path.join(__dirname, '../build/static')))
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../build/'))
-	})
+	app.use(express.static("client/build"));
 }
 
 // Add API Routes
