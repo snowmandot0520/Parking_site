@@ -7,6 +7,7 @@ import FindParking from './pages/findParking/FindParking';
 import FindRental from './pages/findRental/FindRental';
 import Homepage from './pages/homepage/Homepage';
 import Login from './pages/login/LoginPage';
+import Signup from './pages/login/SignupPage';
 import NewSpot from './pages/newSpot/NewSpot';
 import Payment from './pages/payment/Payment';
 import AddSpace from './pages/adds/AddSpace'
@@ -20,20 +21,10 @@ class App extends Component {
 
       <Router>
         <div>
-
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
-          <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMjQ32KwIwFZbXQxXJkQXuzuhf8Bo_rIiGog3hCq9S61INMZoPnA" type="image/x-icon"/>
-          <link href="https://fonts.googleapis.com/css?family=Comfortaa|Dawning+of+a+New+Day|Poiret+One" rel="stylesheet"/>
-          <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'/>
-          <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
-
-          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossOrigin="anonymous"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossOrigin="anonymous"></script>
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossOrigin="anonymous"></script>
     
           <Route exact path='/' component={Homepage}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recent' component={Recent}/>
           <Route exact path='/favorites' component={Favorites}/>
           <Route exact path='/newSpot' component={NewSpot}/>
