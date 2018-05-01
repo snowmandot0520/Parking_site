@@ -10,7 +10,7 @@ const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const dbConnection = require("./models"); // loads our connection to the mongo database
-const passport = require("./passport");
+
 
 // ===== Middleware ====
 
@@ -30,9 +30,6 @@ app.use(
 	})
 );
 
-// ===== Passport ====
-app.use(passport.initialize())
-app.use(passport.session()) // will call the deserializeUser
 
 // ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
