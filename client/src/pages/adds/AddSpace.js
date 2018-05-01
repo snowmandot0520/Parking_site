@@ -6,17 +6,20 @@ class AddSpace extends React.Component {
     constructor() {
         super()
         this.state = {
-
+            coord: '',
+            userId: '',
+            availability: []
         }
     }
 
-    updateSpace(event) {
+    updateSpace = event => {
         this.setState(
-            { [event.name]:event.value }
+            { [event.target.name]:event.target.value }
         )
+        console.log(this.state)
     }
 
-    sendSpace() {
+    sendSpace = () => {
         axios
             .post('/', this.state)
             .then(data => console.log(data))
@@ -26,9 +29,17 @@ class AddSpace extends React.Component {
     render() {
         return(
             <div>
-                <input  />
+                <input  
+                    id='coord'
+                    name='coord'
+                    value={this.state.coord}
+                    onChange={this.updateSpace}
+                />
+                <button onClick={this.sendSpace}>Submit</button>
             </div>
         )
     }
 
 }
+
+export default AddSpace
