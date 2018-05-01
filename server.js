@@ -5,14 +5,22 @@ const mongoose = require("mongoose");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const spaceRoutes = require('./routes/spaces')
+/*
 
 const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const dbConnection = require("./models"); // loads our connection to the mongo database
 
+*/
 
 // ===== Middleware ====
+//app.use(morgan("dev"))
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+/*
 
 // let's set up some basic middleware for our express app
 // logs requests to the console. not necessary to make passport work, but useful
@@ -20,6 +28,7 @@ app.use(morgan('dev'));
 
 // Use body-parser for reading application/json into objects
 app.use(bodyparser.json());
+
 
 app.use(
 	session({
@@ -29,7 +38,7 @@ app.use(
 		saveUninitialized: false
 	})
 );
-
+*/
 
 // ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
@@ -38,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add API Routes
 /* Express app ROUTING */
-app.use('/index', require('./routes'));
+app.use('/spaces', spaceRoutes);
 
 // Send every request to the React app
 // Define any API routes before this runs
