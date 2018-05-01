@@ -12,7 +12,6 @@ import Payment from './pages/payment/Payment';
 
 
 
-
 import './App.css';
 
 class App extends Component {

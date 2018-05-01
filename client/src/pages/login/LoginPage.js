@@ -11,7 +11,9 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            t1: false,
+            modal1: false,
+            modal2: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -19,10 +21,20 @@ class Login extends React.Component {
 
     toggle() {
         this.setState({
-            modal: !this.state.modal
+            t1: !this.state.t1
         });
     }
-    
+    closeModal(tabId) {
+        this.setState({
+            [tabId]: false
+        });
+    }
+    showModal(modal) {
+        this.setState({
+            [modal]: true
+        });
+        console.log(this.state);
+    }
 
     render(){
         return(
@@ -34,57 +46,57 @@ class Login extends React.Component {
                     </div>
 
                     <div className=" fixed-bottom" id="sign-in">
-                        <Button outline color="primary" className="simple-btn" onClick={this.toggle}>Sign In</Button>
-                        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                        <ModalHeader toggle={this.toggle}>Sign In</ModalHeader>
-                        <ModalBody>
-                            <FormGroup row>
-                                <Label for="exampleUsername" sm={2}>Username</Label>
-                                <Col sm={10}>
-                                    <Input type="username" name="username" id="username" placeholder="username" />
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="examplePassword" sm={2}>Password</Label>
-                                <Col sm={10}>
-                                    <Input type="password" name="password" id="examplePassword" placeholder="password" />
-                                </Col>
-                            </FormGroup>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}
-                            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                        </ModalFooter>
+                        <Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal1")}>Sign In</Button>
+                        <Modal isOpen={this.state.modal1} toggle={this.closeModal.bind(this, "modal1")} className={this.props.className}>
+                        <ModalHeader toggle={this.closeModal.bind(this, "modal1")}>Sign In</ModalHeader>
+                            <ModalBody>
+                                <FormGroup row>
+                                    <Label for="exampleUsername" sm={2}>Username</Label>
+                                    <Col sm={10}>
+                                        <Input type="username" name="username" id="username" placeholder="username" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="examplePassword" sm={2}>Password</Label>
+                                    <Col sm={10}>
+                                        <Input type="password" name="password" id="examplePassword" placeholder="password" />
+                                    </Col>
+                                </FormGroup>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}
+                                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                            </ModalFooter>
                         </Modal>
                     </div>
                     <div className=" fixed-bottom" id="sign-up">
-                        <Button outline color="primary" className="simple-btn" onClick={this.toggle}>Sign Up</Button>
-                        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                        <ModalHeader toggle={this.toggle}>Sign Up</ModalHeader>
-                        <ModalBody>
-                            <FormGroup row>
-                                <Label for="exampleUsername" sm={2}>Username</Label>
-                                <Col sm={10}>
-                                    <Input type="username" name="username" id="username" placeholder="username" />
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="examplePassword" sm={2}>Password</Label>
-                                <Col sm={10}>
-                                    <Input type="password" name="password" id="examplePassword" placeholder="password" />
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="exampleConfPassword" sm={2}>Confirm Password</Label>
-                                <Col sm={10}>
-                                    <Input type="confPassword" name="confPassword" id="confPassword" placeholder="password" />
-                                </Col>
-                            </FormGroup>                                    
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}
-                            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                        </ModalFooter>
+                        <Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal2")}>Sign Up</Button>
+                        <Modal isOpen={this.state.modal2} toggle={this.closeModal.bind(this, "modal2")} className={this.props.className}>
+                            <ModalHeader toggle={this.closeModal.bind(this, "modal2")}>Sign Up</ModalHeader>
+                            <ModalBody>
+                                <FormGroup row>
+                                    <Label for="exampleUsername" sm={2}>Username</Label>
+                                    <Col sm={10}>
+                                        <Input type="username" name="username" id="username" placeholder="username" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="examplePassword" sm={2}>Password</Label>
+                                    <Col sm={10}>
+                                        <Input type="password" name="password" id="examplePassword" placeholder="password" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="exampleConfPassword" sm={2}>Confirm Password</Label>
+                                    <Col sm={10}>
+                                        <Input type="confPassword" name="confPassword" id="confPassword" placeholder="password" />
+                                    </Col>
+                                </FormGroup>                                    
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}
+                                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                            </ModalFooter>
                         </Modal>
                     </div>
 
