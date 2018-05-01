@@ -1,63 +1,43 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
 
-const path = require("path");
-const PORT = process.env.PORT || 3001;
-const app = express();
-const spaceRoutes = require('./routes/spaces')
-/*
+var account = require('./routes/account');
+var auth = require('./routes/auth');
+var app = express();
 
-const morgan = require("morgan");
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-const dbConnection = require("./models"); // loads our connection to the mongo database
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/landingpad-auth', { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
 
-*/
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({'extended':'false'}));
+app.use(express.static(path.join(__dirname, 'build')));
 
-// ===== Middleware ====
-//app.use(morgan("dev"))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use('/api/account', account);
+app.use('/api/auth', auth);
 
-/*
-
-// let's set up some basic middleware for our express app
-// logs requests to the console. not necessary to make passport work, but useful
-app.use(morgan('dev'));
-
-// Use body-parser for reading application/json into objects
-app.use(bodyparser.json());
-
-
-app.use(
-	session({
-		secret: process.env.APP_SECRET || 'this is the default passphrase',
-		store: new MongoStore({ mongooseConnection: dbConnection }),
-		resave: false,
-		saveUninitialized: false
-	})
-);
-*/
-
-// ==== if its production environment!
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static("client/build"));
-}
-
-// Add API Routes
-/* Express app ROUTING */
-app.use('/spaces', spaceRoutes);
-
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactlandingpad");
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
+
+module.exports = app;
