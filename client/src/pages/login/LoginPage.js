@@ -111,11 +111,10 @@ class Login extends React.Component {
                             <ModalFooter>
                                 <Button color="primary" onSubmit={this.onSubmit}>Submit</Button>
                                     {message !== '' &&
-                                        <div class="alert alert-warning alert-dismissible" role="alert">
+                                        <div className="alert alert-warning alert-dismissible" role="alert">
                                         { message }
                                         </div>
                                     }
-                                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                             </ModalFooter>
                         </Modal>
                     </div>
