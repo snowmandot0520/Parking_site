@@ -13,10 +13,10 @@ class Header extends React.Component {
     //     }
     // }
 
-     logout = () => {
-            localStorage.removeItem('jwtToken');
-            window.location.reload();
-        }
+    logout = () => {
+      localStorage.removeItem('jwtToken');
+      window.location.replace('/');
+    }
 
     render(){
         return(
@@ -31,7 +31,7 @@ class Header extends React.Component {
                     <i className="material-icons home-icon">account_box</i>
                     
                     {localStorage.getItem('jwtToken') &&
-                        <button class="btn btn-primary" onClick={this.logout}>Logout</button>
+                        <button className="btn btn-primary" onClick={this.logout}>Logout</button>
                     }
                     
                 </div>
