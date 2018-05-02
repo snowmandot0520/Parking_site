@@ -115,7 +115,6 @@ class Login extends React.Component {
                                         { message }
                                         </div>
                                     }
-                                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                             </ModalFooter>
                         </Modal>
                     </div>
