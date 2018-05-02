@@ -1,16 +1,22 @@
 import React from 'react';
-
- 
-  import './Header.css';
+import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './Header.css';
 
 class Header extends React.Component {
 
-    constructor(){
-        super();
-        this.state = {
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+            
+    //     }
+    // }
 
+     logout = () => {
+            localStorage.removeItem('jwtToken');
+            window.location.reload();
         }
-    }
 
     render(){
         return(
@@ -23,6 +29,11 @@ class Header extends React.Component {
                     </div>
                     <i className="material-icons home-icon">settings_applications</i>
                     <i className="material-icons home-icon">account_box</i>
+                    
+                    {localStorage.getItem('jwtToken') &&
+                        <button class="btn btn-primary" onClick={this.logout}>Logout</button>
+                    }
+                    
                 </div>
             </div>
         )
