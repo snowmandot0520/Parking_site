@@ -105,7 +105,7 @@ class Login extends React.Component {
                                 </FormGroup>                       
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="primary" onClick={this.onSubmit}>Submit</Button>{' '}
+                                <Button color="primary" onClick={this.onSubmit}>Submit</Button>
                             </ModalFooter>
                         </Modal>
                     </div>

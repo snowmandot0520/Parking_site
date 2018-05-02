@@ -33,8 +33,11 @@ class Homepage extends React.Component {
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
                     <Header/>
                     <Title/>
-                    <UncontrolledAlert color="info">
-                        I am an alert and I can be dismissed!
+                    <br/>
+                    <br/>
+                    <br/>
+                    <UncontrolledAlert color="light" >
+                        Welcome to Landing Pad! Click an option below to get started. Happy parking!
                     </UncontrolledAlert>
                      <div className=" fixed-bottom park-btn-div">
                         <Button outline color="primary" className="park-btn">Find Parking Near Me</Button>
