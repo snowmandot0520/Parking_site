@@ -17,7 +17,7 @@ class Login extends React.Component {
         this.state = {
             t1: false,
             modal1: false,
-            modal2: false,
+            modal2: true,
             username: '',
             password: ''
     };
@@ -72,7 +72,7 @@ class Login extends React.Component {
                     </div>
 
                     <div className=" fixed-bottom" id="sign-in">
-                       <Link to="/login"><Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal1")}>Sign In</Button></Link>
+                       <Link to="/"><Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal1")}>Sign In</Button></Link>
                     </div>
                     <div className=" fixed-bottom" id="sign-up">
                         <Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal2")}>Sign Up</Button>
