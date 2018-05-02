@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var account = require('./routes/account');
 var auth = require('./routes/auth');
 var app = express();
+const PORT = process.env.PORT || 3001;
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -29,6 +30,15 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+if (process.env.NODE_ENV === 'production') {
+	const path = require('path');
+	console.log('YOU ARE IN THE PRODUCTION ENV');
+	app.use('/static', express.static(path.join(__dirname, '../build/static')));
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '../build/'));
+	});
+}
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -40,4 +50,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(PORT, () => {
+	console.log(`App listening on PORT: ${PORT}`);
+});
