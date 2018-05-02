@@ -25,13 +25,13 @@ class FindParking extends React.Component {
     render(){
         return(
             <div>
-            <div className="container" id="solid-bckg">
-            <div className="grn-hdr"><Header/></div> 
-         </div>
-         <button 
-             id='jeb'
-             onClick={geocoder.getCoordFromAddress}
-         >Submit</button>
+                <div className="container" id="solid-bckg">
+                    <div className="grn-hdr">
+                        <Header/>
+                    </div> 
+                </div>
+                <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
+                <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button>
             </div>
             
         
