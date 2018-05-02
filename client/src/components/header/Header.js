@@ -15,7 +15,7 @@ class Header extends React.Component {
     render(){
         return(
             <div>
-                <div class="row" id="top-line">
+                <div className="row" id="top-line">
                     <div className="text-center" id="options">
                         <a className="navbar-brand activity" href="#">Find</a>
                         <a className="navbar-brand activity" href="#">Rent</a>
