@@ -22,8 +22,8 @@ class App extends Component {
       <Router>
         <div>
     
-          <Route exact path='/' component={Homepage}/>
-          <Route exact path='/login' component={Login}/>
+          <Route exact path='/homepage' component={Homepage}/>
+          <Route exact path='/' component={Login}/>
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recent' component={Recent}/>
           <Route exact path='/favorites' component={Favorites}/>
