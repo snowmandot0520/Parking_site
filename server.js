@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var account = require('./routes/account');
+// var account = require('./routes/account');
 var auth = require('./routes/auth');
 var app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/api/account', account);
+// app.use('/api/account', account);
 app.use('/api/auth', auth);
 
 // catch 404 and forward to error handler

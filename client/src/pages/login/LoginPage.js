@@ -26,7 +26,12 @@ class Login extends React.Component {
     
     this.toggle = this.toggle.bind(this);
     }
-
+    
+    toggle() {
+        this.setState({
+            t1: !this.state.t1
+        });
+    }
     
     closeModal(tabId) {
         this.setState({
@@ -39,37 +44,35 @@ class Login extends React.Component {
         });
         console.log(this.state);
     }
-    toggle() {
-        this.setState({
-            t1: !this.state.t1
-        });
-    }
 
     onChange = (e) => {
         const state = this.state
         state[e.target.name] = e.target.value;
         this.setState(state);
-    }
-    
-      onSubmit = (e) => {
-        e.preventDefault();
-    
-        const { username, password } = this.state;
-    
-        axios.post('/api/auth/login', { username, password })
-          .then((result) => {
-            localStorage.setItem('jwtToken', result.data.token);
-            this.setState({ message: '' });
-            this.props.history.push('/')
-          })
-          .catch((error) => {
-            if(error.response.status === 401) {
-              this.setState({ message: 'Login failed. Username or password not match' });
-            }
-          });
       }
+    
+    onSubmit = (e) => {
+    e.preventDefault();
+
+    const { username, password } = this.state;
+
+    axios.post('/api/auth/login', { username, password })
+        .then((result) => {
+        localStorage.setItem('jwtToken', result.data.token);
+        this.setState({ message: '' });
+        this.props.history.push('/homepage')
+        })
+        .catch((error) => {
+        if(error.response.status === 401) {
+            this.setState({ message: 'Login failed. Username or password not match' });
+        }
+        });
+    }
+
     render(){
+
         const { username, password, message } = this.state;
+
         return(
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
@@ -109,7 +112,7 @@ class Login extends React.Component {
                                 </FormGroup>
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="primary" onSubmit={this.onSubmit}>Submit</Button>
+                                <Button color="primary" onClick={this.onSubmit}>Submit</Button>
                                     {message !== '' &&
                                         <div className="alert alert-warning alert-dismissible" role="alert">
                                         { message }

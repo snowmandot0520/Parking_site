@@ -6,12 +6,12 @@ import './Header.css';
 
 class Header extends React.Component {
 
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
+    constructor(props){
+        super(props);
+        this.state = {
             
-    //     }
-    // }
+        }
+    }
 
      logout = () => {
             localStorage.removeItem('jwtToken');
@@ -26,15 +26,16 @@ class Header extends React.Component {
                         <a className="navbar-brand activity" href="#">Find</a>
                         <a className="navbar-brand activity" href="#">Rent</a>
                         <a className="navbar-brand activity" href="#">Add</a>
+                        
+                        <a className="navbar-brand activity" href="/">Logout
+                            {localStorage.getItem('jwtToken') &&
+                                <button className="btn btn-primary" onClick={this.logout}>Logout</button>
+                            }
+                        </a>
                     </div>
                     <i className="material-icons home-icon">settings_applications</i>
                     <i className="material-icons home-icon">account_box</i>
-                    
-                    {localStorage.getItem('jwtToken') &&
-                        <button class="btn btn-primary" onClick={this.logout}>Logout</button>
-                    }
-                    
-                </div>
+                </div>                   
             </div>
         )
     }
