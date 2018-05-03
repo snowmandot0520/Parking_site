@@ -12,6 +12,7 @@ module.exports = {
             .create(req.body)
             .then(data => res.json(data))
             .catch(err => res.status(422).json(data))
+        console.log('request recieved')
     }
 
 }
