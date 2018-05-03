@@ -18,9 +18,7 @@ class FindParking extends React.Component {
         }
     }
 
-  
-    
-  
+
 
     render(){
         return(

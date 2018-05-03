@@ -16,7 +16,7 @@ class Title extends React.Component {
         return(
             <div>
                 <nav className="navbar navbar-light d-flex justify-content-center" id="home-nav">
-                    <a className="navbar-brand text-center" id="home-title" href="#">Landing Pad</a>
+                    <a className="navbar-brand text-center" id="home-title" href="/">Landing Pad</a>
                     
                 </nav>
                 
