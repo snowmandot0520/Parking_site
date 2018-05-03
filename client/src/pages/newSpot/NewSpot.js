@@ -46,7 +46,12 @@ class NewSpot extends React.Component {
     }
 
     compileTime = () => {
+        // Empty array to hold time availablity objects 
         const timeArr = []
+
+        // Constructor function for availablitily object
+        // respresents a single day with an array of objects.
+        // the addTime method will add the time/ availability to the array
         function DateObj(day){
             this.day = day;
             this.times = []
@@ -54,17 +59,25 @@ class NewSpot extends React.Component {
                 this.times.push(time)
             }
         }
-        var datee = new Date(this.state.startDate)
 
-        console.log(new Date(datee.setDate(datee.getDate() + 1)))
+        // Loops through the range of dates 
+        // creates a date object for each date
         for(var d = new Date(this.state.startDate); d <= new Date(this.state.endDate); new Date(d.setDate(d.getDate() + 1))){
             var e = new DateObj(d)
+            // Loops through the selected times
+            // ToDo: add dates that aren't selected as unavailable
+            // current loop only looks at selected dates
             for(var f = parseInt(this.state.startTime); f <= parseInt(this.state.endTime); f++){
+                // Calls the addTime method of the new object 
+                // and adds an objec to the times array
                 e.addTime({[f]:'available'})
             }
+            // pushes the new object to the temporary array
             timeArr.push(e)
         }
+        // sets the value for the availability state equal to the new array
         this.setState({ availability:timeArr })
+        // adds data to db
         spacesApi.createSpace(this.state)
     }
 
