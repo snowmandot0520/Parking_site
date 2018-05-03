@@ -13,61 +13,66 @@ import './LoginPage.css';
 class Login extends React.Component {
     
     constructor(props) {
-      super(props);
-      this.state = {
-          t1: false,
-          modal1: false,
-          modal2: false,
-          username: '',
-          password: '',
-          message: ''
-      };
-      this.toggle = this.toggle.bind(this);
-    }
+        super(props);
+        this.state = {
+            t1: false,
+            modal1: false,
+            modal2: false,
+            username: '',
+            password: '',
+            message: ''
+    };
 
+    
+    this.toggle = this.toggle.bind(this);
+    }
+    
+    toggle() {
+        this.setState({
+            t1: !this.state.t1
+        });
+    }
+    
     closeModal(tabId) {
-      this.setState({
-        [tabId]: false
-      });
+        this.setState({
+            [tabId]: false
+        });
     }
     showModal(modal) {
-      this.setState({
-        [modal]: true
-      });
-      console.log(this.state);
-    }
-    toggle() {
-      this.setState({
-        t1: !this.state.t1
-      });
+        this.setState({
+            [modal]: true
+        });
+        console.log(this.state);
     }
 
     onChange = (e) => {
-      const state = this.state
-      state[e.target.name] = e.target.value;
-      this.setState(state);
-    }
+        const state = this.state
+        state[e.target.name] = e.target.value;
+        this.setState(state);
+      }
     
     onSubmit = (e) => {
-      e.preventDefault();
-  
-      const { username, password } = this.state;
-  
-      axios.post('/api/auth/login', { username, password })
+    e.preventDefault();
+
+    const { username, password } = this.state;
+
+    axios.post('/api/auth/login', { username, password })
         .then((result) => {
-          localStorage.setItem('jwtToken', result.data.token);
-          this.setState({ message: '' });
-          this.props.history.push('/homepage');
+        localStorage.setItem('jwtToken', result.data.token);
+        this.setState({ message: '' });
+        this.props.history.push('/homepage')
         })
         .catch((error) => {
-          if(error.response.status === 401) {
+        if(error.response.status === 401) {
             this.setState({ message: 'Login failed. Username or password not match' });
-          }
+        }
         });
     }
 
-    render() {
+    render(){
+
         const { username, password, message } = this.state;
+
         return(
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
@@ -107,12 +112,12 @@ class Login extends React.Component {
                                 </FormGroup>
                             </ModalBody>
                             <ModalFooter>
-                              <Button color="primary" onClick={this.onSubmit}>Login</Button>
-                                  {message !== '' &&
-                                      <div className="alert alert-warning alert-dismissible" role="alert">
-                                      { message }
-                                      </div>
-                                  }
+                                <Button color="primary" onClick={this.onSubmit}>Submit</Button>
+                                    {message !== '' &&
+                                        <div className="alert alert-warning alert-dismissible" role="alert">
+                                        { message }
+                                        </div>
+                                    }
                             </ModalFooter>
                         </Modal>
                     </div>
