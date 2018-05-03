@@ -5,26 +5,39 @@ import Footer from './../../components/footer/Footer';
 import Title from './../../components/title/Title';
 import { Button, UncontrolledAlert } from 'reactstrap';
 
-
 import './Homepage.css';
 
 class Homepage extends React.Component {
 
-    constructor(){
-        super();
-        this.state = {
-
-        }
+    constructor() {
+      super();
+      this.state = {
+        loggedIn: false,
+        user: null
+      };
     }
 
-    render(){
+    componentDidMount() {
+      if(localStorage.getItem('jwtToken')) {
+        this.setState({ loggedIn: true, user: 'Caglar' });
+      }
+      else {
+        this.setState({ loggedIn: false, user: null });
+        window.location.replace('/');
+      }
+    }
+
+    render() {
         return(
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
                     <Header/>
                     <Title/>
-                    <UncontrolledAlert color="info">
-                        I am an alert and I can be dismissed!
+                    <br/>
+                    <br/>
+                    <br/>
+                    <UncontrolledAlert color="light" >
+                        Welcome to Landing Pad! Click an option below to get started. Happy parking!
                     </UncontrolledAlert>
                      <div className=" fixed-bottom park-btn-div">
                         <Button outline color="primary" className="park-btn">Find Parking Near Me</Button>
