@@ -1,10 +1,8 @@
 import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
-import Title from './../../components/title/Title';
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardLink, CardSubtitle, Button, Popover, 
-    PopoverHeader, PopoverBody } from 'reactstrap';
+    CardTitle, CardLink, CardSubtitle, Button, Collapse } from 'reactstrap';
 
 import './Favorites.css';
 
@@ -12,20 +10,15 @@ class Favorites extends React.Component {
     
     constructor(props) {
         super(props);
-    
         this.toggle = this.toggle.bind(this);
-        this.state = {
-          popoverOpen: false
-        };
+        this.state = { collapse: false };
     }
     
     toggle() {
-        this.setState({
-          popoverOpen: !this.state.popoverOpen
-        });
+        this.setState({ collapse: !this.state.collapse });
     }
 
-    render(){
+    render() {
         return(
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
@@ -36,32 +29,29 @@ class Favorites extends React.Component {
                             <Card outline color="secondary">
                                 <CardBody>
                                     <CardTitle>Meridian Ave Public Parking Lot</CardTitle>
-                                    <CardSubtitle>Public Parking</CardSubtitle>
-                                    <CardLink href="#">Directions To Here</CardLink>                                    
-                                    <p> </p>
-                                    <Button id="Popover1" onClick={this.toggle}>View</Button>
-                                    <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                                        <PopoverBody>
-                                            <CardImg top width="100%" src="https://www.3cdc.org/wp-content/blogs.dir/3/files/2016/10/FSQ-Garage-1-1024x636.jpg" />
-                                        </PopoverBody>
-                                    </Popover>
-                                    <Button>Delete</Button>
+                                    <CardSubtitle>0.02 mi away</CardSubtitle>
+                                    <Button id="view1" onClick={this.toggle} style={{ marginBottom: '1rem' }}>View</Button>
+                                    <Collapse isOpen={this.state.collapse}>
+                                        <CardImg top width="100%" src="https://www.3cdc.org/wp-content/blogs.dir/3/files/2016/10/FSQ-Garage-1-1024x636.jpg" />   
+                                        <CardLink href="#">Directions To Here</CardLink>                                    
+                                        <p> </p>
+                                        <Button>Delete</Button>
+                                    </Collapse>
                                 </CardBody>
                             </Card>
                             <p> </p>
                             <Card outline color="secondary">
                                 <CardBody>
                                     <CardTitle>3501 Cardinal Rd</CardTitle>
-                                    <CardSubtitle>Private Rental from @bbking43</CardSubtitle>
-                                    <CardLink href="#">Directions To Here</CardLink>                                    
-                                    <p> </p>
-                                    <Button id="Popover1" onClick={this.toggle}>View</Button>
-                                    <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                                        <PopoverBody>
-                                            <CardImg top width="100%" src="" />
-                                        </PopoverBody>
-                                    </Popover>
-                                    <Button>Delete</Button>
+                                    <CardSubtitle>1.04 mi away</CardSubtitle>
+                                    <Button id="view2" onClick={this.toggle} style={{ marginBottom: '1rem' }}>View</Button>
+                                    <Collapse isOpen={this.state.collapse}>
+                                        <CardImg top width="100%" src="https://www.3cdc.org/wp-content/blogs.dir/3/files/2016/10/FSQ-Garage-1-1024x636.jpg" />   
+                                        <CardText>3501 Cardinal Rd, Renser, TN 28100</CardText>
+                                        <CardLink href="#">Directions To Here</CardLink>                                    
+                                        <p> </p>
+                                        <Button>Delete</Button>
+                                    </Collapse>
                                 </CardBody>
                             </Card>
                             <p> </p>
@@ -72,11 +62,10 @@ class Favorites extends React.Component {
                                     <CardLink href="#">Directions To Here</CardLink>                                    
                                     <p> </p>
                                     <Button id="Popover1" onClick={this.toggle}>View</Button>
-                                    <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                                        <PopoverBody>
+                                    
                                             <CardImg top width="100%" src="" />
-                                        </PopoverBody>
-                                    </Popover>     
+                                        
+                                       
                                     <Button>Delete</Button>                           
                                 </CardBody>
                             </Card>
@@ -87,12 +76,10 @@ class Favorites extends React.Component {
                                     <CardSubtitle>Public Parking</CardSubtitle>
                                     <CardLink href="#">Directions To Here</CardLink>                                    
                                     <p> </p>
-                                    <Button id="Popover1" onClick={this.toggle}>View</Button>
-                                    <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                                        <PopoverBody>
+                                    <Button id="Popover1" onClick={this.toggle}>View</Button>{" "}
+                                   
                                             <CardImg top width="100%" src="" />
-                                        </PopoverBody>
-                                    </Popover>  
+                                        
                                     <Button>Delete</Button>                              
                                 </CardBody>
                             </Card>
