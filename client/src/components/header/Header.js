@@ -13,16 +13,17 @@ class Header extends React.Component {
         }
     }
 
-     logout = () => {
-            localStorage.removeItem('jwtToken');
-            window.location.reload();
-        }
+    logout = () => {
+      localStorage.removeItem('jwtToken');
+      window.location.replace('/');
+    }
 
     render(){
         return(
             <div>
                 <div className="row" id="top-line">
                     <div className="text-center" id="options">
+
                         <a className="navbar-brand activity" href="#">Find</a>
                         <a className="navbar-brand activity" href="#">Rent</a>
                         <a className="navbar-brand activity" href="#">Add</a>

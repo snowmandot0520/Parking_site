@@ -3,7 +3,7 @@
     margin: 0px;
     margin-bottom: 0px;
     padding: 0px;
-    height: fill;
+    height: stretch;
 }
 
 .grn-hdr {
@@ -53,3 +53,14 @@
         background-color: transparent; 
         border: solid white 1px;
     }
+
+.py-4 {
+    padding-top: 0px !important;
+}
+.py-4 h4 {
+    color: #95CC39;
+    font-weight: 600;
+    font-size: 40px; 
+    font-family: 'Cookie', Helvetica, sans-serif;
+    margin-bottom: 2px;
+}
