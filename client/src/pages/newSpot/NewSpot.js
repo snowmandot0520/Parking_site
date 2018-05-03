@@ -62,7 +62,9 @@ class NewSpot extends React.Component {
 
         // Loops through the range of dates 
         // creates a date object for each date
+        console.log(new Date(this.state.startDate))
         for(var d = new Date(this.state.startDate); d <= new Date(this.state.endDate); new Date(d.setDate(d.getDate() + 1))){
+            console.log('date loop ran')
             var e = new DateObj(d)
             // Loops through the selected times
             // ToDo: add dates that aren't selected as unavailable
