@@ -24,18 +24,18 @@ class Header extends React.Component {
                 <div className="row" id="top-line">
                     <div className="text-center" id="options">
 
-                        <a className="navbar-brand activity" href="#">Find</a>
-                        <a className="navbar-brand activity" href="#">Rent</a>
-                        <a className="navbar-brand activity" href="#">Add</a>
+                        <a className="navbar-brand activity" href="/findparking">Find</a>
+                        <a className="navbar-brand activity" href="/findrental">Rent</a>
+                        <a className="navbar-brand activity" href="/newspot">Add</a>
                         
-                        <a className="navbar-brand activity" href="/">Logout
+                        
                             {localStorage.getItem('jwtToken') &&
                                 <button className="btn btn-primary" onClick={this.logout}>Logout</button>
                             }
-                        </a>
+                        
                     </div>
-                    <i className="material-icons home-icon">settings_applications</i>
-                    <i className="material-icons home-icon">account_box</i>
+                    <a href="/homepage"><i className="material-icons home-icon">settings_applications</i></a>
+                    <a href="/homepage"><i className="material-icons home-icon">account_box</i></a>
                 </div>                   
             </div>
         )
