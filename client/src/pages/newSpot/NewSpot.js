@@ -62,23 +62,31 @@ class NewSpot extends React.Component {
 
         // Loops through the range of dates 
         // creates a date object for each date
-        console.log(new Date(this.state.startDate))
+        //console.log(new Date(this.state.startDate))
         for(var d = new Date(this.state.startDate); d <= new Date(this.state.endDate); new Date(d.setDate(d.getDate() + 1))){
             console.log('date loop ran')
             var e = new DateObj(d)
+            
             // Loops through the selected times
             // ToDo: add dates that aren't selected as unavailable
             // current loop only looks at selected dates
+            //console.log(e)
             for(var f = parseInt(this.state.startTime); f <= parseInt(this.state.endTime); f++){
                 // Calls the addTime method of the new object 
                 // and adds an objec to the times array
-                e.addTime({[f]:'available'})
+                var newTime = f
+                const time = {
+                    time: newTime
+                }
+                e.times.push(time)
+                //console.log('time loop ran')
             }
             // pushes the new object to the temporary array
             timeArr.push(e)
+            console.log(timeArr)
+            this.setState({availability:timeArr})
         }
         // sets the value for the availability state equal to the new array
-        this.setState({ availability:timeArr })
         // adds data to db
         spacesApi.createSpace(this.state)
     }
