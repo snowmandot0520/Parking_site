@@ -40,8 +40,8 @@ class Homepage extends React.Component {
                         Welcome to Landing Pad! Click an option below to get started. Happy parking!
                     </UncontrolledAlert>
                      <div className=" fixed-bottom park-btn-div">
-                        <Button outline color="primary" className="park-btn">Find Parking Near Me</Button>
-                        <Button outline color="primary" className="park-btn">Upload a New Parking Spot</Button>
+                        <Button outline color="primary" className="park-btn" href="/findrental">Find Parking Near Me</Button>
+                        <Button outline color="primary" className="park-btn" href="/newspot">Upload a New Parking Spot</Button>
                     </div>
                     <Footer/>
                 </Background>
