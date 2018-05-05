@@ -4,6 +4,8 @@ import Background from './../../components/background/Background';
 import Footer from './../../components/footer/Footer';
 import Title from './../../components/title/Title';
 import { Button, UncontrolledAlert } from 'reactstrap';
+import jwt_decode from 'jwt-decode'
+
 
 import './Homepage.css';
 
@@ -13,13 +15,17 @@ class Homepage extends React.Component {
       super();
       this.state = {
         loggedIn: false,
-        user: null
+        user: null,
+        userid: null
       };
     }
 
     componentDidMount() {
       if(localStorage.getItem('jwtToken')) {
-        this.setState({ loggedIn: true, user: 'Caglar' });
+        const token = localStorage.getItem('jwtToken')
+        const decoded = jwt_decode(token)
+        console.log(decoded)
+        this.setState({ loggedIn: true, user: token.username, userid: token._id });
       }
       else {
         this.setState({ loggedIn: false, user: null });
