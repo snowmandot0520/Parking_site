@@ -64,7 +64,7 @@
 }
 
 .new-btn-div {
-    margin-bottom: 45px;
+    margin-bottom: 45px !important;
 }
     .new-btn {
         color: white;

@@ -51,7 +51,7 @@ class Recent extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="activity-div">
                         <div className ="text-center" id="spacer">
-                        <Container className="py-4" id="recent-cont">
+                        <Container className="py-4">
                             <h4>Recent Rentals</h4>
                             {Object.keys(recents).map((key, index) =>
                             <ListGroupCollapse key={index} cat={recents[key]} />
