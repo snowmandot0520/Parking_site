@@ -69,6 +69,10 @@ class Login extends React.Component {
         });
     }
 
+    authStorage = () => {
+        console.log(localStorage.getItem('jwtToken'))
+    }
+
     render(){
 
         const { username, password, message } = this.state;
@@ -120,6 +124,9 @@ class Login extends React.Component {
                                     }
                             </ModalFooter>
                         </Modal>
+                        <button onClick={() => this.authStorage()}>
+                                    AUTH
+                        </button>
                     </div>
                     <div className=" fixed-bottom" id="sign-up">
                         <Link to="/signup"><Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal2")}>Sign Up</Button></Link>
