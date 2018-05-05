@@ -47,11 +47,13 @@ class Header extends React.Component {
                         Sign Out
                     </Tooltip>             
                     
-                    <ButtonDropdown direction="left" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
+                    <ButtonDropdown direction="down" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
                         <DropdownToggle color="transparent" size="sm" id="btn-back">
                         <i className="material-icons home-icon">account_box</i>
                         </DropdownToggle>
-                        <DropdownMenu>
+                        <DropdownMenu right>
+                            <DropdownItem header>Username</DropdownItem>
+                            <DropdownItem divider />
                             <DropdownItem>Account</DropdownItem>
                             <DropdownItem>User Preferences</DropdownItem>
                             <DropdownItem>My Rental Spots</DropdownItem>
@@ -63,6 +65,6 @@ class Header extends React.Component {
         )
     }
 
-}
+} 
 
 export default Header;
