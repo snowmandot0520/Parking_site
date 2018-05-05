@@ -86,7 +86,7 @@ class Login extends React.Component {
                                         type="email" 
                                         name="username" 
                                         id="username" 
-                                        placeholder="Email address" 
+                                        placeholder="username" 
                                         value={username} 
                                         onChange={this.onChange} required/>
                                     </Col>

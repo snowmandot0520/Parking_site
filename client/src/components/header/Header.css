@@ -20,13 +20,19 @@
             color: #95CC39;
             text-decoration: underline !important;
         }
+    .navbar-brand.icons {
+        margin-left: 10px;
+        margin-right: 10px;
+    }    
     .home-icon {
-        font-size: 35px !important;
+        font-size: 30px !important;
         color: #61695E;
-        margin-left: 0px;
+        margin-left: 5px;
     }
     .home-icon:hover {
-        transform: rotate(-10deg);
+        /* transform: rotate(-10deg); */
+        /* font-size: 33px !important; */
+        color: rgb(126, 134, 123);
     }
 
 #home-nav {
@@ -46,3 +52,10 @@
         /* text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05); */
         text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.336); 
     }
+
+#btn-back {
+    color: transparent;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+}
