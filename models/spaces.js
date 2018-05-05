@@ -8,7 +8,7 @@ const SpaceSchema = new Schema({
   coord: String,
   img: String,
   price: String,
-  availablitity: Array
+  availability: Array
 })
 
 module.exports = mongoose.model('spaces', SpaceSchema)

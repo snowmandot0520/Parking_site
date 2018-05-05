@@ -73,18 +73,14 @@ class NewSpot extends React.Component {
     }
 
     compileTime = () => {
-         
-        const timeArr = []
     
         this.updateTimes()
-        console.log(this.state.times)
 
         const tempStart = new Date(this.state.startDate)
         const tempEnd = new Date(this.state.endDate)
 
-
         for(let d = tempStart; d <= tempEnd; new Date(d.setDate(d.getDate() + 1))){
-            console.log(d)
+    
             let e = { day: d, times: [] }
             
             for(var i = 1; i <= 24; i++){
@@ -96,12 +92,10 @@ class NewSpot extends React.Component {
                 e.times.push(timeObj)
             }            
         
-            timeArr.push(e)
+            this.setState({ availability:this.state.availability.push(e)})
         }
 
-        this.setState({ availability: this.state.availability.concat(timeArr) })
-        
-        setTimeout(3000, spacesApi.createSpace(this.state))
+        spacesApi.createSpace(this.state)
     }
 
     render(){
