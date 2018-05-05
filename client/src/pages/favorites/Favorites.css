@@ -16,13 +16,13 @@
 }
 
 
-#favorites-div {
+#activity-div {
     margin: 15px;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 10px;
 }
-    #fav-spacer {
+    #spacer {
         background-color: white;
         margin: 0px;
         margin-bottom: 40px;
@@ -31,3 +31,37 @@
     }
 
 
+.new-btn-div {
+    margin-bottom: 45px;
+}
+    .new-btn {
+        color: white;
+        background-color: #95CC39;
+        border: solid white 1px;
+        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-family: Roboto, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    .new-btn:hover {
+        color: white;
+        background-color: transparent; 
+        border: solid white 1px;
+    }
+
+.py-4 {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.py-4 h4 {
+    color: #95CC39;
+    font-weight: 600;
+    font-size: 40px; 
+    font-family: 'Cookie', Helvetica, sans-serif;
+    margin-bottom: 2px;
+}

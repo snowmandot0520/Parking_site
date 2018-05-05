@@ -23,21 +23,21 @@ class ListGroupCollapse extends React.Component {
             <Card className="border">
                 <div>
                 <CardTitle>
-                    <strong>{cat.spotName}</strong>
+                    <strong>{cat.name}</strong>
                 </CardTitle>
                 <CardSubtitle>
-                    {cat.dateUsed}
+                    {cat.distanceToHere}
                 </CardSubtitle>
-                <CardImg className="imgToggle" top width="100%" src={cat.spotImg} alt="Parking Spot Image" />
+                <CardImg className="imgToggle" top width="100%" src={cat.spotImg} alt="Parking Image" />
                 <Button color="secondary" size="sm" className="tiny-text" onClick={this.toggle}>Click for Details</Button>
                 <Collapse isOpen={this.state.collapse}>
                     <CardText>
-                        {cat.timesUsed} <br/>
-                        {cat.pricePaid} <br/>
-                        {cat.address}
+                        {cat.address} <br/>
+                        {cat.spotType} 
                     </CardText> 
-                    <Button size="sm" color="info">Add To Favorites</Button>
-                    <br/>
+                    <Button size="sm" color="info" id="directionsToFavorite">Directions</Button>{" "}
+                    <Button size="sm" color="info" id="deleteFavorite">Delete</Button>
+
                     <br/>
                 </Collapse>  
                 </div>
