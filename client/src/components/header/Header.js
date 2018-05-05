@@ -36,8 +36,8 @@ class Header extends React.Component {
                 <div className="row" id="top-line">
                     <div className="text-center" id="options">
                         <a className="navbar-brand activity" href="/findParking">Find</a>
-                        <a className="navbar-brand activity" href="/findRentals">Rent</a>
-                        <a className="navbar-brand activity" href="/addSpot">Add</a>
+                        <a className="navbar-brand activity" href="/findRental">Rent</a>
+                        <a className="navbar-brand activity" href="/newSpot">Add</a>
                     </div>
                     <a href="/">
                         <i className="material-icons home-icon" id="DisabledAutoHideExample" onClick={this.logout}>close</i>
@@ -58,7 +58,6 @@ class Header extends React.Component {
                             <DropdownItem>FAQs</DropdownItem>
                         </DropdownMenu>
                     </ButtonDropdown>
-                    
                 </div>                   
             </div>
         )

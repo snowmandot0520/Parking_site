@@ -4,6 +4,8 @@ import Background from './../../components/background/Background';
 import Footer from './../../components/footer/Footer';
 import Title from './../../components/title/Title';
 import { Button, UncontrolledAlert } from 'reactstrap';
+import jwt_decode from 'jwt-decode'
+
 
 import './Homepage.css';
 
@@ -13,13 +15,17 @@ class Homepage extends React.Component {
       super();
       this.state = {
         loggedIn: false,
-        user: null
+        user: null,
+        userid: null
       };
     }
 
     componentDidMount() {
       if(localStorage.getItem('jwtToken')) {
-        this.setState({ loggedIn: true, user: 'Caglar' });
+        const token = localStorage.getItem('jwtToken')
+        const decoded = jwt_decode(token)
+        console.log(decoded)
+        this.setState({ loggedIn: true, user: token.username, userid: token._id });
       }
       else {
         this.setState({ loggedIn: false, user: null });
@@ -40,8 +46,8 @@ class Homepage extends React.Component {
                         Welcome to Landing Pad! Click an option below to get started. Happy parking!
                     </UncontrolledAlert>
                      <div className=" fixed-bottom park-btn-div">
-                        <Button outline color="primary" className="park-btn">Find Parking Near Me</Button>
-                        <Button outline color="primary" className="park-btn">Upload a New Parking Spot</Button>
+                        <Button outline color="primary" className="park-btn" href="/findrental">Find Parking Near Me</Button>
+                        <Button outline color="primary" className="park-btn" href="/newspot">Upload a New Parking Spot</Button>
                     </div>
                     <Footer/>
                 </Background>
