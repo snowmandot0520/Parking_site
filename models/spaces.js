@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const SpaceSchema = new Schema({
   userid: String,
   address: String,
-  address: String,
+  zip: String,
   coord: String,
   img: String,
   price: String,

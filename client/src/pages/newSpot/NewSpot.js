@@ -34,6 +34,7 @@ class NewSpot extends React.Component {
             userId: '',
             address: '',
             coord: '',
+            zip: '',
             img: '',
             price: '',
             availability: [],
@@ -80,8 +81,10 @@ class NewSpot extends React.Component {
         const tempEnd = new Date(this.state.endDate)
 
         for(let d = tempStart; d <= tempEnd; new Date(d.setDate(d.getDate() + 1))){
-    
-            let e = { day: d, times: [] }
+            let date = d.toString()
+            date = date//.slice(0,10)
+            let newDate = new Date(date) 
+            let e = { day: newDate, times: [] }
             
             for(var i = 1; i <= 24; i++){
                 const key = i 
@@ -123,6 +126,14 @@ class NewSpot extends React.Component {
                         id='price'
                         onChange={this.updateState}
                     />
+                    <input 
+                        type='string'
+                        name='zip'
+                        id='zip'
+                        placeholder='zipcode'
+                        value={this.state.zip}
+                        onChange={this.updateState}
+                    />
                     <div>
                         <input 
                             type='date'
@@ -162,6 +173,7 @@ class NewSpot extends React.Component {
                         <input 
                             type='text'
                             name='startTime'
+                            placeholder='Start 1-24'
                             value={this.state.startTime}
                             id='startTime'
                             onChange={this.updateState}
@@ -169,6 +181,7 @@ class NewSpot extends React.Component {
                         <input 
                             type='text'
                             name='endTime'
+                            placeholder='End 1-24'
                             value={this.state.endTime}
                             id='endTime'
                             onChange={this.updateState}
