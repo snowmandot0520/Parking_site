@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Tooltip, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import jwt_decode from 'jwt-decode'
 import './Header.css';
 
 
@@ -14,7 +14,8 @@ class Header extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
           tooltipOpen: false,
-          dropdownOpen: false
+          dropdownOpen: false,
+          user:""
         };
     }
 
@@ -30,6 +31,16 @@ class Header extends React.Component {
       window.location.replace('/');
     }
 
+    componentDidMount() {
+        
+        const token = localStorage.getItem('jwtToken')
+        const decoded = jwt_decode(token)
+        console.log(decoded)
+        this.setState({ user: decoded.username});
+        
+          
+    }
+    
     render(){
         return(
             <div>
@@ -41,7 +52,7 @@ class Header extends React.Component {
                     </div>
                     <a href="/">
                         <i className="material-icons home-icon" id="DisabledAutoHideExample" onClick={this.logout}>close</i>
-                            {localStorage.getItem('jwtToken')}
+                            {/* {localStorage.getItem('jwtToken')} */}
                     </a>       
                     <Tooltip placement="top" isOpen={this.state.tooltipOpen} autohide={false} target="DisabledAutoHideExample" toggle={this.toggle}>
                         Sign Out
@@ -52,7 +63,7 @@ class Header extends React.Component {
                         <i className="material-icons home-icon">account_box</i>
                         </DropdownToggle>
                         <DropdownMenu right>
-                            <DropdownItem header>Username</DropdownItem>
+                            <DropdownItem href="/homepage">{this.state.user}</DropdownItem>
                             <DropdownItem divider />
                             <DropdownItem>Account</DropdownItem>
                             <DropdownItem>User Preferences</DropdownItem>
