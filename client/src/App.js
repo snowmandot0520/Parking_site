@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {StripeProvider} from 'react-stripe-elements';
 // Pages
 import Recent from './pages/recent/Recent';
 import Favorites from './pages/favorites/Favorites';
@@ -19,6 +20,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <StripeProvider apiKey="pk_test_ufNy5TYQGrm4rB4JyIr4fgaO"></StripeProvider>
           <Route exact path='/homepage' component={Homepage}/>
           <Route exact path='/' component={Login}/>
           <Route exact path='/signup' component={Signup}/>

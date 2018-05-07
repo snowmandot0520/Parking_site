@@ -1,8 +1,8 @@
 import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, CardLink, Button, ListGroup, 
+import { Card, CardImg, CardBody,
+    CardTitle, CardSubtitle, Button, ListGroup, 
     ListGroupItem } from 'reactstrap';
 
 import './FindRental.css';
