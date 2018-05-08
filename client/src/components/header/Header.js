@@ -31,15 +31,15 @@ class Header extends React.Component {
       window.location.replace('/');
     }
 
-    componentDidMount() {
+    // componentDidMount() {
         
-        const token = localStorage.getItem('jwtToken')
-        const decoded = jwt_decode(token)
-        console.log(decoded)
-        this.setState({ user: decoded.username});
+    //     const token = localStorage.getItem('jwtToken')
+    //     const decoded = jwt_decode(token)
+    //     console.log(decoded)
+    //     this.setState({ user: decoded.username});
         
           
-    }
+    // }
     
     render(){
         return(
