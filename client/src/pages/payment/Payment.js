@@ -27,12 +27,12 @@ class Payment extends React.Component {
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
                <div className="row">
-                    <div className="col-xs-12 justify-content-center" id="search-div">
+                    <div className="col-xs-12 justify-content-center" id="pay-div">
                         <div className ="" id="spacer">
                             
                             <Card outline color="secondary">
                                 <CardBody className="text-center">
-                                    <CardTitle>Payment</CardTitle>
+                                    <CardTitle id="title-pay">Payment</CardTitle>
                                     {/* <StripeProvider apiKey="pk_test_ufNy5TYQGrm4rB4JyIr4fgaO"></StripeProvider> */}
 
                                     <br/>

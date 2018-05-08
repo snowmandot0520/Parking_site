@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
 import Title from './../../components/title/Title';
-import { Button, Form, FormGroup, Label, Input, FormText, Container, Card } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Container, Card, CardText } from 'reactstrap';
 import spacesApi from './../../scripts/spacesClient'
 import jwt_decode from 'jwt-decode'
 
@@ -111,7 +111,7 @@ class NewSpot extends React.Component {
                         <div className ="text-center" id="spacer">
                             <Container className="py-4">
                                 <h4>New Spot</h4>
-                            <Card>  
+                            <Card>
                                 <input 
                                     name='address'
                                     value={this.state.address}
@@ -141,7 +141,25 @@ class NewSpot extends React.Component {
                                     id='price'
                                     onChange={this.updateState}
                                 />
-                                <div>
+                                <Input type="select" name="spotType" id="spotType" placeholder='Spot Type'>
+                                    <option>Select Spot Type</option>
+                                    <option>Residential Driveway</option>
+                                    <option>Curb-side Spot</option>
+                                    <option>Private Parking Spot</option>
+                                    <option>Private Garage</option>
+                                    <option>Other</option>
+                                </Input>
+                                <input 
+                                    type="textarea"
+                                    name='description'
+                                    value={this.state.descriptioin}
+                                    placeholder='Spot Description'
+                                    id='description'
+                                    onChange={this.updateState}
+                                />
+                                <hr/>
+                                <div id="availability" className="text-center">  
+                                    <p id="small-title" className="text-center">Availability</p>
                                     Start Date
                                     <input 
                                         type='date'
