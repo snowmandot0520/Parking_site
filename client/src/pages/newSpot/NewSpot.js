@@ -34,6 +34,7 @@ class NewSpot extends React.Component {
             userId: '',
             address: '',
             coord: '',
+            zip: '',
             img: '',
             price: '',
             availability: [],
@@ -73,35 +74,31 @@ class NewSpot extends React.Component {
     }
 
     compileTime = () => {
-         
-        const timeArr = []
     
         this.updateTimes()
-        console.log(this.state.times)
 
         const tempStart = new Date(this.state.startDate)
         const tempEnd = new Date(this.state.endDate)
 
-
         for(let d = tempStart; d <= tempEnd; new Date(d.setDate(d.getDate() + 1))){
-            console.log(d)
-            let e = { day: d, times: [] }
+            let date = d.toString()
+            date = date//.slice(0,10)
+            let newDate = new Date(date) 
+            let e = { day: newDate, times: [] }
             
             for(var i = 1; i <= 24; i++){
                 const key = i 
-                const timeObj = { [i]:'false' }
+                const timeObj = { time:i, available:'false' }
                 console.log()
-                if(this.state.times.indexOf(i) > -1){ timeObj[i] = 'true' }
+                if(this.state.times.indexOf(i) > -1){ timeObj.available = 'true' }
                 
                 e.times.push(timeObj)
             }            
         
-            timeArr.push(e)
+            this.setState({ availability:this.state.availability.push(e)})
         }
 
-        this.setState({ availability: this.state.availability.concat(timeArr) })
-        
-        setTimeout(3000, spacesApi.createSpace(this.state))
+        spacesApi.createSpace(this.state)
     }
 
     render(){
@@ -127,6 +124,14 @@ class NewSpot extends React.Component {
                         value={this.state.price}
                         placeholder='Price per Hour'
                         id='price'
+                        onChange={this.updateState}
+                    />
+                    <input 
+                        type='string'
+                        name='zip'
+                        id='zip'
+                        placeholder='zipcode'
+                        value={this.state.zip}
                         onChange={this.updateState}
                     />
                     <div>
@@ -168,6 +173,7 @@ class NewSpot extends React.Component {
                         <input 
                             type='text'
                             name='startTime'
+                            placeholder='Start 1-24'
                             value={this.state.startTime}
                             id='startTime'
                             onChange={this.updateState}
@@ -175,6 +181,7 @@ class NewSpot extends React.Component {
                         <input 
                             type='text'
                             name='endTime'
+                            placeholder='End 1-24'
                             value={this.state.endTime}
                             id='endTime'
                             onChange={this.updateState}

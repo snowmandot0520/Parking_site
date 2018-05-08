@@ -11,8 +11,8 @@ import './Homepage.css';
 
 class Homepage extends React.Component {
 
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         loggedIn: false,
         user: null,
@@ -24,7 +24,7 @@ class Homepage extends React.Component {
       if(localStorage.getItem('jwtToken')) {
         const token = localStorage.getItem('jwtToken')
         const decoded = jwt_decode(token)
-        console.log(decoded)
+        // console.log(decoded)
         this.setState({ loggedIn: true, user: token.username, userid: token._id });
       }
       else {

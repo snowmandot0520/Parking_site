@@ -13,6 +13,12 @@ module.exports = {
             .then(data => res.json(data))
             .catch(err => res.status(422).json(data))
         console.log('request recieved')
+    },
+    filter: (req, res) => {
+        db
+            .find({'zip': req.params.zip})
+            .then(data => res.json(data))
+            .catch(err => console.log(err))
     }
 
 }

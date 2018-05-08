@@ -1,11 +1,14 @@
 import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
+
 import DateTimeSelect from './../../components/dateTimeSelect/DateTimeSelect';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle, Button, ListGroup, 
     ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
+import spacesClient from './../../scripts/spacesClient'
+import axios from 'axios'
 
 import './FindRental.css';
 
@@ -14,7 +17,10 @@ class FindRental extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+
             modal: false
+            zip: '',
+            spaces: []
         };
 
         this.toggle = this.toggle.bind(this);
@@ -26,6 +32,24 @@ class FindRental extends React.Component {
         });
     }
 
+    getSpaces = () => {
+        //spacesClient.getSpaces(this.state.zip)
+        axios
+            .get(`/spaces/filter/${this.state.zip}`)
+            .then(data => {
+                this.setState({ spaces:data.data })
+                console.log(this.state)  
+            })
+            .catch(err => console.log(err))
+    }
+
+    updateState = event => {
+        this.setState({
+            [event.target.name]:event.target.value
+        })
+        console.log(this.state)
+    }
+
     render(){
         return(
             <div className="container" id="solid-bckg">
@@ -33,9 +57,24 @@ class FindRental extends React.Component {
             
                 <div className="row text-center" id="second-line">
                     <div className="input-group mb-3">
-                        <input type="text" className="form-control" id="search-bar" placeholder="Search by Location" aria-label="Location Search" aria-describedby="basic-addon2" />
+                        <input 
+                            type="text" 
+                            name='zip'
+                            value={this.state.zip}
+                            onChange={this.updateState}
+                            className="form-control" 
+                            id="search-bar" 
+                            placeholder="Search by Location" 
+                            aria-label="Location Search" 
+                            aria-describedby="basic-addon2" />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-primary" type="button" id="search-button">Search</button>
+                            <button 
+                                className="btn btn-outline-primary" 
+                                type="button" 
+                                id="search-button"
+                                onClick={() => this.getSpaces()}>
+                                Search
+                            </button>
                         </div>
                     </div>
                     <div className="btn-group" role="group" aria-label="Basic example">
@@ -44,6 +83,53 @@ class FindRental extends React.Component {
                         <Button type="button" className="btn btn-outline-primary home-buttons">Favorites</Button>
                     </div>
                 </div>
+
+
+                {(
+                    this.state.spaces.map(e => {
+                        return (
+                            <Card outline color="secondary">
+                                <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
+                                <CardBody className="text-center">
+                                    <CardTitle>{e.address}</CardTitle>
+                                    <CardSubtitle>TO DO: DISTANCE</CardSubtitle>
+                                    <ListGroup className="text-left">
+                                        <ListGroupItem>{e.address}</ListGroupItem>
+                                        <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
+                                        <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
+                                        <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
+                                        <ListGroupItem className="small">
+                                            {(
+                                                e.availability.map(f => {
+                                                    return(
+                                                        <div>
+                                                            Availability
+                                                            <div>{f.day}</div>
+                                                            <div>
+                                                                {(
+                                                                    f.times.map(g => {
+                                                                        let dispClass = ''
+                                                                        g.available == 'false' ? dispClass = 'notAv' : dispClass = 'av';
+                                                                        return(
+                                                                        <div className={dispClass}>{g.time}</div>
+                                                                       ) 
+                                                                    })
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ) 
+                                                })
+                                            )}
+                                        </ListGroupItem>
+                                    </ListGroup>
+                                    <br/>
+                                    <Button size="sm" color="info">Add To Favorites</Button>{" "}
+                                    <Button size="sm" color="info">Rent</Button>
+                                </CardBody>
+                            </Card>
+                        )
+                    })
+                )}
 
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">

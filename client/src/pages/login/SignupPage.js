@@ -56,7 +56,7 @@ class Login extends React.Component {
 
         axios.post('/api/auth/signup', { username, password })
             .then((result) => {
-            this.props.history.push("/homepage")
+            this.props.history.push("/")
             });
     }
     
