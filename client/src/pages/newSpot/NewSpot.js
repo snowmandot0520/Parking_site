@@ -101,6 +101,7 @@ class NewSpot extends React.Component {
         spacesApi.createSpace(this.state)
     }
 
+    
     render(){
         return(
             <div className="container" id="solid-bckg">
