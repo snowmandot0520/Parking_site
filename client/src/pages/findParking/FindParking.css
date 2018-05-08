@@ -49,6 +49,8 @@
         font-family: Roboto, sans-serif;
         font-size: 14px;
         text-transform: uppercase;
+        padding-left: 15px;
+        padding-right: 15px;
     }
         .home-buttons:hover {
             color: white !important;
@@ -60,7 +62,7 @@
     margin: 15px;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
     #map {
         width: 100%;
