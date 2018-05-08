@@ -4,7 +4,7 @@ import Footer from './../../components/footer/Footer';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, CardLink, Button, ListGroup, 
     ListGroupItem } from 'reactstrap';
-import { Elements, CardElement, injectStripe } from 'react-stripe-elements';
+import { StripeProvider, Elements, CardElement, injectStripe } from 'react-stripe-elements';
 
 import './Payment.css';
 
@@ -29,36 +29,12 @@ class Payment extends React.Component {
                <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
                         <div className ="" id="spacer">
-                            <Card outline color="secondary">
-                                <CardBody className="text-center">
-                                    <CardTitle>Rental Options</CardTitle>
-                                    <CardSubtitle>---</CardSubtitle>
-                                    <ListGroup className="text-left">
-                                        <ListGroupItem></ListGroupItem>
-                                        
-                                        <ListGroupItem className="small"></ListGroupItem>
-                                    </ListGroup>
-                                </CardBody>
-                            </Card>
+                            
                             <Card outline color="secondary">
                                 <CardBody className="text-center">
                                     <CardTitle>Payment</CardTitle>
-                                    <ListGroup className="text-left">
-                                        <ListGroupItem>
-                                            <Elements>
-                                            <form onSubmit={this.handleSubmit}>
-                                                
-                                                <label>
-                                                    Card details
-                                                    <CardElement style={{base: {fontSize: '18px'}}} />
-                                                </label>
-                                                <button>Confirm order</button>
-                                            </form>
-                                            </Elements>    
-                                        </ListGroupItem>
-                                        
-                                        <ListGroupItem className="small"></ListGroupItem>
-                                    </ListGroup>
+                                    {/* <StripeProvider apiKey="pk_test_ufNy5TYQGrm4rB4JyIr4fgaO"></StripeProvider> */}
+
                                     <br/>
                                     <Button outline color="primary" id="directions">Checkout</Button>
                                 </CardBody>
