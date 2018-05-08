@@ -4,7 +4,7 @@ import Header from './../../components/header/Header';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, CardLink, Button, ListGroup, 
     ListGroupItem } from 'reactstrap';
-
+import spacesClient from './../../scripts/spacesClient'
 import './FindRental.css';
 
 class FindRental extends React.Component {
@@ -12,8 +12,19 @@ class FindRental extends React.Component {
     constructor(){
         super();
         this.state = {
-
+            zip: ''
         }
+    }
+
+    getSpaces = () => {
+        spacesClient.getSpaces(this.state.zip)
+    }
+
+    updateState = event => {
+        this.setState({
+            [event.target.name]:event.target.value
+        })
+        console.log(this.state)
     }
 
     render(){
@@ -34,6 +45,16 @@ class FindRental extends React.Component {
                         <Button type="button" className="btn btn-outline-primary home-buttons">Favorites</Button>
                     </div>
                 </div>
+
+                <input 
+                    name='zip'
+                    value={this.state.zip}
+                    id='zip'
+                    onChange={this.updateState}
+                />
+                <button onClick={() => this.getSpaces()}>
+                    Search for Spaces
+                </button>
 
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
