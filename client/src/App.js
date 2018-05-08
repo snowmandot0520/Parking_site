@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import {StripeProvider} from 'react-stripe-elements';
 // Pages
 import Recent from './pages/recent/Recent';
 import Favorites from './pages/favorites/Favorites';

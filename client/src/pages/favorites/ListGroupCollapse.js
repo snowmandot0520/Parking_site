@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Collapse, Tooltip } from 'reactstrap';
+import { Card, CardImg, CardText,
+    CardTitle, CardSubtitle, Button, Collapse } from 'reactstrap';
 
 import './ListGroupCollapse.css';
 

@@ -109,3 +109,22 @@
         background-color: transparent; 
         border: solid white 1px;
     }
+
+.option-buttons {
+    color: white;
+    border: solid white 1px;
+    background-color: #95CC39 !important;
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+    .option-buttons:hover {
+        color: #95CC39 !important;
+        background-color: transparent !important; 
+        border: solid #95CC39 1px;
+    } 
+
+#date-picker {
+    margin: 10px;
+}
