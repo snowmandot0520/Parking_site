@@ -1,19 +1,29 @@
 import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
+import DateTimeSelect from './../../components/dateTimeSelect/DateTimeSelect';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle, Button, ListGroup, 
-    ListGroupItem } from 'reactstrap';
+    ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+
 
 import './FindRental.css';
 
 class FindRental extends React.Component {
     
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
+            modal: false
+        };
 
-        }
+        this.toggle = this.toggle.bind(this);
+    }
+
+    toggle() {
+        this.setState({
+        modal: !this.state.modal
+        });
     }
 
     render(){
@@ -55,7 +65,18 @@ class FindRental extends React.Component {
                                     </ListGroup>
                                     <br/>
                                     <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
+                                    <Button size="sm" color="info" onClick={this.toggle}>Rent</Button>
+                                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                                        <ModalHeader toggle={this.toggle}>Spot Rental Options</ModalHeader>
+                                        <ModalBody>  
+                                            <div id="date-picker">
+                                            <DateTimeSelect/>
+                                            </div>
+                                        </ModalBody>
+                                        <ModalFooter>
+                                            <Button size="sm" outline color="success" onClick={this.toggle}>Proceed to Payment</Button>{' '}
+                                        </ModalFooter>
+                                    </Modal>
                                 </CardBody>
                             </Card>
                             <p> </p>
@@ -76,7 +97,7 @@ class FindRental extends React.Component {
                                     </ListGroup>
                                     <br/>
                                     <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
+                                    <Button size="sm" color="info" onClick={this.toggle}>Rent</Button>
                                 </CardBody>
                             </Card>
                             <p> </p>
@@ -97,7 +118,7 @@ class FindRental extends React.Component {
                                     </ListGroup>
                                     <br/>
                                     <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
+                                    <Button size="sm" color="info" onClick={this.toggle}>Rent</Button>
                                 </CardBody>
                             </Card>
                             <p> </p>

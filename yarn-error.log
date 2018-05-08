@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/yarn add stipe
+  /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/yarn delete react-bootstrap-datetimepicker
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands
@@ -44,13 +44,17 @@ npm manifest:
       "express-session": "^1.15.6",
       "jsonwebtoken": "^8.2.1",
       "jwt-decode": "^2.2.0",
+      "moment": "^2.22.1",
       "mongoose": "^5.0.15",
       "morgan": "^1.9.0",
       "passport": "^0.4.0",
       "passport-jwt": "^4.0.0",
       "react": "^16.3.2",
+      "react-bootstrap-datetimepicker": "^0.0.22",
+      "react-datepicker": "^1.4.1",
       "react-dom": "^16.3.2",
       "react-router-dom": "^4.2.2",
+      "react-stripe-elements": "^1.6.0",
       "react-transition-group": "^2.3.1",
       "reactstrap": "^5.0.0",
       "serve-favicon": "^2.5.0"
@@ -170,6 +174,12 @@ Lockfile:
     dependencies:
       follow-redirects "^1.3.0"
       is-buffer "^1.1.5"
+  
+  babel-runtime@^5.6.18:
+    version "5.8.38"
+    resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-5.8.38.tgz#1c0b02eb63312f5f087ff20450827b425c9d4c19"
+    dependencies:
+      core-js "^1.0.0"
   
   balanced-match@^1.0.0:
     version "1.0.0"
@@ -364,7 +374,7 @@ Lockfile:
       isobject "^3.0.0"
       static-extend "^0.1.1"
   
-  classnames@^2.2.3:
+  classnames@^2.1.2, classnames@^2.2.3, classnames@^2.2.5:
     version "2.2.5"
     resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
   
@@ -1410,6 +1420,10 @@ Lockfile:
     dependencies:
       minimist "0.0.8"
   
+  moment@^2.22.1, moment@^2.8.2:
+    version "2.22.1"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
+  
   mongodb-core@2.1.19:
     version "2.1.19"
     resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.19.tgz#00fbd5e5a3573763b9171cfd844e60a8f2a3a18b"
@@ -1742,7 +1756,7 @@ Lockfile:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   
-  popper.js@^1.12.9:
+  popper.js@^1.12.9, popper.js@^1.14.1:
     version "1.14.3"
     resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
   
@@ -1768,7 +1782,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
+  prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
     version "15.6.1"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
     dependencies:
@@ -1829,6 +1843,23 @@ Lockfile:
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
   
+  react-bootstrap-datetimepicker@^0.0.22:
+    version "0.0.22"
+    resolved "https://registry.yarnpkg.com/react-bootstrap-datetimepicker/-/react-bootstrap-datetimepicker-0.0.22.tgz#07e448d993157d049ad0876d0f9a3c9c5029d9c5"
+    dependencies:
+      babel-runtime "^5.6.18"
+      classnames "^2.1.2"
+      moment "^2.8.2"
+  
+  react-datepicker@^1.4.1:
+    version "1.4.1"
+    resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-1.4.1.tgz#ee171b71d9853e56f9eece5fc3186402f4648683"
+    dependencies:
+      classnames "^2.2.5"
+      prop-types "^15.6.0"
+      react-onclickoutside "^6.7.1"
+      react-popper "^0.9.1"
+  
   react-dom@^16.3.2:
     version "16.3.2"
     resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"
@@ -1838,12 +1869,23 @@ Lockfile:
       object-assign "^4.1.1"
       prop-types "^15.6.0"
   
+  react-onclickoutside@^6.7.1:
+    version "6.7.1"
+    resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.1.tgz#6a5b5b8b4eae6b776259712c89c8a2b36b17be93"
+  
   react-popper@^0.8.3:
     version "0.8.3"
     resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.8.3.tgz#0f73333137c9fb0af6ec4074d2d0585a0a0461e1"
     dependencies:
       popper.js "^1.12.9"
       prop-types "^15.6.0"
+  
+  react-popper@^0.9.1:
+    version "0.9.5"
+    resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.9.5.tgz#02a24ef3eec33af9e54e8358ab70eb0e331edd05"
+    dependencies:
+      popper.js "^1.14.1"
+      prop-types "^15.6.1"
   
   react-router-dom@^4.2.2:
     version "4.2.2"
@@ -1867,6 +1909,12 @@ Lockfile:
       path-to-regexp "^1.7.0"
       prop-types "^15.5.4"
       warning "^3.0.0"
+  
+  react-stripe-elements@^1.6.0:
+    version "1.6.0"
+    resolved "https://registry.yarnpkg.com/react-stripe-elements/-/react-stripe-elements-1.6.0.tgz#1433bf6b7a83479f2cdb9ba459bf36fb201b97be"
+    dependencies:
+      prop-types "^15.5.10"
   
   react-transition-group@^2.2.1, react-transition-group@^2.3.1:
     version "2.3.1"
@@ -2494,12 +2542,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.0.2.tgz#8452b4bb7e83c7c188d8041c1a837c773d6d8bb9"
 
 Trace: 
-  Error: Found incompatible module
+  Error: Command "delete" not found.
       at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at checkOne (/usr/local/lib/node_modules/yarn/lib/cli.js:62444:11)
-      at Object.check (/usr/local/lib/node_modules/yarn/lib/cli.js:62463:5)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:22803:73
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:87307:17
       at Generator.next (<anonymous>)
       at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
-      at <anonymous>
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:116:14
+      at Promise (<anonymous>)
+      at F (/usr/local/lib/node_modules/yarn/lib/cli.js:23451:28)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:95:12
+      at runCommand (/usr/local/lib/node_modules/yarn/lib/cli.js:87312:22)
+      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:87412:14)
