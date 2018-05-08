@@ -43,9 +43,24 @@ class FindRental extends React.Component {
             
                 <div className="row text-center" id="second-line">
                     <div className="input-group mb-3">
-                        <input type="text" className="form-control" id="search-bar" placeholder="Search by Location" aria-label="Location Search" aria-describedby="basic-addon2" />
+                        <input 
+                            type="text" 
+                            name='zip'
+                            value={this.state.zip}
+                            onChange={this.updateState}
+                            className="form-control" 
+                            id="search-bar" 
+                            placeholder="Search by Location" 
+                            aria-label="Location Search" 
+                            aria-describedby="basic-addon2" />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-primary" type="button" id="search-button">Search</button>
+                            <button 
+                                className="btn btn-outline-primary" 
+                                type="button" 
+                                id="search-button"
+                                onClick={() => this.getSpaces()}>
+                                Search
+                            </button>
                         </div>
                     </div>
                     <div className="btn-group" role="group" aria-label="Basic example">
@@ -55,15 +70,6 @@ class FindRental extends React.Component {
                     </div>
                 </div>
 
-                <input 
-                    name='zip'
-                    value={this.state.zip}
-                    id='zip'
-                    onChange={this.updateState}
-                />
-                <button onClick={() => this.getSpaces()}>
-                    Search for Spaces
-                </button>
 
                 {(
                     this.state.spaces.map(e => {
