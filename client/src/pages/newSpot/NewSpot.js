@@ -88,9 +88,9 @@ class NewSpot extends React.Component {
             
             for(var i = 1; i <= 24; i++){
                 const key = i 
-                const timeObj = { [i]:'false' }
+                const timeObj = { time:i, available:'false' }
                 console.log()
-                if(this.state.times.indexOf(i) > -1){ timeObj[i] = 'true' }
+                if(this.state.times.indexOf(i) > -1){ timeObj.available = 'true' }
                 
                 e.times.push(timeObj)
             }            
