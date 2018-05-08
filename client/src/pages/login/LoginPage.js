@@ -83,9 +83,6 @@ class Login extends React.Component {
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
                     <Title/>
                     <p id="description">A parking rental app</p>
-                    <div className="row">
-                    </div>
-
                     <div className=" fixed-bottom" id="sign-in">
                         <Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal1")}>Sign In</Button>
                         <Modal isOpen={this.state.modal1} toggle={this.closeModal.bind(this, "modal1")} className={this.props.className}>
