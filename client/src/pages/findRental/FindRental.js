@@ -5,6 +5,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, CardLink, Button, ListGroup, 
     ListGroupItem } from 'reactstrap';
 import spacesClient from './../../scripts/spacesClient'
+import axios from 'axios'
 import './FindRental.css';
 
 class FindRental extends React.Component {
@@ -12,12 +13,20 @@ class FindRental extends React.Component {
     constructor(){
         super();
         this.state = {
-            zip: ''
+            zip: '',
+            spaces: []
         }
     }
 
     getSpaces = () => {
-        spacesClient.getSpaces(this.state.zip)
+        //spacesClient.getSpaces(this.state.zip)
+        axios
+            .get(`/spaces/filter/${this.state.zip}`)
+            .then(data => {
+                this.setState({ spaces:data.data })
+                console.log(this.state)  
+            })
+            .catch(err => console.log(err))
     }
 
     updateState = event => {
@@ -55,6 +64,33 @@ class FindRental extends React.Component {
                 <button onClick={() => this.getSpaces()}>
                     Search for Spaces
                 </button>
+
+                {(
+                    this.state.spaces.map(e => {
+                        return (
+                            <Card outline color="secondary">
+                                <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
+                                <CardBody className="text-center">
+                                    <CardTitle>{e.address}</CardTitle>
+                                    <CardSubtitle>TO DO: DISTANCE</CardSubtitle>
+                                    <ListGroup className="text-left">
+                                        <ListGroupItem>TO DO: AVAILABILITY
+                                            <br/>
+                                            8:00 AM - 6:00PM
+                                        </ListGroupItem>
+                                        <ListGroupItem>{e.address}</ListGroupItem>
+                                        <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
+                                        <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
+                                        <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
+                                    </ListGroup>
+                                    <br/>
+                                    <Button size="sm" color="info">Add To Favorites</Button>{" "}
+                                    <Button size="sm" color="info">Rent</Button>
+                                </CardBody>
+                            </Card>
+                        )
+                    })
+                )}
 
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
