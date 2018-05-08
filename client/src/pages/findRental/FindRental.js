@@ -80,10 +80,6 @@ class FindRental extends React.Component {
                                     <CardTitle>{e.address}</CardTitle>
                                     <CardSubtitle>TO DO: DISTANCE</CardSubtitle>
                                     <ListGroup className="text-left">
-                                        <ListGroupItem>TO DO: AVAILABILITY
-                                            <br/>
-                                            8:00 AM - 6:00PM
-                                        </ListGroupItem>
                                         <ListGroupItem>{e.address}</ListGroupItem>
                                         <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
                                         <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
@@ -93,12 +89,15 @@ class FindRental extends React.Component {
                                                 e.availability.map(f => {
                                                     return(
                                                         <div>
+                                                            Availability
                                                             <div>{f.day}</div>
                                                             <div>
                                                                 {(
                                                                     f.times.map(g => {
-                                                                       return(
-                                                                        <div>{g.time}: {g.available}</div>
+                                                                        let dispClass = ''
+                                                                        g.available == 'false' ? dispClass = 'notAv' : dispClass = 'av';
+                                                                        return(
+                                                                        <div className={dispClass}>{g.time}</div>
                                                                        ) 
                                                                     })
                                                                 )}
