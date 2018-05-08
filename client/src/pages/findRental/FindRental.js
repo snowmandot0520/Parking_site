@@ -14,8 +14,19 @@ class FindRental extends React.Component {
         super();
         this.state = {
             zip: '',
-            spaces: []
+            spaces: [],
+            toRent: [],
+            rentID: ''
+            
         }
+    }
+
+    setToRent = event => {
+
+    }
+
+    concatSpaces = (date, time) => {
+
     }
 
     getSpaces = () => {
