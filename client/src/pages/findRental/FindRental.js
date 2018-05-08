@@ -43,9 +43,24 @@ class FindRental extends React.Component {
             
                 <div className="row text-center" id="second-line">
                     <div className="input-group mb-3">
-                        <input type="text" className="form-control" id="search-bar" placeholder="Search by Location" aria-label="Location Search" aria-describedby="basic-addon2" />
+                        <input 
+                            type="text" 
+                            name='zip'
+                            value={this.state.zip}
+                            onChange={this.updateState}
+                            className="form-control" 
+                            id="search-bar" 
+                            placeholder="Search by Location" 
+                            aria-label="Location Search" 
+                            aria-describedby="basic-addon2" />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-primary" type="button" id="search-button">Search</button>
+                            <button 
+                                className="btn btn-outline-primary" 
+                                type="button" 
+                                id="search-button"
+                                onClick={() => this.getSpaces()}>
+                                Search
+                            </button>
                         </div>
                     </div>
                     <div className="btn-group" role="group" aria-label="Basic example">
@@ -55,15 +70,6 @@ class FindRental extends React.Component {
                     </div>
                 </div>
 
-                <input 
-                    name='zip'
-                    value={this.state.zip}
-                    id='zip'
-                    onChange={this.updateState}
-                />
-                <button onClick={() => this.getSpaces()}>
-                    Search for Spaces
-                </button>
 
                 {(
                     this.state.spaces.map(e => {
@@ -82,6 +88,26 @@ class FindRental extends React.Component {
                                         <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
                                         <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
                                         <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
+                                        <ListGroupItem className="small">
+                                            {(
+                                                e.availability.map(f => {
+                                                    return(
+                                                        <div>
+                                                            <div>{f.day}</div>
+                                                            <div>
+                                                                {(
+                                                                    f.times.map(g => {
+                                                                       return(
+                                                                        <div>{g.time}: {g.available}</div>
+                                                                       ) 
+                                                                    })
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ) 
+                                                })
+                                            )}
+                                        </ListGroupItem>
                                     </ListGroup>
                                     <br/>
                                     <Button size="sm" color="info">Add To Favorites</Button>{" "}
