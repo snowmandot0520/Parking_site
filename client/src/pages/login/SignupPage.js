@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import Title from './../../components/title/Title';
 import Background from './../../components/background/Background';
 import Footer from './../../components/footer/Footer';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, FormGroup, Label, Input, Alert } from 'reactstrap';
 
 import './LoginPage.css';
 
@@ -19,11 +19,11 @@ class Login extends React.Component {
             modal1: false,
             modal2: true,
             username: '',
-            password: ''
-    };
-
+            password: '',
+            signedUp: false
+        };
     
-    this.toggle = this.toggle.bind(this);
+        this.toggle = this.toggle.bind(this);
     }
 
     toggle() {
@@ -48,6 +48,10 @@ class Login extends React.Component {
         state[e.target.name] = e.target.value;
         this.setState(state);
       }
+
+      notification = () => {
+          alert("signed up!")
+      }
     
     onSubmit = (e) => {
         e.preventDefault();
@@ -56,21 +60,31 @@ class Login extends React.Component {
 
         axios.post('/api/auth/signup', { username, password })
             .then((result) => {
-            this.props.history.push("/")
+                this.setState({signedUp: true});
+                //this.props.history.push("/")
+                this.closeModal("modal2");
             });
     }
     
 
     render(){
-        const { username, password } = this.state;
+        const { username, password, signedUp } = this.state;
         return(
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
                     <Title/>
                     <p id="description">A parking rental app</p>
-                    <div className="row">
-                    </div>
-
+                    {
+                        signedUp && (
+                            <div className="row">
+                                <div className="col-2"></div>
+                                <div className="col-8">
+                                    <Alert color="success">Hello {username}. You successfully signed up. Now, please sign in!</Alert>
+                                </div>
+                                <div className="col-2"></div>
+                            </div>
+                        )
+                    }
                     <div className=" fixed-bottom" id="sign-in">
                        <Link to="/"><Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal1")}>Sign In</Button></Link>
                     </div>

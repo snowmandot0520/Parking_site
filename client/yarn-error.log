@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Jonathan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install axios
+  C:\Program Files\nodejs\node.exe C:\Users\panus\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install axios
 
 PATH: 
-  C:\Users\Jonathan\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Jonathan\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\3.6\bin;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Users\Jonathan\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Heroku\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\Jonathan\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\3.6\bin;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\panus\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Heroku\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\panus\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  9.11.1
 
 Platform: 
   win32 x64
@@ -22,6 +22,7 @@ npm manifest:
     "dependencies": {
       "@material-ui/icons": "^1.0.0-beta.43",
       "axios": "^0.18.0",
+      "jwt-decode": "^2.2.0",
       "material-ui": "^1.0.0-beta.43",
       "react": "^16.3.2",
       "react-dom": "^16.3.2",
@@ -4306,6 +4307,10 @@ Lockfile:
     dependencies:
       array-includes "^3.0.3"
   
+  jwt-decode@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
+  
   keycode@^2.1.9:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
@@ -7560,9 +7565,9 @@ Lockfile:
 
 Trace: 
   Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add axios" instead.
-      at new MessageError (C:\Users\Jonathan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at Object.<anonymous> (C:\Users\Jonathan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:21987:13)
+      at new MessageError (C:\Users\panus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at Object.<anonymous> (C:\Users\panus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:21987:13)
       at Generator.next (<anonymous>)
-      at step (C:\Users\Jonathan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\Jonathan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at step (C:\Users\panus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\panus\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
       at <anonymous>
