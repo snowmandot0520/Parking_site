@@ -16,14 +16,15 @@ class FindRental extends React.Component {
             zip: '',
             spaces: [],
             toRent: [],
-            tempArr: [],
             rentID: ''
             
         }
     }
 
     setToRent = () => {
-        axios.post(`/spaces/update/${this.state.rentID}`, {spaces:this.state.tempArr})
+        axios.post(`/spaces/update/${this.state.rentID}`, {availability:this.state.toRent})
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
     }
 
     concatSpaces = (index, indexDate, indexTime, id, time) => {
@@ -47,8 +48,9 @@ class FindRental extends React.Component {
         axios
             .get(`/spaces/filter/${this.state.zip}`)
             .then(data => {
-                this.setState({ spaces:data.data })
+                console.log(data)
                 console.log(this.state)  
+                this.setState({ spaces:data.data })
             })
             .catch(err => console.log(err))
     }
@@ -96,7 +98,7 @@ class FindRental extends React.Component {
 
 
                 {(
-                    this.state.spaces.map((e, index) => {
+                    this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
                         return (
                             <Card outline color="secondary">
                                 <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
@@ -138,7 +140,10 @@ class FindRental extends React.Component {
                                     </ListGroup>
                                     <br/>
                                     <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
+                                    <Button 
+                                        size="sm" 
+                                        color="info"
+                                        onClick={() => this.setToRent()}>Rent</Button>
                                 </CardBody>
                             </Card>
                         )

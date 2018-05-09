@@ -8,5 +8,9 @@ router.route('/')
 router.route('/filter/:zip')
     .get(controller.filter)    
 
+
+router.route('/update/:id')
+    .post(controller.updateSpace)
+
 module.exports = router
 
