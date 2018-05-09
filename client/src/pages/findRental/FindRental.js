@@ -92,7 +92,7 @@ class FindRental extends React.Component {
                     <div className="btn-group" role="group" aria-label="Basic example">
                         <Button type="button" className="btn btn-outline-primary home-buttons">Nearby</Button>
                         <Button type="button" className="btn btn-outline-primary home-buttons">Recent</Button>
-                        <Button type="button" className="btn btn-outline-primary home-buttons">Favorites</Button>
+                        <Button type="button" className="btn btn-outline-primary home-buttons" href="/favorites">Favorites</Button>
                     </div>
                 </div>
 
