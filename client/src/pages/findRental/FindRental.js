@@ -22,7 +22,7 @@ class FindRental extends React.Component {
     }
 
     setToRent = () => {
-        axios.post(`/spaces/update/${this.state.rentID}`, {availability:this.state.toRent})
+        axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
             .then(data => console.log(data))
             .catch(err => console.log(err))
     }
