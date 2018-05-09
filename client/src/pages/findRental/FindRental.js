@@ -16,16 +16,29 @@ class FindRental extends React.Component {
             zip: '',
             spaces: [],
             toRent: [],
+            tempArr: [],
             rentID: ''
             
         }
     }
 
-    setToRent = event => {
-
+    setToRent = () => {
+        axios.post(`/spaces/update/${this.state.rentID}`, {spaces:this.state.tempArr})
     }
 
-    concatSpaces = (date, time) => {
+    concatSpaces = (index, indexDate, indexTime, id, time) => {
+        console.log(index)
+        let tempArr; 
+        this.state.toRent.length > 1 ? tempArr = this.state.toRent : tempArr = this.state.spaces[index]
+        console.log(tempArr)
+        tempArr.availability[indexDate].times[indexTime].available = 'false'
+        console.log(tempArr.availability[indexDate].times[indexTime])
+        console.log(tempArr)
+
+        this.setState({
+            toRent:tempArr,
+            rentID:id
+        })
 
     }
 
@@ -83,7 +96,7 @@ class FindRental extends React.Component {
 
 
                 {(
-                    this.state.spaces.map(e => {
+                    this.state.spaces.map((e, index) => {
                         return (
                             <Card outline color="secondary">
                                 <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
@@ -97,18 +110,22 @@ class FindRental extends React.Component {
                                         <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
                                         <ListGroupItem className="small">
                                             {(
-                                                e.availability.map(f => {
+                                                e.availability.map((f, indexDate) => {
                                                     return(
                                                         <div>
                                                             Availability
                                                             <div>{f.day}</div>
                                                             <div>
                                                                 {(
-                                                                    f.times.map(g => {
+                                                                    f.times.map((g, indexTime) => {
                                                                         let dispClass = ''
                                                                         g.available == 'false' ? dispClass = 'notAv' : dispClass = 'av';
                                                                         return(
-                                                                        <div className={dispClass}>{g.time}</div>
+                                                                        <div 
+                                                                            className={dispClass}
+                                                                            onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id)}>
+                                                                            {g.time}
+                                                                        </div>
                                                                        ) 
                                                                     })
                                                                 )}
