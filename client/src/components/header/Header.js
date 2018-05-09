@@ -66,8 +66,7 @@ class Header extends React.Component {
                             <DropdownItem href="/homepage">{this.state.user}</DropdownItem>
                             <DropdownItem divider />
                             <DropdownItem>Account</DropdownItem>
-                            <DropdownItem>User Preferences</DropdownItem>
-                            <DropdownItem>My Rental Spots</DropdownItem>
+                            <DropdownItem><a href="/mySpots">My Spots</a></DropdownItem>
                             <DropdownItem>FAQs</DropdownItem>
                         </DropdownMenu>
                     </ButtonDropdown>
