@@ -81,10 +81,8 @@ class FindRental extends React.Component {
 
     updateState = event => {
         if(event.target.name === 'cDate'){
+            console.log(event.target.value)
             let newObj = new Date(event.target.value)
-            newObj = newObj.toString()
-            newObj = new Date(newObj)
-            newObj = newObj.toString()
             this.setState({ tDate:newObj, cDate:event.target.value })
         } else {
             this.setState({ [event.target.name]:event.target.value })
