@@ -14,8 +14,11 @@
 Button {
   box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
 }
-Button: active {
+Button:active {
   border: none;
+}
+img {
+  box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
 }
 
 

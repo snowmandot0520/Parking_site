@@ -16,7 +16,7 @@ const spots = {
         spotDescription: 'Some description here...'
     },
     spot2: {
-        Name: 'Amherst Avenue Parking Spot # 112',
+        name: 'Amherst Avenue Parking Spot # 112',
         address: '45 Amherst Ave, Rondell, KY 32012',
         spotType: 'Private Residence Parking',
         spotImg: 'http://planphilly.com/uploads/media_items/tesla-plugged-in-at-the-ev-only-zone-on-delancey-street.0.440.3264.1566.860.413.c.jpg', 
@@ -48,7 +48,7 @@ class MySpots extends React.Component {
                <div className="grn-hdr"><Header/></div> 
                 
                 <div className="row">
-                    <div className="col-xs-12 justify-content-center" id="activity-div">
+                    <div className="col-xs-12 justify-content-center" id="spots-div">
                         <div className ="text-center" id="spacer">
                         <Container className="py-4">
                             <h4>My Rental Spots</h4>

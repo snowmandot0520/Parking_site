@@ -11,6 +11,7 @@ import Login from './pages/login/LoginPage';
 import Signup from './pages/login/SignupPage';
 import NewSpot from './pages/newSpot/NewSpot';
 import MySpots from './pages/mySpots/MySpots';
+import MyAccount from './pages/myAccount/MyAccount';
 
 import './App.css';
 
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path='/findParking' component={FindParking}/>
           <Route exact path='/findRental' component={FindRental}/>
           <Route exact path='/mySpots' component={MySpots}/>
+          <Route exact path='/myAccount' component={MyAccount}/>
         </div>
       </Router>     
     );

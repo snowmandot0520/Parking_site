@@ -1,0 +1,39 @@
+#solid-bckg {
+    background-color: #CCCCCC;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    margin-bottom: 0px;
+}
+
+.grn-hdr {
+    background-color: #95CC39;
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+}
+.grn-hdr a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.delete-btn {
+    color: white;
+    background-color: #95CC39;
+    border: solid white 1px;
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.delete-btn:hover {
+    color: white;
+    background-color: transparent; 
+    border: solid white 1px;
+}
+.tiny-text {
+    float: right;
+}
