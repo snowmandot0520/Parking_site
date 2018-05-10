@@ -60,3 +60,7 @@
     padding: 0px;
     box-shadow: none !important;
 }
+
+a {
+    color: black;
+}

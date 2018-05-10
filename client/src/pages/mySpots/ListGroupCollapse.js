@@ -28,7 +28,7 @@ class ListGroupCollapse extends React.Component {
                 <CardSubtitle>
                     {cat.spotType}  
                 </CardSubtitle>
-                <CardText>
+                <CardText className="text-left">
                         {cat.address} <br/>
                         Price per Hour: {cat.price} <br/>
                         Spot Description: {cat.spotDescription}
