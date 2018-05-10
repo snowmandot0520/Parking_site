@@ -6,7 +6,7 @@
     margin-bottom: 0px;
 }
 
-.notAv {
+.false {
     width: 8%;
     display: inline-block;
     background-color: rgb(162, 75, 75);
@@ -18,10 +18,22 @@
     font-weight: bold;
 }
 
-.av {
+.true {
     width: 8%;
     display: inline-block;
     background-color: rgb(57, 158, 52);
+    height: 18px;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.temp {
+    width: 8%;
+    display: inline-block;
+    background-color: rgb(32, 134, 171);
     height: 18px;
     border-radius: 4px;
     margin: 4px;

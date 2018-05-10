@@ -16,7 +16,10 @@ class FindRental extends React.Component {
             zip: '',
             spaces: [],
             toRent: [],
-            rentID: ''
+            rentID: '',
+            cDate: '',
+            tDate: '',
+            jeb: 'jeasdfb'
             
         }
     }
@@ -27,14 +30,35 @@ class FindRental extends React.Component {
             .catch(err => console.log(err))
     }
 
-    concatSpaces = (index, indexDate, indexTime, id, time) => {
+    concatSpaces = (index, indexDate, indexTime, id, time, event) => {
         console.log(index)
         let tempArr; 
         this.state.toRent.length > 1 ? tempArr = this.state.toRent : tempArr = this.state.spaces[index]
         console.log(tempArr)
-        tempArr.availability[indexDate].times[indexTime].available = 'false'
-        console.log(tempArr.availability[indexDate].times[indexTime])
-        console.log(tempArr)
+
+        let spaceCl = tempArr.availability[indexDate].times[indexTime].classn
+        let spaceAv = tempArr.availability[indexDate].times[indexTime].available
+        console.log(`spaceAv: ${spaceCl}`)
+
+        switch(spaceCl){
+            case 'true':
+                spaceCl = 'temp'
+                spaceAv = 'false'
+                break;
+            case 'temp':
+                spaceCl = 'true'
+                spaceAv = 'true'
+                break;
+            case 'false':
+                break
+        }
+        console.log(spaceCl)
+
+        tempArr.availability[indexDate].times[indexTime].classn = spaceCl
+        tempArr.availability[indexDate].times[indexDate].available = spaceAv
+        // tempArr.availability[indexDate].times[indexTime].available = 'false'
+        // console.log(tempArr.availability[indexDate].times[indexTime])
+        // console.log(tempArr)
 
         this.setState({
             toRent:tempArr,
@@ -56,10 +80,17 @@ class FindRental extends React.Component {
     }
 
     updateState = event => {
-        this.setState({
-            [event.target.name]:event.target.value
-        })
-        console.log(this.state)
+        if(event.target.name === 'cDate'){
+            let newObj = new Date(event.target.value)
+            newObj = newObj.toString()
+            newObj = new Date(newObj)
+            newObj = newObj.toString()
+            this.setState({ tDate:newObj, cDate:event.target.value })
+        } else {
+            this.setState({ [event.target.name]:event.target.value })
+            console.log(this.state)
+        }
+        
     }
 
     render(){
@@ -96,126 +127,86 @@ class FindRental extends React.Component {
                     </div>
                 </div>
 
-
-                {(
-                    this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
-                        return (
-                            <Card outline color="secondary">
-                                <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
-                                <CardBody className="text-center">
-                                    <CardTitle>{e.address}</CardTitle>
-                                    <CardSubtitle>TO DO: DISTANCE</CardSubtitle>
-                                    <ListGroup className="text-left">
-                                        <ListGroupItem>{e.address}</ListGroupItem>
-                                        <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
-                                        <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
-                                        <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
-                                        <ListGroupItem className="small">
-                                            {(
-                                                e.availability.map((f, indexDate) => {
-                                                    return(
-                                                        <div>
-                                                            Availability
-                                                            <div>{f.day}</div>
-                                                            <div>
-                                                                {(
-                                                                    f.times.map((g, indexTime) => {
-                                                                        let dispClass = ''
-                                                                        g.available == 'false' ? dispClass = 'notAv' : dispClass = 'av';
-                                                                        return(
-                                                                        <div 
-                                                                            className={dispClass}
-                                                                            onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id)}>
-                                                                            {g.time}
-                                                                        </div>
-                                                                       ) 
-                                                                    })
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                    ) 
-                                                })
-                                            )}
-                                        </ListGroupItem>
-                                    </ListGroup>
-                                    <br/>
-                                    <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button 
-                                        size="sm" 
-                                        color="info"
-                                        onClick={() => this.setToRent()}>Rent</Button>
-                                </CardBody>
-                            </Card>
-                        )
-                    })
-                )}
+                <input 
+                    name='cDate'
+                    value={this.state.cDate}
+                    id='cDate'
+                    onChange={this.updateState}
+                    type='date'
+                />
 
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
                         <div className ="" id="spacer">
-                            <Card outline color="secondary">
-                                <CardImg top width="100%" src="https://image.shutterstock.com/image-photo/modest-residential-house-red-car-260nw-624348332.jpg" alt="Parking Spot Image" />
-                                <CardBody className="text-center">
-                                    <CardTitle>48 Greener Avenue</CardTitle>
-                                    <CardSubtitle>0.04 mi away</CardSubtitle>
-                                    <ListGroup className="text-left">
-                                        <ListGroupItem>Available 04/20/2018 - 06/03/2018
-                                            <br/>
-                                            8:00 AM - 6:00PM
-                                        </ListGroupItem>
-                                        <ListGroupItem>48 Greener Avenue, Fisher, KY 44206</ListGroupItem>
-                                        <ListGroupItem>Price Per Hour: $15.00</ListGroupItem>
-                                        <ListGroupItem className="small">Private Residence Driveway</ListGroupItem>
-                                        <ListGroupItem className="small">Description: Just park on the driveway. No cars should be there.</ListGroupItem>
-                                    </ListGroup>
-                                    <br/>
-                                    <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
-                                </CardBody>
-                            </Card>
-                            <p> </p>
-                            <Card outline color="secondary">
-                                <CardImg top width="100%" src="https://dmtyylqvwgyxw.cloudfront.net/instances/5020/uploads/images/photo/image/35531/space_listing_276244c9-2b41-410b-abec-d98d0daff8a1.jpg?v=1510517508" />
-                                <CardBody className="text-center">
-                                    <CardTitle>397 Martin Luther King Jr Blvd</CardTitle>
-                                    <CardSubtitle>1.09 mi away</CardSubtitle>
-                                    <ListGroup className="text-left">
-                                        <ListGroupItem>Available 04/28/2018 - 08/01/2018
-                                            <br/>
-                                            12:00 AM - 12:00 AM
-                                        </ListGroupItem>
-                                        <ListGroupItem>397 Martin Luther King Jr Blvd, Fisher, KY 44203</ListGroupItem>
-                                        <ListGroupItem>Price Per Hour: $12.00</ListGroupItem>
-                                        <ListGroupItem className="small">Private Building Parking Spot #18</ListGroupItem>
-                                        <ListGroupItem className="small">Description: Building parking lot. Park in spot #18, close to big tree in back.</ListGroupItem>
-                                    </ListGroup>
-                                    <br/>
-                                    <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
-                                </CardBody>
-                            </Card>
-                            <p> </p>
-                            <Card outline color="secondary">
-                                <CardImg top width="100%" src="http://sightline.wpengine.netdna-cdn.com/wp-content/uploads/2013/06/1-Alans-garage-photo-by-Alan-Durning-563x372.jpg" />
-                                <CardBody className="text-center">
-                                    <CardTitle>70 Pine St</CardTitle>
-                                    <CardSubtitle>2.45 mi away</CardSubtitle>
-                                    <ListGroup className="text-left">
-                                        <ListGroupItem>Available 06/01/2018 - 09/30/2018
-                                            <br/>
-                                            9:00 AM - 10:00 PM
-                                        </ListGroupItem>
-                                        <ListGroupItem>70 Pine St, Mandale, KY 44235</ListGroupItem>
-                                        <ListGroupItem>Price Per Hour: $11.00</ListGroupItem>
-                                        <ListGroupItem className="small">Private Residence Curbside Spot</ListGroupItem>
-                                        <ListGroupItem className="small">Description: Park in on-street spot directly infront of house.</ListGroupItem>
-                                    </ListGroup>
-                                    <br/>
-                                    <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                    <Button size="sm" color="info">Rent</Button>
-                                </CardBody>
-                            </Card>
-                            <p> </p>
+                            {(
+                                this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
+                                    return (
+                                        <Card outline color="secondary">
+                                            <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
+                                            <CardBody className="text-center">
+                                                <CardTitle>{e.address}</CardTitle>
+                                                <CardSubtitle>TO DO: DISTANCE</CardSubtitle>
+                                                <ListGroup className="text-left">
+                                                    <ListGroupItem>{e.address}</ListGroupItem>
+                                                    <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
+                                                    <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
+                                                    <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
+                                                    <ListGroupItem className="small">
+                                                        {(
+                                                            e.availability.map((f, indexDate) => {
+                                                                return(
+                                                                    
+                                                                    <div>
+                                                                        <div>{this.state.tDate}</div>
+                                                                        <div>{f.day}</div>
+                                                                        {(
+                                                                            this.state.tDate == f.day && 
+                                                                            <div>
+                                                                            <div>{f.day}</div>
+                                                                            {(
+                                                                                f.times.map((g, indexTime) => {
+                                                                                    let dispClass = g.classn
+                                                                                    
+                                                                                    // switch(g.available){
+                                                                                    //     case 'false':
+                                                                                    //         dispClass = 'notAv'
+                                                                                    //         break;
+                                                                                    //     case 'true':
+                                                                                    //         dispClass = 'av'
+                                                                                    //         break;
+                                                                                    //     case 'temp':
+                                                                                    //         dispClass = 'temp'
+                                                                                    // }
+                                                                            
+
+                                                                                    // g.available == 'false' ? dispClass = 'notAv' : dispClass = 'av';
+                                                                                    return(
+                                                                                    <div 
+                                                                                        className={dispClass}
+                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id)}>
+                                                                                        {g.time}
+                                                                                    </div>
+                                                                                ) 
+                                                                                })
+                                                                            )}
+                                                                        </div>)}
+                                                                    </div>
+                                                                ) 
+                                                            })
+                                                        )}
+                                                    </ListGroupItem>
+                                                </ListGroup>
+                                                <br/>
+                                                <Button size="sm" color="info">Add To Favorites</Button>{" "}
+                                                <Button 
+                                                    size="sm" 
+                                                    color="info"
+                                                    onClick={() => this.setToRent()}>Rent</Button>
+                                            </CardBody>
+                                        </Card>
+                                    )
+                                })
+                            )}
                         </div>
                     </div>
                 </div>

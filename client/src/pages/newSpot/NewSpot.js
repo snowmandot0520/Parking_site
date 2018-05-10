@@ -82,15 +82,15 @@ class NewSpot extends React.Component {
 
         for(let d = tempStart; d <= tempEnd; new Date(d.setDate(d.getDate() + 1))){
             let date = d.toString()
-            date = date//.slice(0,10)
+            // date = date//.slice(0,10)
             let newDate = new Date(date) 
             let e = { day: newDate, times: [] }
             
             for(var i = 1; i <= 24; i++){
                 const key = i 
-                const timeObj = { time:i, available:'false' }
+                const timeObj = { time:i, available:'false', classn:'false' }
                 console.log()
-                if(this.state.times.indexOf(i) > -1){ timeObj.available = 'true' }
+                if(this.state.times.indexOf(i) > -1){ timeObj.available = 'true'; timeObj.classn = 'true' }
                 
                 e.times.push(timeObj)
             }            
