@@ -25,6 +25,19 @@ class FindRental extends React.Component {
     }
 
     setToRent = () => {
+
+
+        const tempArr = this.state.toRent;
+
+        tempArr.availability.forEach(date => {
+            date.times.forEach(time => {
+                console.log(time)
+                time.classn === 'temp' && (time.available = 'false', time.classn = 'false')
+            })
+        })
+
+        this.setState({ toRent:tempArr })
+
         axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
             .then(data => console.log(data))
             .catch(err => console.log(err))
@@ -58,7 +71,7 @@ class FindRental extends React.Component {
         tempArr.availability[indexDate].times[indexDate].available = spaceAv
         // tempArr.availability[indexDate].times[indexTime].available = 'false'
         // console.log(tempArr.availability[indexDate].times[indexTime])
-        // console.log(tempArr)
+        console.log(tempArr)
 
         this.setState({
             toRent:tempArr,
@@ -83,6 +96,7 @@ class FindRental extends React.Component {
         if(event.target.name === 'cDate'){
             console.log(event.target.value)
             let newObj = new Date(event.target.value)
+            console.log(newObj)
             this.setState({ tDate:newObj, cDate:event.target.value })
         } else {
             this.setState({ [event.target.name]:event.target.value })
@@ -155,12 +169,12 @@ class FindRental extends React.Component {
                                                                 return(
                                                                     
                                                                     <div>
-                                                                        <div>{this.state.tDate}</div>
+                                                                        <div>tdate {this.state.tDate}</div>
                                                                         <div>{f.day}</div>
                                                                         {(
-                                                                            this.state.tDate == f.day && 
+                                                                            //this.state.tDate == f.day && 
                                                                             <div>
-                                                                            <div>{f.day}</div>
+                                                                            <div></div>
                                                                             {(
                                                                                 f.times.map((g, indexTime) => {
                                                                                     let dispClass = g.classn
