@@ -99,16 +99,10 @@ class FindParking extends React.Component {
                         </div>
 
                         <div className=" fixed-bottom new-btn-div text-center">
-                        <Button outline color="primary" className="new-btn" onClick={this.toggle}>New Search - (PAY)</Button>
+                        <Button outline color="primary" className="new-btn" onClick={this.toggle}>New Search</Button>
 
-                        {this.state.stripeToken ? <p className="App-intro">{"Got Stripe token ID: " + this.state.stripeToken.id + ". Continue payment process in the server."}</p> : null}
+                       
                         <a className={buttonClassName} href="#" onClick={this.onClickPay.bind(this)}>{buttonText}</a>
-                        
-                        {/*                                    
-                        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                            
-                            
-                        </Modal> */}
                         
 
                     </div>
