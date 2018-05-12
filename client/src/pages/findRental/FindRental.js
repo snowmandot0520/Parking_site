@@ -85,7 +85,11 @@ class FindRental extends React.Component {
     }
 
     addToUserAcct = (date, time, img, address, price) => {
-        const userAv = this.state.rentedSpacesUser
+        
+        let tempUserArr = this.state.userRentedDB
+        let userAv = this.state.rentedSpacesUser
+
+        this.state.userRentedDB.rentedSpaces.length > 0 && (userAv = this.state.userRentedDB.rentedSpaces)
         
         const newDate = () => {
             const uDateObj = {
@@ -123,8 +127,10 @@ class FindRental extends React.Component {
 
 //        console.log()
         userAv.length < 1 && newDate()
+        
+        tempUserArr.rentedSpaces = userAv;
         console.log(userAv)
-        this.setState({ rentedSpacesUser:userAv })
+        this.setState({ rentedSpacesUser:userAv, userRentedDB:tempUserArr })
    //     console.log(this.state)
     }
 
@@ -165,6 +171,7 @@ class FindRental extends React.Component {
             toRent:tempArr,
             rentID:id
         })
+        console.log(this.state)
 
     }
 
