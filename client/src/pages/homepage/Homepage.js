@@ -6,7 +6,6 @@ import Title from './../../components/title/Title';
 import { Button, UncontrolledAlert } from 'reactstrap';
 import jwt_decode from 'jwt-decode'
 
-
 import './Homepage.css';
 
 class Homepage extends React.Component {

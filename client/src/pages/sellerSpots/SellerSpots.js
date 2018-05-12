@@ -4,7 +4,7 @@ import Header from './../../components/header/Header';
 import { Container } from 'reactstrap';
 import ListGroupCollapse from './ListGroupCollapse';
 
-import './MySpots.css';
+import './SellerSpots.css';
 
 const spots = {
     spot1: {
@@ -33,7 +33,7 @@ const spots = {
     }
   }
 
-class MySpots extends React.Component {
+class SellerSpots extends React.Component {
     
     constructor() {
         super();
@@ -51,7 +51,7 @@ class MySpots extends React.Component {
                     <div className="col-xs-12 justify-content-center" id="spots-div">
                         <div className ="text-center" id="spacer">
                         <Container className="py-4">
-                            <h4>My Rental Spots</h4>
+                            <h4>Seller Spots</h4>
                             {Object.keys(spots).map((key, index) =>
                             <ListGroupCollapse key={index} cat={spots[key]} />
                             )}
@@ -66,4 +66,4 @@ class MySpots extends React.Component {
     }
 }
 
-export default MySpots;
+export default SellerSpots;
