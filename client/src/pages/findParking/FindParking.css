@@ -92,3 +92,17 @@
         background-color: transparent; 
         border: solid white 1px;
     }
+
+    .Pay-Now {
+        color: white;
+        padding: 5px;
+        background-color: orangered;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+      }
+      
+      .Pay-Now-Disabled {
+        background-color: gray;
+      }
