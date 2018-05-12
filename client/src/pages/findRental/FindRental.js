@@ -6,6 +6,7 @@ import { Card, CardImg, CardText, CardBody,
     ListGroupItem } from 'reactstrap';
 import spacesClient from './../../scripts/spacesClient'
 import axios from 'axios'
+import jwt_decode from 'jwt-decode'
 import './FindRental.css';
 
 class FindRental extends React.Component {
@@ -13,14 +14,55 @@ class FindRental extends React.Component {
     constructor(){
         super();
         this.state = {
+            loggedIn: '',
+            user: '',
+            userId: '',
             zip: '',
             spaces: [],
             toRent: [],
             rentID: '',
             cDate: '',
             tDate: '',
-            rentedSpacesUser: []
+            rentedSpacesUser: [],
+            userRentedDB: { }
         }
+    }
+
+    componentDidMount = () => {
+
+        console.log('comp mo')
+
+        const getUData = id => {
+            console.log('get data ran')
+            axios.get(`/spaces/user/${id}`)
+            .then(data => {
+                console.log(data)
+                this.setState({ userRentedDB:data.data})
+            })
+            .catch(err => console.log(err))
+        }
+
+        if(localStorage.getItem('jwtToken')){
+            const token = localStorage.getItem('jwtToken')
+            const decoded = jwt_decode(token)
+            console.log(decoded)
+            this.setState({
+                loggedIn: true,
+                user: decoded.username,
+                userId: decoded._id
+            }, getUData(decoded._id))
+            console.log(this.state)
+        } else {
+            this.setState({ loggedIn: false, user: null })
+            window.location.replace('/')
+            console.log('jeb')
+        }
+
+
+
+        
+
+        console.log(this.state)
     }
 
     setToRent = () => {
@@ -42,27 +84,22 @@ class FindRental extends React.Component {
             .catch(err => console.log(err))
     }
 
-    addToUserAcct = (date, time) => {
+    addToUserAcct = (date, time, img, address, price) => {
         const userAv = this.state.rentedSpacesUser
         
         const newDate = () => {
             const uDateObj = {
                 date: date,
+                rentId:this.state.rentID,
+                img:img,
+                address:address,
+                price:price,
                 times: [time]
             }
 
             console.log('new date ran')
             userAv.push(uDateObj)
         }
-
-        // for(let i = 0; i < userAv.length; i++){
-        //     if(userAv[i].date === date){
-        //         console.log(userAv[i].indexOf(time))
-        //         if(userAv[i].times.indexOf(time) < 0){
-        //             userAv[i].times.push(time)
-        //         }
-        //     }
-        // }
 
         var addDate = true
         userAv.forEach(e => {
@@ -91,10 +128,10 @@ class FindRental extends React.Component {
    //     console.log(this.state)
     }
 
-    concatSpaces = (index, indexDate, indexTime, id, date, time, event) => {
+    concatSpaces = (index, indexDate, indexTime, id, date, time, img, address, price, event) => {
         // console.log(index)
 
-        this.addToUserAcct(date, time)
+        this.addToUserAcct(date, time, img, address, price)
 
         let tempArr; 
         this.state.toRent.length > 1 ? tempArr = this.state.toRent : tempArr = this.state.spaces[index]
@@ -231,23 +268,10 @@ class FindRental extends React.Component {
                                                                                 f.times.map((g, indexTime) => {
                                                                                     let dispClass = g.classn
                                                                                     
-                                                                                    // switch(g.available){
-                                                                                    //     case 'false':
-                                                                                    //         dispClass = 'notAv'
-                                                                                    //         break;
-                                                                                    //     case 'true':
-                                                                                    //         dispClass = 'av'
-                                                                                    //         break;
-                                                                                    //     case 'temp':
-                                                                                    //         dispClass = 'temp'
-                                                                                    // }
-                                                                            
-
-                                                                                    // g.available == 'false' ? dispClass = 'notAv' : dispClass = 'av';
                                                                                     return(
                                                                                     <div 
                                                                                         className={dispClass}
-                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time)}>
+                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price)}>
                                                                                         {g.time}
                                                                                     </div>
                                                                                 ) 

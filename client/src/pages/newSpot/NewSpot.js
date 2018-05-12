@@ -14,6 +14,7 @@ class NewSpot extends React.Component {
         if(localStorage.getItem('jwtToken')){
             const token = localStorage.getItem('jwtToken')
             const decoded = jwt_decode(token)
+            console.log(decoded)
             this.setState({
                 loggedIn: true,
                 username: decoded.username,

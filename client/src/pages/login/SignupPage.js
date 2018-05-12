@@ -56,9 +56,9 @@ class Login extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { username, password } = this.state;
+        const { username, password} = this.state;
 
-        axios.post('/api/auth/signup', { username, password })
+        axios.post('/api/auth/signup', { username, password})
             .then((result) => {
                 this.setState({signedUp: true});
                 //this.props.history.push("/")
