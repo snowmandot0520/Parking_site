@@ -73,7 +73,8 @@ class FindRental extends React.Component {
                     e.times.push(time)
                     console.log('time not clicked')
                 } else {
-                    console.log('time already clicked')
+                    console.log(e.times.indexOf(time))
+                    e.times.splice(e.times.indexOf(time), 1)
                 }
                 addDate = false
             console.log(this.state)
