@@ -1,5 +1,5 @@
 .backg {
-    height: 605px;
+    height: 600px;
     background-size: cover;
   }
   
@@ -11,3 +11,36 @@
     right: 0;
   }
   
+/* ============================================== */
+/* MEDIA QUERIES */
+/* ============================================== */
+
+/* Custom, iPhone Retina */ 
+@media screen and (max-width : 375px)
+ {
+  .backg {
+    height: 670px;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media screen and (max-width : 480px) {
+  .backg {
+    /* height: 850px; */
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}

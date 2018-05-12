@@ -10,7 +10,8 @@ import Homepage from './pages/homepage/Homepage';
 import Login from './pages/login/LoginPage';
 import Signup from './pages/login/SignupPage';
 import NewSpot from './pages/newSpot/NewSpot';
-import MySpots from './pages/mySpots/MySpots';
+import SellerSpots from './pages/sellerSpots/SellerSpots';
+import BuyerSpots from './pages/buyerSpots/BuyerSpots';
 import MyAccount from './pages/myAccount/MyAccount';
 
 import './App.css';
@@ -19,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div id="main-body">
           <Route exact path='/homepage' component={Homepage}/>
           <Route exact path='/' component={Login}/>
           <Route exact path='/signup' component={Signup}/>
@@ -28,7 +29,8 @@ class App extends Component {
           <Route exact path='/newSpot' component={NewSpot}/>
           <Route exact path='/findParking' component={FindParking}/>
           <Route exact path='/findRental' component={FindRental}/>
-          <Route exact path='/mySpots' component={MySpots}/>
+          <Route exact path='/sellerSpots' component={SellerSpots}/>
+          <Route exact path='/buyerSpots' component={BuyerSpots}/>
           <Route exact path='/myAccount' component={MyAccount}/>
         </div>
       </Router>     

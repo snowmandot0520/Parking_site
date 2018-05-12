@@ -22,7 +22,6 @@ class Login extends React.Component {
             password: '',
             message: ''
     };
-
     
     this.toggle = this.toggle.bind(this);
     }
