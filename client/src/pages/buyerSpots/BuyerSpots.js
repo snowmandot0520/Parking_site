@@ -3,6 +3,8 @@ import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
 import { Container } from 'reactstrap';
 import ListGroupCollapse from './ListGroupCollapse';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 import './BuyerSpots.css';
 
@@ -38,7 +40,37 @@ class BuyerSpots extends React.Component {
     constructor() {
         super();
         this.state = { 
+            loggedIn: null,
+            user: '',
+            userId: '',
+            spaces: []
+        }
+    }
 
+    componentDidMount() {
+
+        const getUData = id => {
+            axios.get(`/spaces/user/${id}`)
+            .then(data => {
+                console.log(data)
+                this.setState({ spaces:data.data.rentedSpaces })
+            })
+            .catch(err => console.log(err))
+        }
+
+        if(localStorage.getItem('jwtToken')){
+            const token = localStorage.getItem('jwtToken')
+            const decoded = jwt_decode(token)
+            console.log(decoded)
+            this.setState({
+                loggedIn: true,
+                user: decoded.username,
+                userId: decoded._id
+            }, getUData(decoded._id))
+        } else {
+            this.setState({ loggedIn: false, user: null })
+            window.location.replace('/')
+            console.log('jeb')
         }
     }
 
@@ -52,8 +84,8 @@ class BuyerSpots extends React.Component {
                         <div className ="text-center" id="spacer">
                         <Container className="py-4">
                             <h4>Buyer Spots</h4>
-                            {Object.keys(spots).map((key, index) =>
-                            <ListGroupCollapse key={index} cat={spots[key]} />
+                            {this.state.spaces.map((e, index) =>
+                                    <ListGroupCollapse space={e}  />
                             )}
                         </Container>
                         </div>
