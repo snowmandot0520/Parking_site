@@ -19,8 +19,7 @@ class FindRental extends React.Component {
             rentID: '',
             cDate: '',
             tDate: '',
-            jeb: 'jeasdfb'
-            
+            rentedSpacesUser: []
         }
     }
 
@@ -31,7 +30,7 @@ class FindRental extends React.Component {
 
         tempArr.availability.forEach(date => {
             date.times.forEach(time => {
-                console.log(time)
+                // console.log(time)
                 time.classn === 'temp' && (time.available = 'false', time.classn = 'false')
             })
         })
@@ -43,15 +42,66 @@ class FindRental extends React.Component {
             .catch(err => console.log(err))
     }
 
-    concatSpaces = (index, indexDate, indexTime, id, time, event) => {
-        console.log(index)
+    addToUserAcct = (date, time) => {
+        const userAv = this.state.rentedSpacesUser
+        
+        const newDate = () => {
+            const uDateObj = {
+                date: date,
+                times: [time]
+            }
+
+            console.log('new date ran')
+            userAv.push(uDateObj)
+        }
+
+        // for(let i = 0; i < userAv.length; i++){
+        //     if(userAv[i].date === date){
+        //         console.log(userAv[i].indexOf(time))
+        //         if(userAv[i].times.indexOf(time) < 0){
+        //             userAv[i].times.push(time)
+        //         }
+        //     }
+        // }
+
+        var addDate = true
+        userAv.forEach(e => {
+            console.log(date === e.date)
+            console.log(e.date)
+            if(e.date === date){
+                if(e.times.indexOf(time) === -1){
+                    e.times.push(time)
+                    console.log('time not clicked')
+                } else {
+                    console.log('time already clicked')
+                }
+                addDate = false
+            console.log(this.state)
+            }
+            console.log(addDate)
+            
+        })
+        addDate && newDate()
+
+//        console.log()
+        userAv.length < 1 && newDate()
+        console.log(userAv)
+        this.setState({ rentedSpacesUser:userAv })
+   //     console.log(this.state)
+    }
+
+    concatSpaces = (index, indexDate, indexTime, id, date, time, event) => {
+        // console.log(index)
+
+        this.addToUserAcct(date, time)
+
         let tempArr; 
         this.state.toRent.length > 1 ? tempArr = this.state.toRent : tempArr = this.state.spaces[index]
-        console.log(tempArr)
+        // console.log(tempArr)
 
         let spaceCl = tempArr.availability[indexDate].times[indexTime].classn
         let spaceAv = tempArr.availability[indexDate].times[indexTime].available
-        console.log(`spaceAv: ${spaceCl}`)
+        // console.log(`spaceAv: ${spaceCl}`)
 
         switch(spaceCl){
             case 'true':
@@ -65,13 +115,13 @@ class FindRental extends React.Component {
             case 'false':
                 break
         }
-        console.log(spaceCl)
+        // console.log(spaceCl)
 
         tempArr.availability[indexDate].times[indexTime].classn = spaceCl
         tempArr.availability[indexDate].times[indexDate].available = spaceAv
         // tempArr.availability[indexDate].times[indexTime].available = 'false'
         // console.log(tempArr.availability[indexDate].times[indexTime])
-        console.log(tempArr)
+        // console.log(tempArr)
 
         this.setState({
             toRent:tempArr,
@@ -85,22 +135,23 @@ class FindRental extends React.Component {
         axios
             .get(`/spaces/filter/${this.state.zip}`)
             .then(data => {
-                console.log(data)
-                console.log(this.state)  
+                // console.log(data)
+                // console.log(this.state)  
                 this.setState({ spaces:data.data })
+                console.log(this.state)
             })
             .catch(err => console.log(err))
     }
 
     updateState = event => {
         if(event.target.name === 'cDate'){
-            console.log(event.target.value)
+            // console.log(event.target.value)
             let newObj = new Date(event.target.value)
-            console.log(newObj)
+            // console.log(newObj)
             this.setState({ tDate:newObj, cDate:event.target.value })
         } else {
             this.setState({ [event.target.name]:event.target.value })
-            console.log(this.state)
+            // console.log(this.state)
         }
         
     }
@@ -169,7 +220,7 @@ class FindRental extends React.Component {
                                                                 return(
                                                                     
                                                                     <div>
-                                                                        <div>tdate {this.state.tDate}</div>
+                                                                        <div>tdate {this.state.tDate.toString()}</div>
                                                                         <div>{f.day}</div>
                                                                         {(
                                                                             //this.state.tDate == f.day && 
@@ -195,7 +246,7 @@ class FindRental extends React.Component {
                                                                                     return(
                                                                                     <div 
                                                                                         className={dispClass}
-                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id)}>
+                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time)}>
                                                                                         {g.time}
                                                                                     </div>
                                                                                 ) 
