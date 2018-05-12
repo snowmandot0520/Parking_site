@@ -82,6 +82,11 @@ class FindRental extends React.Component {
         axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
             .then(data => console.log(data))
             .catch(err => console.log(err))
+
+        axios.post(`/spaces/user/${this.state.userId}`, this.state.userRentedDB)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
     }
 
     addToUserAcct = (date, time, img, address, price) => {

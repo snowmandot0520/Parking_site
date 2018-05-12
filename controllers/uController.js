@@ -3,7 +3,7 @@ const db = require("./../models/user")
 module.exports = {
     addSpace: (req, res) => {
         db
-            .find()
+            .findByIdAndUpdate(req.params.id, req.body)
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },
