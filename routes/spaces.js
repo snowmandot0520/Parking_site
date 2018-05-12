@@ -15,6 +15,7 @@ router.route('/update/:id')
 
 router.route('/user/:id')
     .get(userControll.getUserDate)
+    .post(userControll.addSpace)
 
 module.exports = router
 
