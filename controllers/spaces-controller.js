@@ -1,4 +1,5 @@
 const db = require('./../models/spaces')
+const users = require('./../models/user')
 
 module.exports = {
     findAll: (req, res) => {
