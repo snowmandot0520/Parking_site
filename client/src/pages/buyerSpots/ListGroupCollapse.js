@@ -17,7 +17,7 @@ class ListGroupCollapse extends React.Component {
   }
   
   render() {
-    const cat = this.props.cat;
+    const cat = this.props.space;
     return (
         <div>
             <Card className="border">
@@ -30,11 +30,15 @@ class ListGroupCollapse extends React.Component {
                 </CardSubtitle>
                 <CardText className="text-left">
                         {cat.address} <br/>
-                        Price per Hour: {cat.price} <br/>
-                        Spot Description: {cat.spotDescription}
+                        Price per Hour: ${cat.price}.00<br/>
+                        Spot Description: {cat.spotDescription}        
                 </CardText> 
-                <CardImg className="imgToggle" top width="100%" src={cat.spotImg} alt="Parking Image"/> 
+                
+                <CardImg className="imgToggle" top width="100%" src={cat.img} alt="Parking Image"/> 
                 <br/>
+                {cat.times.forEach(t => {
+                    <div>times: {t}</div>
+                })}
                 <Button size="sm" color="info" id="deleteRental">Edit</Button>{" "}
                 <Button size="sm" color="info" id="deleteRental">Delete </Button>
                     <br/>

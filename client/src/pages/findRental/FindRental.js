@@ -112,8 +112,6 @@ class FindRental extends React.Component {
 
         var addDate = true
         userAv.forEach(e => {
-            console.log(date === e.date)
-            console.log(e.date)
             if(e.date === date){
                 if(e.times.indexOf(time) === -1){
                     e.times.push(time)
@@ -125,16 +123,15 @@ class FindRental extends React.Component {
                 addDate = false
             console.log(this.state)
             }
-            console.log(addDate)
             
         })
         addDate && newDate()
-
 //        console.log()
         userAv.length < 1 && newDate()
         
         tempUserArr.rentedSpaces = userAv;
-        console.log(userAv)
+        console.log('tempuserarr')
+        console.log(tempUserArr)
         this.setState({ rentedSpacesUser:userAv, userRentedDB:tempUserArr })
    //     console.log(this.state)
     }
