@@ -1,6 +1,7 @@
 .backg {
     height: 600px;
     background-size: cover;
+    position: fixed;
   }
   
   .backg::after {
@@ -15,32 +16,54 @@
 /* MEDIA QUERIES */
 /* ============================================== */
 
-/* Custom, iPhone Retina */ 
-@media screen and (max-width : 375px)
- {
+/* Largest Devices */
+@media only screen and (min-width : 1200px) {
   .backg {
-    height: 670px;
+    height: fill;
+    width: 100%;
   }
 }
 
-/* Extra Small Devices, Phones */ 
-@media screen and (max-width : 480px) {
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
   .backg {
-    /* height: 850px; */
+    height: fill;
+    width: 100%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .backg {
+    height: fill;
+    width: 100%;
   }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+  .backg {
+    height: fill;
+    width: 100%;
+  }
 }
 
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .backg {
+    height: fill;
+    width: 100%;
+  }
 }
 
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px)
+ {
+  .backg {
+    height: fill;
+    width: 100%;
+  }
 }
+
+
+

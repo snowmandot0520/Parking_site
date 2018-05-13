@@ -53,6 +53,11 @@
         padding: 10px;
         padding-right: 20px;
     }
+.new-user-alert {
+    background-color: rgb(241, 248, 255);
+    opacity: 0.8;
+    margin-top: 50px;
+}
 
 /* ============================================== */
 /* MEDIA QUERIES */

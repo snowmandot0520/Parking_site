@@ -81,12 +81,12 @@ class Login extends React.Component {
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
                     <Title/>
-                    <p id="title-description">A parking rental app</p>
+                    <p className="title-description">A parking rental app</p>
                     <div className=" fixed-bottom" id="sign-in">
                         <Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal1")}>Sign In</Button>
-                        <Modal isOpen={this.state.modal1} toggle={this.closeModal.bind(this, "modal1")} className={this.props.className}>
-                        <ModalHeader toggle={this.closeModal.bind(this, "modal1")}>Sign In</ModalHeader>
-                            <ModalBody>
+                        <Modal isOpen={this.state.modal1} toggle={this.closeModal.bind(this, "modal1")} className={this.props.className} id="enter-modal">
+                        <ModalHeader toggle={this.closeModal.bind(this, "modal1")} className="mod-title">Sign In</ModalHeader>
+                            <ModalBody className="mod-body">
                                 <FormGroup row>
                                     <Label for="exampleUsername" sm={2}>Username</Label>
                                     <Col sm={10}>
@@ -112,7 +112,7 @@ class Login extends React.Component {
                                     </Col>
                                 </FormGroup>
                             </ModalBody>
-                            <ModalFooter>
+                            <ModalFooter className="mod-foot">
                                 <Button color="primary" onClick={this.onSubmit}>Submit</Button>
                                     {message !== '' &&
                                         <div className="alert alert-warning alert-dismissible" role="alert">
