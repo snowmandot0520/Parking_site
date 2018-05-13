@@ -8,7 +8,7 @@ import Background from './../../components/background/Background';
 import Footer from './../../components/footer/Footer';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, FormGroup, Label, Input, Alert } from 'reactstrap';
 
-import './LoginPage.css';
+import './SignupPage.css';
 
 class Login extends React.Component {
     
@@ -73,13 +73,13 @@ class Login extends React.Component {
             <div className="container" id="full-body">
                 <Background backgroundImage="https://image.freepik.com/free-vector/city-background-design_1300-365.jpg">
                     <Title/>
-                    <p id="description">A parking rental app</p>
+                    <p className="title-description">A parking rental app</p>
                     {
                         signedUp && (
                             <div className="row">
                                 <div className="col-2"></div>
                                 <div className="col-8">
-                                    <Alert color="success">Hello {username}. You successfully signed up. Now, please sign in!</Alert>
+                                    <Alert className="new-user-alert">Hello {username}.<br/>You successfully signed up. Now, please sign in!</Alert>
                                 </div>
                                 <div className="col-2"></div>
                             </div>
@@ -90,9 +90,9 @@ class Login extends React.Component {
                     </div>
                     <div className=" fixed-bottom" id="sign-up">
                         <Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal2")}>Sign Up</Button>
-                        <Modal isOpen={this.state.modal2} toggle={this.closeModal.bind(this, "modal2")} className={this.props.className}>
-                            <ModalHeader toggle={this.closeModal.bind(this, "modal2")}>Sign Up</ModalHeader>
-                            <ModalBody>
+                        <Modal isOpen={this.state.modal2} toggle={this.closeModal.bind(this, "modal2")} className={this.props.className} id="enter-modal">
+                            <ModalHeader toggle={this.closeModal.bind(this, "modal2")} className="mod-title">Sign Up</ModalHeader>
+                            <ModalBody className="mod-body">
                                 <FormGroup row>
                                     <Label for="exampleUsername" sm={2}>Username</Label>
                                     <Col sm={10}>
@@ -118,7 +118,7 @@ class Login extends React.Component {
                                     </Col>
                                 </FormGroup>                       
                             </ModalBody>
-                            <ModalFooter>
+                            <ModalFooter className="mod-foot">
                                 <Button color="primary" onClick={this.onSubmit}>Submit</Button>
                             </ModalFooter>
                         </Modal>
