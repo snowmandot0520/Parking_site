@@ -1,7 +1,13 @@
+.welcome-alert {
+    background-color: rgb(241, 248, 255);
+    opacity: 0.8;
+    margin-top: 0px;
+    width: 100%;
+    margin: 0 auto;
+}
 .park-btn-div {
     margin-bottom: 40px;
 }
-
 .park-btn {
     color: white;
     border: solid white 1px;
@@ -24,33 +30,127 @@
     border: solid white 1px;
 }
 
-
-
+ 
 /* ============================================== */
 /* MEDIA QUERIES */
 /* ============================================== */
 
-/* Custom, iPhone Retina */ 
-@media only screen and (min-width : 320px) {
-
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-
-}
-
-/* Large Devices, Wide Screens */
+/* Largest Devices */
 @media only screen and (min-width : 1200px) {
-
+    .welcome-alert {
+        width: 40%;
+        margin-top: 40px;
+    }
+    .park-btn-div {
+        margin-bottom: 60px;
+    }
+        .park-btn {
+            padding-left: 25px !important;
+            padding-right: 25px !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: normal;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-right: 7px;
+            margin-left: 7px;
+        }
+  }
+  
+  /* Large Devices, Wide Screens */
+  @media only screen and (max-width : 1200px) {
+    .welcome-alert {
+        width: 50%;
+        margin-top: 30px;
+    }
+    .park-btn-div {
+        margin-bottom: 60px;
+    }
+        .park-btn {
+            padding-left: 25px !important;
+            padding-right: 25px !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: normal;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-right: 7px;
+            margin-left: 7px;
+        }
+  }
+  
+  /* Medium Devices, Desktops */
+  @media only screen and (max-width : 992px) {
+    .welcome-alert {
+        width: 60%;
+        margin-top: 30px;
+    }
+    .park-btn-div {
+        margin-bottom: 60px;
+    }
+        .park-btn {
+            padding-left: 25px !important;
+            padding-right: 25px !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: normal;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-right: 7px;
+            margin-left: 7px;
+        }
+  }
+  
+  /* Small Devices, Tablets */
+  @media only screen and (max-width : 768px) {
+    .welcome-alert {
+        width: 80%;
+    }
+    .park-btn-div {
+        margin-bottom: 40px;
+    }
+        .park-btn {
+            padding-left: 25px !important;
+            padding-right: 25px !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+  }
+  
+  /* Extra Small Devices, Phones */ 
+  @media only screen and (max-width : 480px) {
+    .welcome-alert {
+        width: 90%;
+        margin-top: 10px;
+    }
+    .park-btn-div {
+        margin-bottom: 40px;
+    }
+        .park-btn {
+            padding-left: 22px !important;
+            padding-right: 22px !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 15px;
+        }
+  }
+  
+  /* Custom, iPhone Retina */ 
+  @media only screen and (max-width : 320px)
+   {
+    .welcome-alert {
+        width: 100%;
+        font-size: 14px;
+    }
+    .park-btn-div {
+        margin-bottom: 40px;
+    }
+        .park-btn {
+            padding-left: 17px !important;
+            padding-right: 17px !important;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-size: 12px;
+        }
 }
