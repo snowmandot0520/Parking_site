@@ -1,5 +1,4 @@
 #top-line {
-    /* line-height: 40px; */
     padding: 5px;
     width: 100%;
     margin: 0;
@@ -60,7 +59,123 @@
     padding: 0px;
     box-shadow: none !important;
 }
+#user-btn {
+    margin: 0px;
+}
 
 a {
     color: black;
 }
+
+
+/* ============================================== */
+/* MEDIA QUERIES */
+/* ============================================== */
+
+/* Largest Devices */
+@media only screen and (min-width : 1200px) {
+    #top-line {
+        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    }
+    #options {
+        margin-left: 80px;
+    }
+    .activity {
+        font-size: 23px !important;
+        margin-left: 75px;
+    }
+    .home-icon {
+        font-size: 35px !important;
+        margin-left: 20px;
+    }
+  }
+  
+  /* Large Devices, Wide Screens */
+  @media only screen and (max-width : 1200px) {
+    #top-line {
+        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    }
+    #options {
+        margin-left: 70px;
+    }
+    .activity {
+        font-size: 23px !important;
+        margin-left: 75px;
+    }
+    .home-icon {
+        font-size: 35px !important;
+        margin-left: 20px;
+    }
+  }
+  
+  /* Medium Devices, Desktops */
+  @media only screen and (max-width : 992px) {
+    #top-line {
+        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    }
+    #options {
+        margin-left: 0px;
+    }
+    .activity {
+        font-size: 23px !important;
+        margin-left: 75px;
+    }
+    .home-icon {
+        font-size: 35px !important;
+        margin-left: 20px;
+    }
+  }
+  
+  /* Small Devices, Tablets */
+  @media only screen and (max-width : 768px) {
+    #top-line {
+        box-shadow: none;
+    }
+    #options {
+        margin-left: 0px;
+    }
+    .activity {
+        font-size: 23px !important;
+        margin-left: 55px;
+    }
+    .home-icon {
+        font-size: 35px !important;
+        margin-left: 10px;
+    }
+  }
+  
+  /* Extra Small Devices, Phones */ 
+  @media only screen and (max-width : 480px) {
+    #top-line {
+        box-shadow: none;
+    }
+    #options {
+        margin-left: 0px;
+    }
+    .activity {
+        font-size: 18px !important;
+        margin-left: 20px;
+    }
+    .home-icon {
+        font-size: 27px !important;
+        margin-left: 3px;
+    }
+  }
+  
+  /* Custom, iPhone Retina */ 
+  @media only screen and (max-width : 320px) {
+    #top-line {
+        box-shadow: none;
+    }
+    #options {
+        margin-left: 0px;
+    }
+    .activity {
+        font-size: 16px !important;
+        margin-left: 20px;
+    }
+    .home-icon {
+        font-size: 26px !important;
+        margin-left: 2px;
+    }
+  }

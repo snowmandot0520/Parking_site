@@ -39,12 +39,10 @@ class Homepage extends React.Component {
                     <Header/>
                     <Title/>
                     <br/>
-                    <br/>
-                    <br/>
-                    <UncontrolledAlert color="light" >
-                        Welcome to Landing Pad! Click an option below to get started. Happy parking!
+                    <UncontrolledAlert className="welcome-alert">
+                        Welcome to Landing Pad!<br/>Click an option below to get started.<br/>Happy parking!
                     </UncontrolledAlert>
-                     <div className=" fixed-bottom park-btn-div">
+                     <div className="fixed-bottom park-btn-div">
                         <Button outline color="primary" className="park-btn" href="/findrental">Find Parking Near Me</Button>
                         <Button outline color="primary" className="park-btn" href="/newspot">Upload a New Parking Spot</Button>
                     </div>

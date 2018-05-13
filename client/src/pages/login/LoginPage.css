@@ -189,8 +189,7 @@
   }
   
   /* Custom, iPhone Retina */ 
-  @media only screen and (max-width : 320px)
-   {
+  @media only screen and (max-width : 320px) {
     .title-description {
         font-size: 25px;   
     }
