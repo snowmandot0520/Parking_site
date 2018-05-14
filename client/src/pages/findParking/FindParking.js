@@ -19,8 +19,7 @@ class FindParking extends React.Component {
         this.state = {
             modal: false,
             address:'',
-            lat:'',
-            long:'',
+            coordinates:'',
             googleKey:'AIzaSyD0CbzacbBZXUg0C2cftLGr-p4GHFP0cAc',
             result:{}
             // parkwhizKey:'&api_key=4206ee6642163fb508fb9b94ba7b04481e07ddf8',
@@ -43,16 +42,21 @@ class FindParking extends React.Component {
         });
     };
 
-    searchMap = address => {
+    searchParking = address => {
 
-        if(this.state.address){
             API.searchMap(address)
             .then(mapData => {
-                API.searchParking(lat,long)
-                .then(parkingData => this.setState({result:mapData.data, parkingData:parkingData.data}))
+
+                console.log(mapData);
+                const lat = (mapData.data.results[0].geometry.location.lat).toString();
+                const lng = (mapData.data.results[0].geometry.location.lng).toString().slice(0,-1);
+                console.log(lat,lng);
+
+                API.searchParking(lat, lng)
+                .then(parkingData => this.setState({result:mapData.data, parkingData:parkingData.data}, console.log(parkingData)))
             })
             .catch(err => console.log(err))
-        }
+        
     }
 
     handleInputChange = event => {
@@ -64,7 +68,7 @@ class FindParking extends React.Component {
 
     handleFormSubmit = (event) =>{
         event.preventDefault();
-        this.searchMap(this.state.address);
+        this.searchParking(this.state.address);
     }
     // onGetStripeToken (token) {
     //     // Got Stripe token. This means user's card is valid!
@@ -105,8 +109,8 @@ class FindParking extends React.Component {
                     <div className="grn-hdr">
                         <Header/>
                     </div> 
-                    <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
-                    <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button>
+                    {/* <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
+                    <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button> */}
 
                     <div className="row text-center" id="second-line">
                         <div className="input-group mb-3">
