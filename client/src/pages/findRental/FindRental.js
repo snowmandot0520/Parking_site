@@ -259,8 +259,8 @@ class FindRental extends React.Component {
                                                 <ListGroup className="text-left">
                                                     <ListGroupItem>{e.address}</ListGroupItem>
                                                     <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
-                                                    <ListGroupItem className="small">TO DO: SHORT DESC</ListGroupItem>
-                                                    <ListGroupItem className="small">TO DO: LONG DESC</ListGroupItem>
+                                                    <ListGroupItem className="small"><b>Spot Type: </b>{e.shortDesc}</ListGroupItem>
+                                                    <ListGroupItem className="small"><b>Details:</b> {e.longDesc}</ListGroupItem>
                                                     <ListGroupItem className="small">
                                                         {(
                                                             e.availability.map((f, indexDate) => {
