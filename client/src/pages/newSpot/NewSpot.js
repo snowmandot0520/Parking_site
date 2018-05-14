@@ -39,6 +39,8 @@ class NewSpot extends React.Component {
             img: '',
             price: '',
             availability: [],
+            shortDesc: '',
+            longDesc: '',
             startDate: '',
             endDate: '',
             days: [
@@ -142,7 +144,7 @@ class NewSpot extends React.Component {
                                     id='price'
                                     onChange={this.updateState}
                                 />
-                                <Input type="select" name="spotType" id="spotType" placeholder='Spot Type'>
+                                <Input type="select" name="shortDesc" value={this.state.shortDesc} onChange={this.updateState} id="spotType" placeholder='Spot Type'>
                                     <option>Select Spot Type</option>
                                     <option>Residential Driveway</option>
                                     <option>Curb-side Spot</option>
@@ -152,8 +154,8 @@ class NewSpot extends React.Component {
                                 </Input>
                                 <input 
                                     type="textarea"
-                                    name='description'
-                                    value={this.state.descriptioin}
+                                    name='longDesc'
+                                    value={this.state.longDesc}
                                     placeholder='Spot Description'
                                     id='description'
                                     onChange={this.updateState}

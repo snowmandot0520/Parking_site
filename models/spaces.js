@@ -4,6 +4,8 @@ const Schema = mongoose.Schema
 const SpaceSchema = new Schema({
   userid: String,
   address: String,
+  shortDesc: String,
+  longDesc: String,
   zip: String,
   coord: String,
   img: String,
