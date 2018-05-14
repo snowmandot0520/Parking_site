@@ -9,7 +9,7 @@
 .false {
     width: 8%;
     display: inline-block;
-    background-color: rgb(162, 75, 75);
+    background-color: rgb(184, 63, 63);
     height: 18px;
     border-radius: 4px;
     margin: 4px;
@@ -21,7 +21,7 @@
 .true {
     width: 8%;
     display: inline-block;
-    background-color: rgb(57, 158, 52);
+    background-color: rgb(64, 170, 58);
     height: 18px;
     border-radius: 4px;
     margin: 4px;
@@ -33,7 +33,7 @@
 .temp {
     width: 8%;
     display: inline-block;
-    background-color: rgb(32, 134, 171);
+    background-color: rgb(47, 150, 187);
     height: 18px;
     border-radius: 4px;
     margin: 4px;
