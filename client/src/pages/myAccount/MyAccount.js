@@ -18,40 +18,46 @@ class MyAccount extends React.Component {
 
     render(){
         return(
-            <div className="container" id="solid-bckg">
+            <div id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
-                <div className="row">
-                    <div className="col-xs-12 justify-content-center" id="search-div">
-                        <div className ="text-center" id="spacer">
-                        <Container className="py-4">
+                <div className="row justify-content-center">
+                    <div className="col-xs-12 justify-content-center" id="account-div">
+                        <div className ="text-center" id="user-spacer">
+                        <Container className="py-4" id>
                             <h4>My Account</h4>
                             <Card outline color="secondary">
                                 <CardBody className="text-center">
                                     <CardTitle>Username</CardTitle>
-                                    <ListGroup className="text-left">
+                                    <ListGroup className="text-left" id="user-card">
                                         <ListGroupItem>
-                                            Username: username 
-                                            <Button color="secondary" size="sm" className="tiny-text">Edit</Button>
+                                            Username: <small>username</small> 
+                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                         <ListGroupItem>
-                                            blah blah blah
-                                            <Button color="secondary" size="sm" className="tiny-text">Edit</Button>
+                                            Payment Info: <br/> 
+                                            <p className="tiny-text">
+                                                Card Number: 0000 0000 0000 0000 <br/>
+                                                Expiration Date: 00/00 <br/>
+                                                 CVV: 000</p>
+                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                         <ListGroupItem>
-                                            blah blah blah
-                                            <Button color="secondary" size="sm" className="tiny-text">Edit</Button>
+                                            Billing Info: <br/> 
+                                            <p className="tiny-text">
+                                                Name: John Doe <br/>
+                                                Address: 000 Miscellaneous Dr., Some City, ST 00000</p>
+                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                         <ListGroupItem className="small">
                                             blah blah blah
-                                            <Button color="secondary" size="sm" className="tiny-text">Edit</Button>
+                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                         <ListGroupItem className="small">
                                             blah blah blah
-                                            <Button color="secondary" size="sm" className="tiny-text">Edit</Button>
+                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                     </ListGroup>
-                                    <br/>
-                                    <div className="new-btn-div text-center">
+                                    <div className="delete-btn-div text-center">
                                         <Button outline color="danger" className="delete-btn">Delete Account</Button>
                                     </div>
                                 </CardBody>

@@ -27,21 +27,18 @@ class Header extends React.Component {
       }
 
     logout = () => {
-      localStorage.removeItem('jwtToken');
-      window.location.replace('/');
+        localStorage.removeItem('jwtToken');
+        window.location.replace('/');
     }
 
     componentDidMount() {
-        
         const token = localStorage.getItem('jwtToken')
         const decoded = jwt_decode(token)
         console.log(decoded)
         this.setState({ user: decoded.username});
-        
-          
     }
     
-    render(){
+    render() {
         return(
             <div>
                 <div className="row" id="top-line">
