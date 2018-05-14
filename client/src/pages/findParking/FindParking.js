@@ -4,11 +4,12 @@ import Header from './../../components/header/Header';
 import Title from './../../components/title/Title';
 import Payment from './../../components/payment/Payment';
 import { Button, Modal, 
-    ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+    ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 import geocoder from './../../scripts/geocoder'
 
 
 import './FindParking.css';
+import API from '../../utils/API';
 
 
 class FindParking extends React.Component {
@@ -18,10 +19,10 @@ class FindParking extends React.Component {
         this.state = {
             modal: false,
             address:'',
-            lat:'',
-            long:'',
-            googleKey:'&key=AIzaSyD0CbzacbBZXUg0C2cftLGr-p4GHFP0cAc',
-            parkwhizKey:'&api_key=4206ee6642163fb508fb9b94ba7b04481e07ddf8',
+            coordinates:'',
+            googleKey:'AIzaSyD0CbzacbBZXUg0C2cftLGr-p4GHFP0cAc',
+            result:{}
+            // parkwhizKey:'&api_key=4206ee6642163fb508fb9b94ba7b04481e07ddf8',
             // isLoading: false,
             // stripeToken: null
         }
@@ -41,6 +42,23 @@ class FindParking extends React.Component {
         });
     };
 
+    searchParkingSpot = address => {
+
+            API.searchMap(address)
+            .then(mapData => {
+
+                console.log(mapData);
+                const lat = (mapData.data.results[0].geometry.location.lat).toString();
+                const lng = (mapData.data.results[0].geometry.location.lng).toString().slice(0,-1);
+                console.log(lat,lng);
+
+                API.searchParking(lat, lng)
+                .then(parkingData => this.setState({result:mapData.data, parkingData:parkingData.data}, console.log(parkingData)))
+            })
+            .catch(err => console.log(err))
+        
+    }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -50,6 +68,7 @@ class FindParking extends React.Component {
 
     handleFormSubmit = (event) =>{
         event.preventDefault();
+        this.searchParkingSpot(this.state.address);
     }
     // onGetStripeToken (token) {
     //     // Got Stripe token. This means user's card is valid!
@@ -77,7 +96,7 @@ class FindParking extends React.Component {
     // }
 
     render(){
-
+    
         // var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10"
         // var buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
         // if (this.state.stripeToken) {
@@ -90,14 +109,31 @@ class FindParking extends React.Component {
                     <div className="grn-hdr">
                         <Header/>
                     </div> 
-                    <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
-                    <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button>
+                    {/* <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
+                    <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button> */}
 
                     <div className="row text-center" id="second-line">
                         <div className="input-group mb-3">
-                            <input type="text" className="form-control" id="search-bar" placeholder="Search by Location" aria-label="Location Search" aria-describedby="basic-addon2" />
+                            <Input 
+                                type="text" 
+                                className="form-control" 
+                                id="search-bar" 
+                                placeholder="Search by Location" 
+                                aria-label="Location Search" 
+                                aria-describedby="basic-addon2" 
+                                
+                                name = "address"
+                                value = {this.state.address}
+                                onChange={this.handleInputChange}
+                                />
+
                             <div className="input-group-append">
-                                <button className="btn btn-outline-primary" type="button" id="search-button">Search</button>
+                                <button 
+                                    className="btn btn-outline-primary" 
+                                    type="button" 
+                                    id="search-button"
+                                    onClick={this.handleFormSubmit}
+                                    disabled={!(this.state.address)}>Search</button>
                             </div>
                         </div>
                         <div className="btn-group" role="group" aria-label="Basic example">
@@ -109,7 +145,14 @@ class FindParking extends React.Component {
 
                         <div className="row">
                         <div className="col-xs-12 justify-content-center" id="map-div">
-                            <img src="https://image.shutterstock.com/z/stock-photo-map-with-pins-markers-simple-flat-illustration-city-plan-with-streets-raster-version-633021710.jpg" alt="sample map" id="map" />
+                            {/* <img src="https://image.shutterstock.com/z/stock-photo-map-with-pins-markers-simple-flat-illustration-city-plan-with-streets-raster-version-633021710.jpg" alt="sample map" id="map" /> */}
+                            <iframe
+                                width="325"
+                                height="250"
+                                frameBorder="0"
+                                src={`https://www.google.com/maps/embed/v1/place?key=${this.state.googleKey}
+                                    &q=${this.state.address}`} allowFullScreen>
+                            </iframe>
                         </div>
                         </div>
 
