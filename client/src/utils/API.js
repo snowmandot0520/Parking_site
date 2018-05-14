@@ -9,7 +9,7 @@ const ParkWhizURL = "https://api.parkwhiz.com/v4/quotes/?q=coordinates:";
 
 export default {
     searchMap: function(address){
-        console.log("https://maps.googleapis.com/maps/api/geocode/json?address=");
+        console.log(GoogleMapURL + address + GoogleMapKEY);
         return axios.get(GoogleMapURL + address + GoogleMapKEY);
     },
 
