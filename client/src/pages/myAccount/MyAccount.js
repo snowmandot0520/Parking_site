@@ -3,7 +3,7 @@ import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
 import { Card, CardText, CardBody,
     CardTitle, Container, CardSubtitle, CardLink, Button, ListGroup, 
-    ListGroupItem } from 'reactstrap';
+    ListGroupItem, Input } from 'reactstrap';
 
 import './MyAccount.css';
 
@@ -30,7 +30,12 @@ class MyAccount extends React.Component {
                                     <CardTitle>Username</CardTitle>
                                     <ListGroup className="text-left" id="user-card">
                                         <ListGroupItem>
-                                            Username: <small>username</small> 
+                                            User Info: <br/> 
+                                                <p className="tiny-text">
+                                                    Username: username <br/>
+                                                    Password: ****** <br/>
+                                                    Phone Number: 000-000-000
+                                                </p>
                                             <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                         <ListGroupItem>
@@ -38,7 +43,8 @@ class MyAccount extends React.Component {
                                             <p className="tiny-text">
                                                 Card Number: 0000 0000 0000 0000 <br/>
                                                 Expiration Date: 00/00 <br/>
-                                                 CVV: 000</p>
+                                                 CVV: 000
+                                            </p>
                                             <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
                                         <ListGroupItem>
@@ -48,13 +54,12 @@ class MyAccount extends React.Component {
                                                 Address: 000 Miscellaneous Dr., Some City, ST 00000</p>
                                             <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
                                         </ListGroupItem>
-                                        <ListGroupItem className="small">
-                                            blah blah blah
-                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
-                                        </ListGroupItem>
-                                        <ListGroupItem className="small">
-                                            blah blah blah
-                                            <Button color="secondary" size="sm" className="tiny-text sm-btn">Edit</Button>
+                                        <ListGroupItem>
+                                            Notifications: 
+                                            <label class="switch">
+                                                <input type="checkbox" />
+                                                <span class="slider round"></span>
+                                            </label>    
                                         </ListGroupItem>
                                     </ListGroup>
                                     <div className="delete-btn-div text-center">

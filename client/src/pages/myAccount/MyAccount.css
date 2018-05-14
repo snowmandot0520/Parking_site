@@ -31,6 +31,7 @@
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 50px;
+    margin-top: 20px;
     width: 100%;
     min-width: 200px;
     max-width: 738px;
@@ -38,6 +39,62 @@
 #user-card {
     margin-bottom: 15px;
 }
+#notification {
+    right: 0;
+}
+     /* Notifications Toggle Button */
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            float: right;
+            width: 30px;
+            height: 17px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(204, 57, 57);
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: rgb(54, 204, 99);
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px rgb(54, 204, 99);
+        }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(13px);
+            -ms-transform: translateX(13px);
+            transform: translateX(13px);
+        }
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
 .delete-btn-div {
     margin-bottom: 0px;
 }
@@ -74,6 +131,9 @@
 
 /* Largest Devices */
 @media only screen and (min-width : 1200px) {
+    #account-div {
+        margin-top: 20px;
+    }
     .tiny-text {
         font-size: 12px;
     } 
@@ -87,11 +147,34 @@
         padding-bottom: 8px;
         font-weight: bold;
         font-size: 13px;
+    }
+    .switch {
+        width: 45px;
+        height: 25.5px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .slider:before {
+        height: 19.5px;
+        width: 19.5px;
+        left: 3px;
+        bottom: 3px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(19.5px);
+        -ms-transform: translateX(19.5px);
+        transform: translateX(19.5px);
+    }
+    .slider.round {
+        border-radius: 34px;
     }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
+    #account-div {
+        margin-top: 20px;
+    }
     .tiny-text {
         font-size: 12px;
     } 
@@ -105,11 +188,34 @@
         padding-bottom: 8px;
         font-weight: bold;
         font-size: 13px;
+    }
+    .switch {
+        width: 45px;
+        height: 25.5px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .slider:before {
+        height: 19.5px;
+        width: 19.5px;
+        left: 3px;
+        bottom: 3px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(19.5px);
+        -ms-transform: translateX(19.5px);
+        transform: translateX(19.5px);
+    }
+    .slider.round {
+        border-radius: 34px;
     }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
+    #account-div {
+        margin-top: 20px;
+    }
     .tiny-text {
         font-size: 12px;
     } 
@@ -124,10 +230,33 @@
         font-weight: bold;
         font-size: 13px;
     }
+    .switch {
+        width: 45px;
+        height: 25.5px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .slider:before {
+        height: 19.5px;
+        width: 19.5px;
+        left: 3px;
+        bottom: 3px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(19.5px);
+        -ms-transform: translateX(19.5px);
+        transform: translateX(19.5px);
+    }
+    .slider.round {
+        border-radius: 34px;
+    }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+    #account-div {
+        margin-top: 20px;
+    }
     .tiny-text {
         font-size: 11px;
     } 
@@ -140,10 +269,33 @@
         font-weight: bold;
         font-size: 13px;
     }
+    .switch {
+        width: 30px;
+        height: 17px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .slider:before {
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 2px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(13px);
+        -ms-transform: translateX(13px);
+        transform: translateX(13px);
+    }
+    .slider.round {
+        border-radius: 34px;
+    }
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
+    #account-div {
+        margin-top: 15px;
+    }
     .tiny-text {
         font-size: 10px;
     } 
@@ -155,12 +307,35 @@
         padding-right: 35px !important;
         font-size: 12px;
     }
+    .switch {
+        width: 30px;
+        height: 17px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .slider:before {
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 2px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(13px);
+        -ms-transform: translateX(13px);
+        transform: translateX(13px);
+    }
+    .slider.round {
+        border-radius: 34px;
+    }
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
+    #account-div {
+        margin-top: 15px;
+    }
     .tiny-text {
-        font-size: 10px;
+        font-size: 9px;
     } 
     .sm-btn {
         font-size: 9px;
@@ -169,5 +344,25 @@
         padding-left: 30px !important;
         padding-right: 30px !important;
         font-size: 11px;
+    }
+    .switch {
+        width: 30px;
+        height: 17px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .slider:before {
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 2px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(13px);
+        -ms-transform: translateX(13px);
+        transform: translateX(13px);
+    }
+    .slider.round {
+        border-radius: 34px;
     }
 }
