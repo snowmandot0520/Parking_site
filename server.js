@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/landingpad-auth', { promiseLibrary: require('bluebird') })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/landingpad-auth', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
