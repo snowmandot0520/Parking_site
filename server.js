@@ -10,10 +10,6 @@ var auth = require('./routes/auth');
 var app = express();
 const PORT = process.env.PORT || 3001;
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, './client/build/index.html'))
-})
-
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -28,9 +24,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'build')));
 
+
+
 // app.use('/api/account', account);
 app.use('/api/auth', auth);
 app.use('/spaces', spaces)
+
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, './client/build/index.html'))
+})
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
