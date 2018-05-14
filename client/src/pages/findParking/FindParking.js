@@ -42,7 +42,7 @@ class FindParking extends React.Component {
         });
     };
 
-    searchParking = address => {
+    searchParkingSpot = address => {
 
             API.searchMap(address)
             .then(mapData => {
@@ -68,7 +68,7 @@ class FindParking extends React.Component {
 
     handleFormSubmit = (event) =>{
         event.preventDefault();
-        this.searchParking(this.state.address);
+        this.searchParkingSpot(this.state.address);
     }
     // onGetStripeToken (token) {
     //     // Got Stripe token. This means user's card is valid!
