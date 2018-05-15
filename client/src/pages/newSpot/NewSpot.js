@@ -23,7 +23,6 @@ class NewSpot extends React.Component {
         } else {
             this.setState({ loggedIn: false, user: null })
             window.location.replace('/')
-
         }
     }
 
@@ -59,7 +58,6 @@ class NewSpot extends React.Component {
     }
 
     getCoord = (address) => {
-
     }
 
     updateTimes = () => {
@@ -104,163 +102,162 @@ class NewSpot extends React.Component {
         spacesApi.createSpace(this.state)
     }
 
-    
     render(){
         return(
-            <div className="container" id="solid-bckg">
+            <div id="solid-bckg">
                 <div className="grn-hdr"><Header/></div> 
-                <div className="row">
+                <div className="row justify-content-center">
                     <div className="col-xs-12 justify-content-center" id="form-div">
                         <div className ="text-center" id="spacer">
                             <Container className="py-4">
                                 <h4>New Spot</h4>
-                            <Card>
-                                <input 
-                                    name='address'
-                                    value={this.state.address}
-                                    placeholder='Address'
-                                    id='address'
-                                    onChange={this.updateState}
-                                />
-                                <input 
-                                    type='string'
-                                    name='zip'
-                                    id='zip'
-                                    placeholder='Zip Code'
-                                    value={this.state.zip}
-                                    onChange={this.updateState}
-                                />
-                                <input 
-                                    name='img'
-                                    value={this.state.img}
-                                    placeholder='Image URL'
-                                    id='img'
-                                    onChange={this.updateState}
-                                />
-                                <input 
-                                    name='price'
-                                    value={this.state.price}
-                                    placeholder='Price per Hour'
-                                    id='price'
-                                    onChange={this.updateState}
-                                />
-                                <Input type="select" name="shortDesc" value={this.state.shortDesc} onChange={this.updateState} id="spotType" placeholder='Spot Type'>
-                                    <option>Select Spot Type</option>
-                                    <option>Residential Driveway</option>
-                                    <option>Curb-side Spot</option>
-                                    <option>Private Parking Spot</option>
-                                    <option>Private Garage</option>
-                                    <option>Other</option>
-                                </Input>
-                                <input 
-                                    type="textarea"
-                                    name='longDesc'
-                                    value={this.state.longDesc}
-                                    placeholder='Spot Description'
-                                    id='description'
-                                    onChange={this.updateState}
-                                />
-                                <hr/>
-                                <div id="availability" className="text-center">  
-                                    <p id="small-title" className="text-center">Availability</p>
-                                    Start Date
+                                <Card>
                                     <input 
-                                        type='date'
-                                        id='start'
-                                        name='startDate'
-                                        value={this.state.startDate}
+                                        name='address'
+                                        value={this.state.address}
+                                        placeholder='Address'
+                                        id='address'
                                         onChange={this.updateState}
                                     />
-                                    <br/>
-                                    End Date
                                     <input 
-                                        type='date'
-                                        name='endDate'
-                                        value={this.state.endDate}
-                                        id='end'
+                                        type='string'
+                                        name='zip'
+                                        id='zip'
+                                        placeholder='Zip Code'
+                                        value={this.state.zip}
                                         onChange={this.updateState}
                                     />
-                                    <br/>
-                                    Sun
                                     <input 
-                                        type='checkbox'
-                                        name='sun'
-                                        value={this.state.sun}
-                                        id='sun'
+                                        name='img'
+                                        value={this.state.img}
+                                        placeholder='Image URL'
+                                        id='img'
                                         onChange={this.updateState}
                                     />
-                                    Mon
                                     <input 
-                                        type='checkbox'
-                                        name='mon'
-                                        value={this.state.mon}
-                                        id='mon'
+                                        name='price'
+                                        value={this.state.price}
+                                        placeholder='Price per Hour'
+                                        id='price'
                                         onChange={this.updateState}
                                     />
-                                    Tues
+                                    <Input type="select" name="shortDesc" value={this.state.shortDesc} onChange={this.updateState} id="spotType" placeholder='Spot Type'>
+                                        <option>Select Spot Type</option>
+                                        <option>Residential Driveway</option>
+                                        <option>Curb-Side Spot</option>
+                                        <option>Private Parking Spot</option>
+                                        <option>Private Garage</option>
+                                        <option>Other</option>
+                                    </Input>
                                     <input 
-                                        type='checkbox'
-                                        name='tues'
-                                        value={this.state.tues}
-                                        id='tues'
+                                        type="textarea"
+                                        name='longDesc'
+                                        value={this.state.longDesc}
+                                        placeholder='Spot Description'
+                                        id='description'
                                         onChange={this.updateState}
                                     />
-                                    Wed
-                                    <input 
-                                        type='checkbox'
-                                        name='wed'
-                                        value={this.state.wed}
-                                        id='wed'
-                                        onChange={this.updateState}
-                                    />
-                                    <br/>
-                                    Thurs
-                                    <input 
-                                        type='checkbox'
-                                        name='thurs'
-                                        value={this.state.thurs}
-                                        id='thurs'
-                                        onChange={this.updateState}
-                                    />
-                                    Fri
-                                    <input 
-                                        type='checkbox'
-                                        name='fri'
-                                        value={this.state.fri}
-                                        id='fri'
-                                        onChange={this.updateState}
-                                    />
-                                    Sat
-                                    <input 
-                                        type='checkbox'
-                                        name='sat'
-                                        value={this.state.sat}
-                                        id='sat'
-                                        onChange={this.updateState}
-                                    />
-                                    <br/>
-                                    Start Time
-                                    <input 
-                                        type='text'
-                                        name='startTime'
-                                        placeholder='1-24'
-                                        value={this.state.startTime}
-                                        id='startTime'
-                                        onChange={this.updateState}
-                                    />
-                                    <br/>
-                                    End Time
-                                    <input 
-                                        type='text'
-                                        name='endTime'
-                                        placeholder='1-24'
-                                        value={this.state.endTime}
-                                        id='endTime'
-                                        onChange={this.updateState}
-                                    />
-                                </div>
-                                <button id='submit-button' onClick={() => this.compileTime()}>Submit</button>
-                            </Card>
+                                    <hr/>
+                                    <div id="availability" className="text-center">  
+                                        <p id="small-title" className="text-center">Availability</p>
+                                        Start Date
+                                        <input 
+                                            type='date'
+                                            id='start'
+                                            name='startDate'
+                                            value={this.state.startDate}
+                                            onChange={this.updateState}
+                                        />
+                                        <br/>
+                                        End Date
+                                        <input 
+                                            type='date'
+                                            name='endDate'
+                                            value={this.state.endDate}
+                                            id='end'
+                                            onChange={this.updateState}
+                                        />
+                                        <br/>
+                                        Sun
+                                        <input 
+                                            type='checkbox'
+                                            name='sun'
+                                            value={this.state.sun}
+                                            id='sun'
+                                            onChange={this.updateState}
+                                        />
+                                        Mon
+                                        <input 
+                                            type='checkbox'
+                                            name='mon'
+                                            value={this.state.mon}
+                                            id='mon'
+                                            onChange={this.updateState}
+                                        />
+                                        Tues
+                                        <input 
+                                            type='checkbox'
+                                            name='tues'
+                                            value={this.state.tues}
+                                            id='tues'
+                                            onChange={this.updateState}
+                                        />
+                                        Wed
+                                        <input 
+                                            type='checkbox'
+                                            name='wed'
+                                            value={this.state.wed}
+                                            id='wed'
+                                            onChange={this.updateState}
+                                        />
+                                        <br/>
+                                        Thurs
+                                        <input 
+                                            type='checkbox'
+                                            name='thurs'
+                                            value={this.state.thurs}
+                                            id='thurs'
+                                            onChange={this.updateState}
+                                        />
+                                        Fri
+                                        <input 
+                                            type='checkbox'
+                                            name='fri'
+                                            value={this.state.fri}
+                                            id='fri'
+                                            onChange={this.updateState}
+                                        />
+                                        Sat
+                                        <input 
+                                            type='checkbox'
+                                            name='sat'
+                                            value={this.state.sat}
+                                            id='sat'
+                                            onChange={this.updateState}
+                                        />
+                                        <br/>
+                                        Start Time
+                                        <input 
+                                            type='text'
+                                            name='startTime'
+                                            placeholder='1-24 (hours)'
+                                            value={this.state.startTime}
+                                            id='startTime'
+                                            onChange={this.updateState}
+                                        />
+                                        <br/>
+                                        End Time
+                                        <input 
+                                            type='text'
+                                            name='endTime'
+                                            placeholder='1-24 (hours)'
+                                            value={this.state.endTime}
+                                            id='endTime'
+                                            onChange={this.updateState}
+                                        />
+                                    </div>
+                                    <button id='submit-button' onClick={() => this.compileTime()}>Submit</button>
+                                </Card>
                             </Container>  
                         </div>
                     </div>

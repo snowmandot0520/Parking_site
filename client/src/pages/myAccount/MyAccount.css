@@ -17,7 +17,7 @@
 .container {
     max-width: none;
 }
-#user-spacer {
+#spacer {
     background-color: white;
     margin: 0px;
     margin-bottom: 10px;
@@ -33,6 +33,9 @@
     width: 100%;
     min-width: 200px;
     max-width: 738px;
+}
+#outer-card {
+    border: solid rgb(170, 170, 170) 1px;
 }
 #user-card {
     margin-bottom: 15px;

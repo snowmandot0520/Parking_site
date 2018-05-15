@@ -51,7 +51,6 @@ class Homepage extends React.Component {
             </div>
         )
     }
-
 }
 
 export default Homepage;
