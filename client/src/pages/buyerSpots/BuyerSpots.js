@@ -71,7 +71,7 @@ class BuyerSpots extends React.Component {
             this.setState({ loggedIn: false, user: null })
             window.location.replace('/')
             console.log('jeb')
-        }
+        };
     }
 
     render() {
@@ -79,7 +79,7 @@ class BuyerSpots extends React.Component {
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
                 
-                <div className="row">
+                <div className="row justify-content-center">
                     <div className="col-xs-12 justify-content-center" id="spots-div">
                         <div className ="text-center" id="spacer">
                         <Container className="py-4">
