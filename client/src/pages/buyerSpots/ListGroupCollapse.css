@@ -9,10 +9,7 @@
     box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
     /* max-width: 300px; */
 }
-.tiny-text {
-    font-size: 9px;
-}
-.imgToggle {
+.rental-img {
     margin-bottom: 10px;
     width: 90%;
 }

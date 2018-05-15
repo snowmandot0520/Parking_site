@@ -31,15 +31,15 @@ class ListGroupCollapse extends React.Component {
                             <CardSubtitle>
                                 {cat.spotType}  
                             </CardSubtitle>
-                            <CardText className="text-left">
-                                    {cat.address} <br/>
-                                    Price per Hour: {cat.price} <br/>
-                                    Spot Description: {cat.spotDescription}
+                            <CardText className="text-left rent-details">
+                                    Address: <small>{cat.address}</small> <br/>
+                                    Price per Hour: <small>{cat.price}</small> <br/>
+                                    Spot Description: <small>{cat.spotDescription}</small>
                             </CardText> 
-                            <CardImg className="imgToggle" top width="100%" src={cat.spotImg} alt="Parking Image"/> 
+                            <CardImg className="rental-img" top width="100%" src={cat.spotImg} alt="Parking Image"/> 
                             <br/>
-                            <Button size="sm" color="info" id="deleteRental">Edit</Button>{" "}
-                            <Button size="sm" color="info" id="deleteRental">Delete </Button>
+                            <Button size="sm" color="info" className="rental-btns" id="edit-btn">Edit</Button>{" "}
+                            <Button size="sm" color="info" className="rental-btns">Delete </Button>
                             <br/>
                             </div>
                         </Card>
