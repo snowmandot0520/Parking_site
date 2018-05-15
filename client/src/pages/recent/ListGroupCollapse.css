@@ -9,6 +9,25 @@
     box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
     /* max-width: 300px; */
 }
+.rent-details {
+    width: 90%;
+    margin: 0 auto;
+}
+.rental-img {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    width: 90%;
+}
+.dtls-btn {
+    font-size: 9px;
+    margin-bottom: 8px;
+    margin-top: 0px;
+}
+.add-btn {
+    font-size: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
 
 /* ============================================== */
 /* MEDIA QUERIES */
@@ -20,6 +39,16 @@
         max-width: 550px;
         margin-bottom: 30px;
     }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .add-btn {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
 }
 
 /* Large Devices, Wide Screens */
@@ -27,6 +56,16 @@
     .border {
         max-width: 550px;
         margin-bottom: 30px;
+    }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .add-btn {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
     }
 }
 
@@ -36,6 +75,16 @@
         max-width: 550px;
         margin-bottom: 30px;
     }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .add-btn {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
 }
 
 /* Small Devices, Tablets */
@@ -44,6 +93,16 @@
         max-width: 550px;
         margin-bottom: 15px;
     }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .add-btn {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
 }
 
 /* Extra Small Devices, Phones */ 
@@ -51,11 +110,31 @@
     .border {
         margin-bottom: 0px;
     }
+    .dtls-btn {
+        font-size: 9px;
+        margin-bottom: 8px;
+        margin-top: 0px;
+    }
+    .add-btn {
+        font-size: 10px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
     .border {
         margin-bottom: 0px;
+    }
+    .dtls-btn {
+        font-size: 9px;
+        margin-bottom: 8px;
+        margin-top: 0px;
+    }
+    .add-btn {
+        font-size: 10px;
+        margin-bottom: 10px;
+        margin-top: 5px;
     }
 }

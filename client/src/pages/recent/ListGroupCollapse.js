@@ -29,19 +29,17 @@ class ListGroupCollapse extends React.Component {
                                 <strong>{cat.spotName}</strong>
                             </CardTitle>
                             <CardSubtitle>
-                                {cat.dateUsed}
+                                Used on {cat.dateUsed}
                             </CardSubtitle>
-                            <CardImg className="imgToggle" top width="100%" src={cat.spotImg} alt="Parking Spot Image" />
-                            <Button color="secondary" size="sm" className="tiny-text" onClick={this.toggle}>Click for Details</Button>
+                            <CardImg className="rental-img" top width="100%" src={cat.spotImg} alt="Parking Spot Image" />
+                            <Button color="secondary" size="sm" className="dtls-btn" onClick={this.toggle}>Click for Details</Button>
                             <Collapse isOpen={this.state.collapse}>
-                                <CardText>
-                                    {cat.timesUsed} <br/>
-                                    {cat.pricePaid} <br/>
-                                    {cat.address}
+                                <CardText className="text-left rent-details">
+                                    Time Used: <small>{cat.timesUsed}</small> <br/>
+                                    Amount Paid: <small>{cat.pricePaid}</small> <br/>
+                                    Address: <small>{cat.address}</small>
                                 </CardText> 
-                                <Button size="sm" color="info">Add To Favorites</Button>
-                                <br/>
-                                <br/>
+                                <Button size="sm" color="info" className="add-btn">Add To Favorites</Button>
                             </Collapse>  
                             </div>
                         </Card>
