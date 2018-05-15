@@ -23,6 +23,7 @@ class FindParking extends React.Component {
             // parkingPlaces:[],
             parkingAddress:'',
             parkingName:'',
+            parkingPrice:'',
             // isLoading: false,
             // stripeToken: null
         }
@@ -60,11 +61,17 @@ class FindParking extends React.Component {
                         
                         const parkingAddress = parkingData.data[i]._embedded["pw:location"].address1;
                         const parkingName = parkingData.data[i]._embedded["pw:location"].name;
+                        let parkingPrice = ''
                         
-                        //ASK alper
-                        // const parkingPrice = parkingData.data[i].purchase_options["0"].price.USD;
+                        if(parkingData.data[i].purchase_options[0]){
+                            parkingPrice = parkingData.data[i].purchase_options[0].price.USD;
+                        }else {
+                            parkingPrice = "Price data is not available."
+                        }
+
                         console.log(parkingAddress, parkingName);
-                        this.setState({parkingAddress:parkingAddress, parkingName: parkingName})
+                        console.log(parkingPrice)
+                        this.setState({parkingAddress:parkingAddress, parkingName: parkingName, parkingPrice:parkingPrice})
                         // const parkingPlaces = this.state.parkingPlaces.push(parkingAddress, parkingName);
                         // console.log(parkingPlaces);
                         
@@ -87,6 +94,7 @@ class FindParking extends React.Component {
 
     handleFormSubmit = (event) =>{
         event.preventDefault();
+        
         this.searchParkingSpot(this.state.address);
     }
 
@@ -193,7 +201,8 @@ class FindParking extends React.Component {
                                         <CardBody>
                                             <CardTitle>Park Name: {this.state.parkingName}</CardTitle>
                                             <CardText>Address: {this.state.parkingAddress}</CardText>
-                                            <Button onClick={this.findParking}>Find</Button>
+                                            <CardText>Price: ${this.state.parkingPrice}</CardText>
+                                            <Button onClick={this.findParking}>Find the Nearest Parking</Button>
                                         </CardBody>
                                     </Card>
                                     {/* ) */}
