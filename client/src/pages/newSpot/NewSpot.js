@@ -111,7 +111,7 @@ class NewSpot extends React.Component {
                         <div className ="text-center" id="spacer">
                             <Container className="py-4">
                                 <h4>New Spot</h4>
-                                <Card>
+                                <Card id="main-card">
                                     <input 
                                         name='address'
                                         value={this.state.address}
@@ -157,7 +157,7 @@ class NewSpot extends React.Component {
                                         id='description'
                                         onChange={this.updateState}
                                     />
-                                    <hr/>
+                                    <hr id="divider"></hr>
                                     <div id="availability" className="text-center">  
                                         <p id="small-title" className="text-center">Availability</p>
                                         Start Date
@@ -172,9 +172,9 @@ class NewSpot extends React.Component {
                                         End Date
                                         <input 
                                             type='date'
+                                            id='end'
                                             name='endDate'
                                             value={this.state.endDate}
-                                            id='end'
                                             onChange={this.updateState}
                                         />
                                         <br/>
@@ -256,8 +256,10 @@ class NewSpot extends React.Component {
                                             onChange={this.updateState}
                                         />
                                     </div>
-                                    <button id='submit-button' onClick={() => this.compileTime()}>Submit</button>
                                 </Card>
+                                <div id="submit-div">
+                                    <button id='submit-button' onClick={() => this.compileTime()}>Submit</button>
+                                </div>
                             </Container>  
                         </div>
                     </div>
