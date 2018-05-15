@@ -22,7 +22,7 @@ class ListGroupCollapse extends React.Component {
         <div>
             <Container fluid className="full-height" id="card-block">
                 <Row className="h-100 justify-content-center full-height align-items-center">
-                    <Col  className="p-0">
+                    <Col q className="p-0">
                         <Card className="border">
                             <div>
                             <CardTitle>
@@ -40,7 +40,7 @@ class ListGroupCollapse extends React.Component {
                             <br/>
                             <Button size="sm" color="info" id="deleteRental">Edit</Button>{" "}
                             <Button size="sm" color="info" id="deleteRental">Delete </Button>
-                                <br/>
+                            <br/>
                             </div>
                         </Card>
                     </Col>
