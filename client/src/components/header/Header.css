@@ -3,6 +3,7 @@
     width: 100%;
     margin: 0;
     padding-top: 10px;
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
 }
     #options {
         width: 80%;
@@ -74,9 +75,6 @@ a {
 
 /* Largest Devices */
 @media only screen and (min-width : 1200px) {
-    #top-line {
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-    }
     #options {
         margin-left: 80px;
     }
@@ -92,9 +90,6 @@ a {
   
   /* Large Devices, Wide Screens */
   @media only screen and (max-width : 1200px) {
-    #top-line {
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-    }
     #options {
         margin-left: 70px;
     }
@@ -110,9 +105,6 @@ a {
   
   /* Medium Devices, Desktops */
   @media only screen and (max-width : 992px) {
-    #top-line {
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-    }
     #options {
         margin-left: 0px;
     }
@@ -128,9 +120,6 @@ a {
   
   /* Small Devices, Tablets */
   @media only screen and (max-width : 768px) {
-    #top-line {
-        box-shadow: none;
-    }
     #options {
         margin-left: 0px;
     }
@@ -146,9 +135,6 @@ a {
   
   /* Extra Small Devices, Phones */ 
   @media only screen and (max-width : 480px) {
-    #top-line {
-        box-shadow: none;
-    }
     #options {
         margin-left: 0px;
     }
@@ -164,9 +150,6 @@ a {
   
   /* Custom, iPhone Retina */ 
   @media only screen and (max-width : 320px) {
-    #top-line {
-        box-shadow: none;
-    }
     #options {
         margin-left: 0px;
     }
