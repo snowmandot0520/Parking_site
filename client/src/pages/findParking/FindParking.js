@@ -144,16 +144,17 @@ class FindParking extends React.Component {
                         </div>
 
                         <div className="row">
-                        <div className="col-xs-12 justify-content-center" id="map-div">
-                            {/* <img src="https://image.shutterstock.com/z/stock-photo-map-with-pins-markers-simple-flat-illustration-city-plan-with-streets-raster-version-633021710.jpg" alt="sample map" id="map" /> */}
-                            <iframe
-                                width="325"
-                                height="250"
-                                frameBorder="0"
-                                src={`https://www.google.com/maps/embed/v1/place?key=${this.state.googleKey}
-                                    &q=${this.state.address}`} allowFullScreen>
-                            </iframe>
-                        </div>
+                            <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center" id="map-div">
+                                {/* <img src="https://image.shutterstock.com/z/stock-photo-map-with-pins-markers-simple-flat-illustration-city-plan-with-streets-raster-version-633021710.jpg" alt="sample map" id="map" /> */}
+                                <iframe
+                                    width="350"
+                                    height="250"
+                                    frameBorder="0"
+                                    src={`https://www.google.com/maps/embed/v1/place?q=${this.state.address}
+                                    &key=${this.state.googleKey}`} allowFullScreen>
+
+                                </iframe>
+                            </div>
                         </div>
 
                         <div className=" fixed-bottom new-btn-div text-center">
