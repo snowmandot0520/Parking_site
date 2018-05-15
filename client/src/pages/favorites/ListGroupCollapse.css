@@ -1,8 +1,140 @@
+/* #card-block {
+    display: inline;
+} */
 .border {
     border-color: #6c757d!important;
+    background-color: rgb(252, 252, 252);
     padding: 5px;
+    margin-bottom: 0px;
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    /* max-width: 300px; */
+}
+.rent-details {
+    width: 90%;
+    margin: 0 auto;
+}
+.rental-img {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    width: 90%;
+}
+.dtls-btn {
+    font-size: 9px;
+    margin-bottom: 8px;
+    margin-top: 0px;
+}
+.fav-btns {
+    font-size: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
-.tiny-text {
-    font-size: 9px;
+/* ============================================== */
+/* MEDIA QUERIES */
+/* ============================================== */
+
+/* Largest Devices */
+@media only screen and (min-width : 1200px) {
+    .border {
+        max-width: 550px;
+        margin-bottom: 30px;
+    }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .fav-btns {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .border {
+        max-width: 550px;
+        margin-bottom: 30px;
+    }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .fav-btns {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .border {
+        max-width: 550px;
+        margin-bottom: 30px;
+    }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .fav-btns {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .border {
+        max-width: 550px;
+        margin-bottom: 15px;
+    }
+    .dtls-btn {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+    .fav-btns {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+    .border {
+        margin-bottom: 0px;
+    }
+    .dtls-btn {
+        font-size: 9px;
+        margin-bottom: 8px;
+        margin-top: 0px;
+    }
+    .fav-btns {
+        font-size: 10px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    .border {
+        margin-bottom: 0px;
+    }
+    .dtls-btn {
+        font-size: 9px;
+        margin-bottom: 8px;
+        margin-top: 0px;
+    }
+    .fav-btns {
+        font-size: 10px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
 }
