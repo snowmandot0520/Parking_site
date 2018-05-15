@@ -37,7 +37,7 @@ class ListGroupCollapse extends React.Component {
                                     Spot Description: {cat.spotDescription}        
                             </CardText> 
                             
-                            <CardImg className="imgToggle" top width="100%" src={cat.img} alt="Parking Image"/> 
+                            <CardImg className="rental-img" top width="100%" src={cat.img} alt="Parking Image"/> 
                             <br/>
                             {cat.times.forEach(t => {
                                 <div>times: {t}</div>
