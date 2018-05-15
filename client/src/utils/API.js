@@ -14,7 +14,7 @@ export default {
     },
 
     searchParking: function(lat, lng){
-        console.log(ParkWhizURL + lat + lng + "&start_time=2018-05-01T12:00&end_time=2019-12-01T20:00&returns=offstreet_bookable" + ParkWhizKEY);
-        return axios.get(ParkWhizURL + lat +","+ lng + "&start_time=2018-05-01T12:00&end_time=2019-12-01T20:00&returns=offstreet_bookable" + ParkWhizKEY);
+        console.log(ParkWhizURL + lat + lng + "&start_time=2018-05-14T12:00&end_time=2018-05-14T20:00" + ParkWhizKEY);
+        return axios.get(ParkWhizURL + lat +","+ lng + "&start_time=2018-05-14T12:00&end_time=2018-05-14T20:00" + ParkWhizKEY);
     }
 }
