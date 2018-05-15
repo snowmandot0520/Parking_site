@@ -4,7 +4,7 @@ import Header from './../../components/header/Header';
 import Title from './../../components/title/Title';
 import Payment from './../../components/payment/Payment';
 import { Button, Modal, 
-    ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+    ModalHeader, ModalBody, ModalFooter, Input, Card, CardText, CardTitle, CardBody } from 'reactstrap';
 import geocoder from './../../scripts/geocoder'
 
 
@@ -19,10 +19,10 @@ class FindParking extends React.Component {
         this.state = {
             modal: false,
             address:'',
-            coordinates:'',
             googleKey:'AIzaSyD0CbzacbBZXUg0C2cftLGr-p4GHFP0cAc',
-            result:{}
-            // parkwhizKey:'&api_key=4206ee6642163fb508fb9b94ba7b04481e07ddf8',
+            // parkingPlaces:[],
+            parkingAddress:'',
+            parkingName:'',
             // isLoading: false,
             // stripeToken: null
         }
@@ -44,18 +44,37 @@ class FindParking extends React.Component {
 
     searchParkingSpot = address => {
 
-            API.searchMap(address)
-            .then(mapData => {
+        API.searchMap(address)
+        .then(mapData => {
 
-                console.log(mapData);
-                const lat = (mapData.data.results[0].geometry.location.lat).toString();
-                const lng = (mapData.data.results[0].geometry.location.lng).toString().slice(0,-1);
-                console.log(lat,lng);
+            console.log(mapData);
+            const lat = (mapData.data.results[0].geometry.location.lat).toString();
+            const lng = (mapData.data.results[0].geometry.location.lng).toString().slice(0,-1);
+            console.log(lat,lng);
 
-                API.searchParking(lat, lng)
-                .then(parkingData => this.setState({result:mapData.data, parkingData:parkingData.data}, console.log(parkingData)))
-            })
-            .catch(err => console.log(err))
+            API.searchParking(lat, lng)
+            .then(parkingData => {
+                    console.log(parkingData);
+                    
+                    for(let i = 0; i < parkingData.data.length; i++){
+                        
+                        const parkingAddress = parkingData.data[i]._embedded["pw:location"].address1;
+                        const parkingName = parkingData.data[i]._embedded["pw:location"].name;
+                        
+                        //ASK alper
+                        // const parkingPrice = parkingData.data[i].purchase_options["0"].price.USD;
+                        console.log(parkingAddress, parkingName);
+                        this.setState({parkingAddress:parkingAddress, parkingName: parkingName})
+                        // const parkingPlaces = this.state.parkingPlaces.push(parkingAddress, parkingName);
+                        // console.log(parkingPlaces);
+                        
+                    
+                    }
+                    
+                }
+            )
+        })
+        .catch(err => console.log(err))
         
     }
 
@@ -69,6 +88,12 @@ class FindParking extends React.Component {
     handleFormSubmit = (event) =>{
         event.preventDefault();
         this.searchParkingSpot(this.state.address);
+    }
+
+    findParking = (event) => {
+        event.preventDefault();
+        this.state.address = this.state.parkingAddress +" " + this.state.parkingName;
+        this.searchParkingSpot(this.state.parkingAddress, this.state.parkingName)
     }
     // onGetStripeToken (token) {
     //     // Got Stripe token. This means user's card is valid!
@@ -154,6 +179,30 @@ class FindParking extends React.Component {
                                     &key=${this.state.googleKey}`} allowFullScreen>
 
                                 </iframe>
+
+                            </div>
+
+                            
+                            <div className="card-body">
+                            {this.state.parkingAddress ? (
+                                <div>
+                                {/* {this.state.parkingPlaces.map(places => { */}
+                                    {/* console.log(places); */}
+                                    {/* return( */}
+                                    <Card>
+                                        <CardBody>
+                                            <CardTitle>Park Name: {this.state.parkingName}</CardTitle>
+                                            <CardText>Address: {this.state.parkingAddress}</CardText>
+                                            <Button onClick={this.findParking}>Find</Button>
+                                        </CardBody>
+                                    </Card>
+                                    {/* ) */}
+                                {/* })} */}
+                                </div>
+                                ) : (
+
+                                <h3>Please, search for a parking location.</h3>
+                            )}
                             </div>
                         </div>
 
