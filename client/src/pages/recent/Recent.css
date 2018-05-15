@@ -15,6 +15,9 @@
         text-decoration: underline;
         color: white;
     }
+.container {
+    max-width: none;
+}
 #activity-div {
     margin-top: 15px;
     margin-left: 30px;

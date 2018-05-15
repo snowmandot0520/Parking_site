@@ -31,7 +31,7 @@ class ListGroupCollapse extends React.Component {
                             <CardSubtitle>
                                 {cat.spotType}  
                             </CardSubtitle>
-                            <CardText className="text-left">
+                            <CardText className="text-left rent-details">
                                     {cat.address} <br/>
                                     Price per Hour: ${cat.price}.00<br/>
                                     Spot Description: {cat.spotDescription}        
@@ -42,8 +42,8 @@ class ListGroupCollapse extends React.Component {
                             {cat.times.forEach(t => {
                                 <div>times: {t}</div>
                             })}
-                            <Button size="sm" color="info" id="deleteRental">Edit</Button>{" "}
-                            <Button size="sm" color="info" id="deleteRental">Delete </Button>
+                            <Button size="sm" color="info" className="rental-btns" id="edit-btn">Edit Reservation</Button>{" "}
+                            <Button size="sm" color="info" className="rental-btns">Delete Reservation</Button>
                             <br/>
                             </div>
                         </Card>
