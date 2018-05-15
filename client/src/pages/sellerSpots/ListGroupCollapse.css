@@ -1,12 +1,58 @@
+#card-block {
+    /* display: inline; */
+}
 .border {
     border-color: #6c757d!important;
     padding: 5px;
+    /* max-width: 300px; */
 }
-
 .tiny-text {
     font-size: 9px;
 }
 .imgToggle {
     margin-bottom: 10px;
     width: 90%;
+}
+
+ 
+/* ============================================== */
+/* MEDIA QUERIES */
+/* ============================================== */
+
+/* Largest Devices */
+@media only screen and (min-width : 1200px) {
+    .border {
+        max-width: 550px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .border {
+        max-width: 550px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .border {
+        max-width: 550px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .border {
+        max-width: 550px;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+   
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+   
 }
