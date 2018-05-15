@@ -8,6 +8,8 @@ import spacesClient from './../../scripts/spacesClient'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import './FindRental.css';
+import geocoder from './../../scripts/geocoder'
+
 
 class FindRental extends React.Component {
     
@@ -17,6 +19,7 @@ class FindRental extends React.Component {
             loggedIn: '',
             user: '',
             userId: '',
+            destAdd: '',
             zip: '',
             spaces: [],
             toRent: [],
@@ -24,7 +27,8 @@ class FindRental extends React.Component {
             cDate: '',
             tDate: '',
             rentedSpacesUser: [],
-            userRentedDB: { }
+            userRentedDB: { },
+            apiKey: 'AIzaSyDz9l4M_Hjs0BXevxJN93Ptep60_0XIVkI'
         }
     }
 
@@ -184,8 +188,20 @@ class FindRental extends React.Component {
             .then(data => {
                 // console.log(data)
                 // console.log(this.state)  
-                this.setState({ spaces:data.data })
-                console.log(this.state)
+                var addressArray = data.data
+                console.log(addressArray)
+                addressArray.forEach(e => {
+                    console.log(e.address, this.state.destAdd)
+                    axios
+                        .get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${e.address}&destinations=${this.state.destAdd}&mode=driving&language=en-EN&key=${this.state.apiKey}`)
+                        .then(data => {
+                            console.log(data.data.rows[0].elements[0].distance.text)
+                            e.coord = data.data.rows[0].elements[0].distance.text
+                        })
+                        .catch(err => console.log(err))
+                })
+                this.setState({ spaces:addressArray })
+                
             })
             .catch(err => console.log(err))
     }
@@ -206,10 +222,20 @@ class FindRental extends React.Component {
     render(){
         return(
             <div className="container" id="solid-bckg">
+            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
                <div className="grn-hdr"><Header/></div> 
             
                 <div className="row text-center" id="second-line">
                     <div className="input-group mb-3">
+                        <input 
+                            name='destAdd'
+                            value={this.state.destAdd}
+                            id='search-bar'
+                            onChange={this.updateState}
+                            className='form-control'
+                            placeholder='Address ex: 123 Internet St, CA'
+                        />
+                    
                         <input 
                             type="text" 
                             name='zip'
@@ -217,7 +243,7 @@ class FindRental extends React.Component {
                             onChange={this.updateState}
                             className="form-control" 
                             id="search-bar" 
-                            placeholder="Search by Location" 
+                            placeholder="ZIP Code" 
                             aria-label="Location Search" 
                             aria-describedby="basic-addon2" />
                         <div className="input-group-append">
@@ -229,11 +255,6 @@ class FindRental extends React.Component {
                                 Search
                             </button>
                         </div>
-                    </div>
-                    <div className="btn-group" role="group" aria-label="Basic example">
-                        <Button type="button" className="btn btn-outline-primary home-buttons">Nearby</Button>
-                        <Button type="button" className="btn btn-outline-primary home-buttons">Recent</Button>
-                        <Button type="button" className="btn btn-outline-primary home-buttons" href="/favorites">Favorites</Button>
                     </div>
                 </div>
 
@@ -248,6 +269,7 @@ class FindRental extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
                         <div className ="" id="spacer">
+                            {this.state.spaces.length === 0 && <Card>Try searching for a different location!</Card>}
                             {(
                                 this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
                                     return (
@@ -255,7 +277,7 @@ class FindRental extends React.Component {
                                             <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
                                             <CardBody className="text-center">
                                                 <CardTitle>{e.address}</CardTitle>
-                                                <CardSubtitle>TO DO: DISTANCE</CardSubtitle>
+                                                <CardSubtitle><b>Distance: </b>{e.coord}</CardSubtitle>
                                                 <ListGroup className="text-left">
                                                     <ListGroupItem>{e.address}</ListGroupItem>
                                                     <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
@@ -318,3 +340,11 @@ class FindRental extends React.Component {
 }
 
 export default FindRental;
+
+
+const buttons = `
+<div className="btn-group" role="group" aria-label="Basic example">
+    <Button type="button" className="btn btn-outline-primary home-buttons">Nearby</Button>
+    <Button type="button" className="btn btn-outline-primary home-buttons">Recent</Button>
+    <Button type="button" className="btn btn-outline-primary home-buttons" href="/favorites">Favorites</Button>
+</div>`
