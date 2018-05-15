@@ -22,7 +22,7 @@ class Homepage extends React.Component {
     componentDidMount() {
       if(localStorage.getItem('jwtToken')) {
         const token = localStorage.getItem('jwtToken')
-        const decoded = jwt_decode(token)
+        // const decoded = jwt_decode(token)
         // console.log(decoded)
         this.setState({ loggedIn: true, user: token.username, userid: token._id });
       }

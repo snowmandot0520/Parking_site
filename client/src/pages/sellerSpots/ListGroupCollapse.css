@@ -4,6 +4,7 @@
 .border {
     border-color: #6c757d!important;
     padding: 5px;
+    margin-bottom: 0px;
     /* max-width: 300px; */
 }
 .tiny-text {
@@ -23,6 +24,7 @@
 @media only screen and (min-width : 1200px) {
     .border {
         max-width: 550px;
+        margin-bottom: 30px;
     }
 }
 
@@ -30,6 +32,7 @@
 @media only screen and (max-width : 1200px) {
     .border {
         max-width: 550px;
+        margin-bottom: 30px;
     }
 }
 
@@ -37,6 +40,7 @@
 @media only screen and (max-width : 992px) {
     .border {
         max-width: 550px;
+        margin-bottom: 30px;
     }
 }
 
@@ -44,15 +48,20 @@
 @media only screen and (max-width : 768px) {
     .border {
         max-width: 550px;
+        margin-bottom: 15px;
     }
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
-   
+    .border {
+        margin-bottom: 0px;
+    }
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
-   
+    .border {
+        margin-bottom: 0px;
+    }
 }
