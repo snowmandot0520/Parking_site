@@ -22,10 +22,10 @@ class MyAccount extends React.Component {
                <div className="grn-hdr"><Header/></div> 
                 <div className="row justify-content-center">
                     <div className="col-xs-12 justify-content-center" id="account-div">
-                        <div className ="text-center" id="user-spacer">
-                        <Container className="py-4" id>
+                        <div className ="text-center" id="spacer">
+                        <Container className="py-4">
                             <h4>My Account</h4>
-                            <Card outline color="secondary">
+                            <Card id="outer-card">
                                 <CardBody className="text-center">
                                     <CardTitle>Username</CardTitle>
                                     <ListGroup className="text-left" id="user-card">
@@ -67,14 +67,10 @@ class MyAccount extends React.Component {
                                     </div>
                                 </CardBody>
                             </Card>
-                            </Container>
-                        </div>
+                        </Container>
                         </div>
                     </div>
-               
-              
-            
-                
+                </div>
                 <Footer/>
             </div>
         )
