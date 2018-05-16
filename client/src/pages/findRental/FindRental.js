@@ -92,7 +92,7 @@ class FindRental extends React.Component {
 
     }
 
-    addToUserAcct = (date, time, img, address, price, event) => {
+    addToUserAcct = (date, time, img, address, price, type, desc, event) => {
 
         
         let tempUserArr = this.state.userRentedDB
@@ -111,7 +111,9 @@ class FindRental extends React.Component {
                 img:img,
                 address:address,
                 price:price,
-                times: [time]
+                times: [time],
+                type: type,
+                desc: desc
             }
 
             //console.log('new date ran')
@@ -174,10 +176,10 @@ class FindRental extends React.Component {
    //     console.log(this.state)
     }
 
-    concatSpaces = (index, indexDate, indexTime, id, date, time, img, address, price, event) => {
+    concatSpaces = (index, indexDate, indexTime, id, date, time, img, address, price, type, desc, event) => {
         // console.log(index)
 
-        this.addToUserAcct(date, time, img, address, price)
+        this.addToUserAcct(date, time, img, address, price, type, desc)
 
         let tempArr; 
         this.state.toRent.length > 1 ? tempArr = this.state.toRent : tempArr = this.state.spaces[index]
@@ -347,7 +349,7 @@ class FindRental extends React.Component {
                                                                                                 return(
                                                                                                 <div 
                                                                                                     className={dispClass}
-                                                                                                    onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price)}>
+                                                                                                    onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price, e.shortDesc, e.longDesc)}>
                                                                                                     {g.time}
                                                                                                 </div>
                                                                                             ) 
