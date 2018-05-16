@@ -65,7 +65,8 @@
     font-size: 40px; 
     font-family: 'Cookie', Helvetica, sans-serif;
     margin-bottom: 5px;
-    text-shadow: 1px 1px 1px rgb(68, 68, 68);
+    text-shadow: 1px 1px 1px rgb(68, 68, 68); 
+    /* HERE */
 }
 
 /* ============================================== */
