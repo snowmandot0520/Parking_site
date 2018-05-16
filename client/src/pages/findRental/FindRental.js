@@ -315,17 +315,17 @@ class FindRental extends React.Component {
                                         return (
                                             <Row className="h-100 justify-content-center full-height align-items-center">
                                                 <Col q className="p-0">
-                                                    <Card className="border">
+                                                    <Card className="rent-border">
                                                         <CardImg top width="100%" className="rent-img" src={e.img} alt="Parking Spot Image" />
-                                                        <CardBody className="text-center">
+                                                        <CardBody className="text-center crd-bdy">
                                                             <CardTitle id="spot-title">{e.address}</CardTitle>
                                                             <CardSubtitle>Distance: {e.coord}</CardSubtitle>
-                                                            <ListGroup className="text-left rental-details">
-                                                                <ListGroupItem>Address: <small>{e.address}</small></ListGroupItem>
-                                                                <ListGroupItem>Price Per Hour: <small>${e.price}.00</small></ListGroupItem>
-                                                                <ListGroupItem>Spot Type: <small>{e.shortDesc}</small></ListGroupItem>
-                                                                <ListGroupItem>Details: <small>{e.longDesc}</small></ListGroupItem>
-                                                                <ListGroupItem className="text-center">
+                                                            <ListGroup className="text-left list-block">
+                                                                <ListGroupItem className="dtls">Address: <small>{e.address}</small></ListGroupItem>
+                                                                <ListGroupItem className="dtls">Price Per Hour: <small>${e.price}.00</small></ListGroupItem>
+                                                                <ListGroupItem className="dtls">Spot Type: <small>{e.shortDesc}</small></ListGroupItem>
+                                                                <ListGroupItem className="dtls">Description: <small>{e.longDesc}</small></ListGroupItem>
+                                                                <ListGroupItem className="text-center scheduling">
                                                                     <strong>Availability</strong>
                                                                     <br/>
                                                                     <small>Select desired dates & times</small>
@@ -333,7 +333,7 @@ class FindRental extends React.Component {
                                                                     {(
                                                                         e.availability.map((f, indexDate) => {
                                                                             return(
-                                                                                <div className="text-left">
+                                                                                <div className="text-left availability">
                                                                                     <div>tdate {this.state.tDate.toString()}</div>
                                                                                     <div>{f.day}</div>
                                                                                     {(
@@ -360,8 +360,9 @@ class FindRental extends React.Component {
                                                                     )}
                                                                 </ListGroupItem>
                                                             </ListGroup>
-                                                            <Button size="sm" color="info">Add To Favorites</Button>{" "}
+                                                            <Button className="rnt-btns" size="sm" color="info">Add To Favorites</Button>{" "}
                                                             <Button 
+                                                                className="rnt-btns"
                                                                 size="sm" 
                                                                 color="info"
                                                                 onClick={() => this.setToRent()}>Rent</Button>
