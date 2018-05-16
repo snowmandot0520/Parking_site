@@ -3,12 +3,11 @@ import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
 import Title from './../../components/title/Title';
 import Payment from './../../components/payment/Payment';
-import { Button, Modal, 
-    ModalHeader, ModalBody, ModalFooter, Input, Card, CardTitle, CardBody, CardText } from 'reactstrap';
-
-import './FindParking.css';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter,
+     Input, Card, CardTitle, CardBody, CardText } from 'reactstrap';
 import API from '../../utils/API';
 
+import './FindParking.css';
 
 class FindParking extends React.Component {
 
@@ -70,14 +69,11 @@ class FindParking extends React.Component {
                         console.log(parkingAddress, parkingName);
                         
                         this.setState({parkingAddress:parkingAddress, parkingName: parkingName, parkingPrice:parkingPrice})
-            
-                    }
-                    
+                    }  
                 }
             )
         })
         .catch(err => console.log(err))
-        
     }
 
     handleInputChange = event => {
@@ -124,7 +120,6 @@ class FindParking extends React.Component {
     // }
 
     render(){
-    
         // var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10"
         // var buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
         // if (this.state.stripeToken) {
@@ -132,94 +127,74 @@ class FindParking extends React.Component {
         // buttonClassName = "Pay-Now Pay-Now-Disabled"
         // }
         return(
-            <div>
-                <div className="container" id="solid-bckg">
-                    <div className="grn-hdr">
-                        <Header/>
-                    </div> 
-                    {/* <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
-                    <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button> */}
-
-                    <div className="row text-center" id="second-line">
-                        <div className="input-group mb-3">
-                            <Input 
-                                type="text" 
-                                className="form-control" 
-                                id="search-bar" 
-                                placeholder="Search by Location" 
-                                aria-label="Location Search" 
-                                aria-describedby="basic-addon2" 
-                                
-                                name = "address"
-                                value = {this.state.address}
-                                onChange={this.handleInputChange}
-                                />
-
-                            <div className="input-group-append">
-                                <button 
-                                    className="btn btn-outline-primary" 
-                                    type="button" 
-                                    id="search-button"
-                                    onClick={this.handleFormSubmit}
-                                    disabled={!(this.state.address)}>Search</button>
-                            </div>
+            <div className="container" id="solid-bckg">
+                <div className="grn-hdr"><Header/></div> 
+                {/* <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
+                <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button> */}
+                <div className="row text-center" id="second-line">
+                    <div className="input-group mb-3 location-group">
+                        <Input 
+                            type="text" 
+                            className="form-control" 
+                            id="search-bar" 
+                            placeholder="Search by Location" 
+                            aria-label="Location Search" 
+                            aria-describedby="basic-addon2" 
+                            name = "address"
+                            value = {this.state.address}
+                            onChange={this.handleInputChange}
+                        />
+                        <div className="input-group-append">
+                            <button 
+                                className="btn btn-outline-primary" 
+                                type="button" 
+                                id="search-btn"
+                                onClick={this.handleFormSubmit}
+                                disabled={!(this.state.address)}>
+                                Search
+                            </button>
                         </div>
-                        <div className="btn-group" role="group" aria-label="Basic example">
-                            <Button type="button" className="btn btn-outline-primary home-buttons">Nearby</Button>
-                            <Button type="button" className="btn btn-outline-primary home-buttons">Recent</Button>
-                            <Button type="button" className="btn btn-outline-primary home-buttons">Favorites</Button>
-                        </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center" id="map-div">
-                                
-                                <iframe
-                                    width="350"
-                                    height="250"
-                                    frameBorder="0"
-                                    src={`https://www.google.com/maps/embed/v1/place?q=${this.state.address}
-                                    &key=${this.state.googleKey}`} allowFullScreen>
-
-                                </iframe>
-
-                            </div>
-
-                            <div className="card-body">
-                            {this.state.parkingAddress !=="" && 
-                                <div>
-                                    <Card>
-                                        <CardBody>
-                                            <CardTitle>Park Name: {this.state.parkingName}</CardTitle>
-                                            <CardText>Address: {this.state.parkingAddress}</CardText>
-                                            <CardText>Price: ${this.state.parkingPrice}</CardText>
-                                            <Button onClick={this.findParking}>Find the Nearest Parking</Button>
-                                        </CardBody>
-                                    </Card>
-                                </div>
-
-                                 || this.state.parkingAddress == "" &&
-
-                                    <h3>Please, search for a parking place.</h3>
-
-                            }
-                            </div>
-                        </div>
-
-                        <div className=" fixed-bottom new-btn-div text-center">
-                       
-
-                       
-                        {/* <a className={buttonClassName} href="#" onClick={this.onClickPay.bind(this)}>{buttonText}</a> */}
-                        
-
                     </div>
-                    <Footer/> 
+                    <div className="btn-group three-btns" role="group" aria-label="Basic example">
+                        <Button type="button" className="btn btn-outline-primary h-buttons" href="/findParking">Nearby</Button>
+                        <Button type="button" className="btn btn-outline-primary h-buttons" href="/recent">Recent</Button>
+                        <Button type="button" className="btn btn-outline-primary h-buttons" href="/favorites">Favorites</Button>
+                    </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center" id="map-div">
+                            <iframe
+                                width="350"
+                                height="250"
+                                frameBorder="0"
+                                src={`https://www.google.com/maps/embed/v1/place?q=${this.state.address}
+                                &key=${this.state.googleKey}`} allowFullScreen>
+                            </iframe>
+                        </div>
+                        <div className="card-body">
+                        {this.state.parkingAddress !=="" && 
+                            <div>
+                                <Card>
+                                    <CardBody>
+                                        <CardTitle>Park Name: {this.state.parkingName}</CardTitle>
+                                        <CardText>Address: {this.state.parkingAddress}</CardText>
+                                        <CardText>Price: ${this.state.parkingPrice}</CardText>
+                                        <Button onClick={this.findParking}>Find Nearest Parking</Button>
+                                    </CardBody>
+                                </Card>
+                            </div>
+                                || this.state.parkingAddress == "" &&
+
+                                <h3>Please, search for a parking place.</h3>
+                        }
+                        </div>
+                    </div>
+                    {/* CAN REMOVE THIS DIV BELOW ONCE PAYMENT IS MOVED */}
+                    <div className=" fixed-bottom new-btn-div text-center">
+                    {/* <a className={buttonClassName} href="#" onClick={this.onClickPay.bind(this)}>{buttonText}</a> */}     
                 </div>
-                
+                <Footer/> 
             </div>
-            
-        
         )
     }
 }
