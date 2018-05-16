@@ -28,8 +28,16 @@ class FindRental extends React.Component {
             tDate: '',
             rentedSpacesUser: [],
             userRentedDB: { },
-            apiKey: 'AIzaSyDz9l4M_Hjs0BXevxJN93Ptep60_0XIVkI'
+            apiKey: 'AIzaSyDz9l4M_Hjs0BXevxJN93Ptep60_0XIVkI',
+            isLoading: false,
+            stripeToken: null
         }
+        this.stripeHandler = window.StripeCheckout.configure({
+        key: "pk_test_iwcqOHORnAsvbAhrEAYnyvjq",
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        token: this.onGetStripeToken.bind(this)
+      });
     }
 
     componentDidMount = () => {
@@ -66,6 +74,31 @@ class FindRental extends React.Component {
         //console.log(this.state)
     }
 
+    onGetStripeToken (token) {
+        // Got Stripe token. This means user's card is valid!
+        // We need to continue the payment process by sending this token to our own server.
+        // More info: https://stripe.com/docs/charges
+        this.setState({stripeToken: token});
+    };
+
+    onClickPay () {
+        
+        this.setState({isLoading: true});
+    
+        const onCheckoutOpened = () => {
+          this.setState({isLoading: false})
+        }
+    
+        // open Stripe Checkout
+        this.stripeHandler.open({
+          name: 'Landing Pad',
+          description: 'Garage Rental',
+          amount: 1000, // 10 USD -> 1000 cents
+          currency: 'usd',
+          opened: onCheckoutOpened.bind(this)
+        });
+    }
+
     justSendIt = () => {
         axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
             .then(data => console.log(data))
@@ -78,6 +111,8 @@ class FindRental extends React.Component {
     }
 
     setToRent = () => {
+
+        this.onClickPay()
 
         const tempArr = this.state.toRent;
 
@@ -255,6 +290,12 @@ class FindRental extends React.Component {
     }
 
     render(){
+        var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10"
+        var buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
+        if (this.state.stripeToken) {
+        buttonText = "Your payment was processed"
+        buttonClassName = "Pay-Now Pay-Now-Disabled"
+        }
         return(
             <div className="container" id="solid-bckg">
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
