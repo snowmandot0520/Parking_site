@@ -4,9 +4,7 @@ import Header from './../../components/header/Header';
 import Title from './../../components/title/Title';
 import Payment from './../../components/payment/Payment';
 import { Button, Modal, 
-    ModalHeader, ModalBody, ModalFooter, Input, Card, CardText, CardTitle, CardBody } from 'reactstrap';
-import geocoder from './../../scripts/geocoder'
-
+    ModalHeader, ModalBody, ModalFooter, Input, Card, CardTitle, CardBody, CardText } from 'reactstrap';
 
 import './FindParking.css';
 import API from '../../utils/API';
@@ -20,7 +18,6 @@ class FindParking extends React.Component {
             modal: false,
             address:'',
             googleKey:'AIzaSyD0CbzacbBZXUg0C2cftLGr-p4GHFP0cAc',
-            // parkingPlaces:[],
             parkingAddress:'',
             parkingName:'',
             parkingPrice:'',
@@ -61,21 +58,19 @@ class FindParking extends React.Component {
                         
                         const parkingAddress = parkingData.data[i]._embedded["pw:location"].address1;
                         const parkingName = parkingData.data[i]._embedded["pw:location"].name;
-                        let parkingPrice = ''
+                        let parkingPrice = '';
                         
                         if(parkingData.data[i].purchase_options[0]){
                             parkingPrice = parkingData.data[i].purchase_options[0].price.USD;
-                        }else {
+                        }
+                        else {
                             parkingPrice = "Price data is not available."
                         }
 
                         console.log(parkingAddress, parkingName);
-                        console.log(parkingPrice)
-                        this.setState({parkingAddress:parkingAddress, parkingName: parkingName, parkingPrice:parkingPrice})
-                        // const parkingPlaces = this.state.parkingPlaces.push(parkingAddress, parkingName);
-                        // console.log(parkingPlaces);
                         
-                    
+                        this.setState({parkingAddress:parkingAddress, parkingName: parkingName, parkingPrice:parkingPrice})
+            
                     }
                     
                 }
@@ -178,7 +173,7 @@ class FindParking extends React.Component {
 
                         <div className="row">
                             <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center" id="map-div">
-                                {/* <img src="https://image.shutterstock.com/z/stock-photo-map-with-pins-markers-simple-flat-illustration-city-plan-with-streets-raster-version-633021710.jpg" alt="sample map" id="map" /> */}
+                                
                                 <iframe
                                     width="350"
                                     height="250"
@@ -190,13 +185,9 @@ class FindParking extends React.Component {
 
                             </div>
 
-                            
                             <div className="card-body">
-                            {this.state.parkingAddress ? (
+                            {this.state.parkingAddress !=="" && 
                                 <div>
-                                {/* {this.state.parkingPlaces.map(places => { */}
-                                    {/* console.log(places); */}
-                                    {/* return( */}
                                     <Card>
                                         <CardBody>
                                             <CardTitle>Park Name: {this.state.parkingName}</CardTitle>
@@ -205,18 +196,18 @@ class FindParking extends React.Component {
                                             <Button onClick={this.findParking}>Find the Nearest Parking</Button>
                                         </CardBody>
                                     </Card>
-                                    {/* ) */}
-                                {/* })} */}
                                 </div>
-                                ) : (
 
-                                <h3>Please, search for a parking location.</h3>
-                            )}
+                                 || this.state.parkingAddress == "" &&
+
+                                    <h3>Please, search for a parking place.</h3>
+
+                            }
                             </div>
                         </div>
 
                         <div className=" fixed-bottom new-btn-div text-center">
-                        <Button outline color="primary" className="new-btn" onClick={this.toggle}>New Search</Button>
+                       
 
                        
                         {/* <a className={buttonClassName} href="#" onClick={this.onClickPay.bind(this)}>{buttonText}</a> */}

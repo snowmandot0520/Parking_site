@@ -4,7 +4,7 @@ import Header from './../../components/header/Header';
 import { Card, CardText, CardBody,
     CardTitle, Container, CardSubtitle, CardLink, Button, ListGroup, 
     ListGroupItem, Input } from 'reactstrap';
-
+import jwt_decode from 'jwt-decode'
 import './MyAccount.css';
 
 class MyAccount extends React.Component {
@@ -12,8 +12,16 @@ class MyAccount extends React.Component {
     constructor(){
         super();
         this.state = {
-            
+            user:''
         }
+    } 
+
+    
+    componentDidMount() {
+        const token = localStorage.getItem('jwtToken')
+        const decoded = jwt_decode(token)
+        // console.log(decoded)
+        this.setState({ user: decoded.username});
     }
 
     render(){
@@ -27,7 +35,7 @@ class MyAccount extends React.Component {
                             <h4>My Account</h4>
                             <Card id="outer-card">
                                 <CardBody className="text-center">
-                                    <CardTitle>Username</CardTitle>
+                                    <CardTitle>{this.state.user}</CardTitle>
                                     <ListGroup className="text-left" id="user-card">
                                         <ListGroupItem>
                                             User Info: <br/> 
