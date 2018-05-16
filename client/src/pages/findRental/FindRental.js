@@ -257,7 +257,7 @@ class FindRental extends React.Component {
             <div className="container" id="solid-bckg">
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
                <div className="grn-hdr"><Header/></div> 
-                <div className="row text-center" id="second-line">
+                <div className="row" id="second-line">
                     <div className="input-group mb-3 search-group">
                         <input 
                             name='destAdd'
@@ -289,7 +289,7 @@ class FindRental extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="row text-center" id="third-line">
+                <div className="row" id="third-line">
                     <div className="input-group mb-3 search-group">
                         <input 
                             name='cDate'
@@ -300,10 +300,10 @@ class FindRental extends React.Component {
                         /> 
                     </div>
                 </div>
-                <div className="row">
+                <div className="row justify-content-center">
                     <div className="col-xs-12 justify-content-center" id="search-div">
                         <div className ="text-center" id="spacer">
-                            <Container className="py-4 full-height" id="rental-card-block">
+                            <Container className="py-4 full-height justify-content-center">
                                 <h4>Available Rentals</h4>
                                 {this.state.spaces.length === 0 && <Card id="error-card">
                                     <strong>No Data</strong>
