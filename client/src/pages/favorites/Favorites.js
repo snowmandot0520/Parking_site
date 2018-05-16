@@ -52,11 +52,11 @@ class Favorites extends React.Component {
         }
     }
 
+
     render() {
         return(
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
-                
                 <div className="row justify-content-center">
                     <div className="col-xs-12 justify-content-center" id="activity-div">
                         <div className ="text-center" id="spacer">
@@ -69,7 +69,6 @@ class Favorites extends React.Component {
                         </div>
                     </div>
                 </div>
-            
                 <Footer/>
             </div>
         )

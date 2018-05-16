@@ -45,9 +45,8 @@ class SellerSpots extends React.Component {
         return(
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
-                
                 <div className="row justify-content-center">
-                    <div className="col-xs-12 justify-content-center" id="spots-div">
+                    <div className="col-xs-12 justify-content-center" id="sell-spots-div">
                         <div className ="text-center" id="spacer">
                         <Container className="py-4">
                             <h4>Seller Spots</h4>
@@ -58,7 +57,6 @@ class SellerSpots extends React.Component {
                         </div>
                     </div>
                 </div>
-            
                 <Footer/>
             </div>
         )

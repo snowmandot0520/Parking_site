@@ -12,6 +12,7 @@ class ListGroupCollapse extends React.Component {
     this.state = {collapse: false};
   }
   
+
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }

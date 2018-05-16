@@ -7,7 +7,7 @@ import './ListGroupCollapse.css';
 class ListGroupCollapse extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.toggle = this.toggle.bind(this);
     this.state = {collapse: false};
   }

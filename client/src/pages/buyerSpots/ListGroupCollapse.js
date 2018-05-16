@@ -31,17 +31,16 @@ class ListGroupCollapse extends React.Component {
                             <CardSubtitle>
                                 {cat.spotType}  
                             </CardSubtitle>
+                            <CardImg className="rental-img" top width="100%" src={cat.spotImg} alt="Parking Image"/> 
                             <CardText className="text-left rent-details">
-                                    {cat.address} <br/>
-                                    Price per Hour: ${cat.price}.00<br/>
-                                    Spot Description: {cat.spotDescription}   
+                                    Address: <small>{cat.address}</small> <br/>
+                                    Price per Hour: <small>${cat.price}.00</small><br/>
+                                    Spot Description: <small>{cat.spotDescription}</small>   
                                     <hr/>     
-                                    Dates Rented:<br/>
-                                    Times Rented:<br/>
+                                    Dates Rented:<small></small><br/>
+                                    Times Rented:<small></small><br/>
                                     Total Cost:
                             </CardText> 
-                            <CardImg className="rental-img" top width="100%" src={cat.img} alt="Parking Image"/> 
-                            <br/>
                             {cat.times.forEach(t => {
                                 <div>times: {t}</div>
                             })}
