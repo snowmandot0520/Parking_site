@@ -40,7 +40,7 @@ class FindRental extends React.Component {
             console.log('get data ran')
             axios.get(`/spaces/user/${id}`)
             .then(data => {
-                console.log(data)
+         //       console.log(data)
                 this.setState({ userRentedDB:data.data})
             })
             .catch(err => console.log(err))
@@ -49,13 +49,13 @@ class FindRental extends React.Component {
         if(localStorage.getItem('jwtToken')){
             const token = localStorage.getItem('jwtToken')
             const decoded = jwt_decode(token)
-            console.log(decoded)
+     //       console.log(decoded)
             this.setState({
                 loggedIn: true,
                 user: decoded.username,
                 userId: decoded._id
             }, getUData(decoded._id))
-            console.log(this.state)
+       //     console.log(this.state)
         } else {
             this.setState({ loggedIn: false, user: null })
             window.location.replace('/')
@@ -66,7 +66,18 @@ class FindRental extends React.Component {
 
         
 
-        console.log(this.state)
+        //console.log(this.state)
+    }
+
+    justSendIt = () => {
+        axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
+        console.log(this.state.userRentedDB)    
+        axios.post(`/spaces/user/${this.state.userId}`, this.state.userRentedDB)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
     }
 
     setToRent = () => {
@@ -81,26 +92,23 @@ class FindRental extends React.Component {
             })
         })
 
-        this.setState({ toRent:tempArr })
-
-        axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
-
-        axios.post(`/spaces/user/${this.state.userId}`, this.state.userRentedDB)
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+        this.setState({ toRent:tempArr }, this.justSendIt())
 
     }
 
-    addToUserAcct = (date, time, img, address, price) => {
+    addToUserAcct = (date, time, img, address, price, event) => {
+
         
         let tempUserArr = this.state.userRentedDB
         let userAv = this.state.rentedSpacesUser
 
-        this.state.userRentedDB.rentedSpaces.length > 0 && (userAv = this.state.userRentedDB.rentedSpaces)
-        
-        const newDate = () => {
+        this.state.userRentedDB.rentedSpaces.length > 0 && (console.log('short ran'), userAv = this.state.userRentedDB.rentedSpaces)
+        console.log(this.state.rentedSpacesUser)
+        console.log(userAv)
+        console.log(tempUserArr)
+        // console.log(this.state.spaces)
+
+        const newDate = (specAdd) => {
             const uDateObj = {
                 date: date,
                 rentId:this.state.rentID,
@@ -110,32 +118,65 @@ class FindRental extends React.Component {
                 times: [time]
             }
 
-            console.log('new date ran')
-            userAv.push(uDateObj)
+            //console.log('new date ran')
+            specAdd.push(uDateObj)
         }
 
-        var addDate = true
-        userAv.forEach(e => {
+        const createAddress = () => {
+            const add = {
+                address: address,
+                availability: []
+            }
+            userAv.push(add)
+            //console.log(userAv[0])
+            dateLoop(userAv[0].availability)
+        }
+
+        const dateLoop = (specAdd) => {
+            var addDate = true
+            specAdd.forEach(e => {   
             if(e.date === date){
+                // console.log('dates equal')
+                // console.log(e.times.indexOf(time))
+                // console.log(e.times)
                 if(e.times.indexOf(time) === -1){
                     e.times.push(time)
-                    console.log('time not clicked')
+                    // console.log('time added to times array')
+                    // console.log(e.times)
                 } else {
-                    console.log(e.times.indexOf(time))
+                    // console.log(e.times.indexOf(time))
+                    // console.log('time removed')      
                     e.times.splice(e.times.indexOf(time), 1)
+                    // console.log(e.times)
                 }
                 addDate = false
-            console.log(this.state)
-            }
+                //console.log(this.state)
+                }
             
+            })
+            addDate && newDate(specAdd)
+//          console.log()
+            userAv.length < 1 && newDate(specAdd)
+        }
+
+        let newAdd = true;
+        userAv.forEach(s => {
+            if(s.address === address){
+                newAdd = false
+                console.log(s)
+                dateLoop(s.availability)     
+            } 
         })
-        addDate && newDate()
-//        console.log()
-        userAv.length < 1 && newDate()
+        newAdd && createAddress()
+
+    
+
+        
         
         tempUserArr.rentedSpaces = userAv;
-        console.log('tempuserarr')
+        //console.log('tempuserarr')
         console.log(tempUserArr)
+        // console.log('end user arr')
         this.setState({ rentedSpacesUser:userAv, userRentedDB:tempUserArr })
    //     console.log(this.state)
     }
@@ -177,7 +218,7 @@ class FindRental extends React.Component {
             toRent:tempArr,
             rentID:id
         })
-        console.log(this.state)
+//        console.log(this.state)
 
     }
 
@@ -189,13 +230,13 @@ class FindRental extends React.Component {
                 // console.log(data)
                 // console.log(this.state)  
                 var addressArray = data.data
-                console.log(addressArray)
+                //console.log(addressArray)
                 addressArray.forEach(e => {
-                    console.log(e.address, this.state.destAdd)
+                  //  console.log(e.address, this.state.destAdd)
                     axios
                         .get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${e.address}&destinations=${this.state.destAdd}&mode=driving&language=en-EN&key=${this.state.apiKey}`)
                         .then(data => {
-                            console.log(data.data.rows[0].elements[0].distance.text)
+                           // console.log(data.data.rows[0].elements[0].distance.text)
                             e.coord = data.data.rows[0].elements[0].distance.text
                         })
                         .catch(err => console.log(err))
@@ -302,7 +343,8 @@ class FindRental extends React.Component {
                                                                                     return(
                                                                                     <div 
                                                                                         className={dispClass}
-                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price)}>
+                                                                                        
+                                                                                        onClick={() => {dispClass !== 'false' ? this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price) : alert('This space has already been reserved!')}}>
                                                                                         {g.time}
                                                                                     </div>
                                                                                 ) 
