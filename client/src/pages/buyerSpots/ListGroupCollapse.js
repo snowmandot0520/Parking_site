@@ -36,8 +36,8 @@ class ListGroupCollapse extends React.Component {
                                     Price per Hour: ${cat.price}.00<br/>
                                     Spot Description: {cat.spotDescription}   
                                     <hr/>     
-                                    Dates Rented:
-                                    Times Rented:
+                                    Dates Rented:<br/>
+                                    Times Rented:<br/>
                                     Total Cost:
                             </CardText> 
                             <CardImg className="rental-img" top width="100%" src={cat.img} alt="Parking Image"/> 

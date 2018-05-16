@@ -23,7 +23,7 @@
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 10px;
-    max-width: none;
+    max-width: 580px;
 }
     #spacer {
         background-color: white;
@@ -64,7 +64,8 @@
     font-weight: 600;
     font-size: 40px; 
     font-family: 'Cookie', Helvetica, sans-serif;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 1px rgb(68, 68, 68);
 }
 
 /* ============================================== */
