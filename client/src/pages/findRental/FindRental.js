@@ -7,9 +7,9 @@ import { Card, CardImg, CardText, CardBody,
 import spacesClient from './../../scripts/spacesClient'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-import './FindRental.css';
 import geocoder from './../../scripts/geocoder'
 
+import './FindRental.css';
 
 class FindRental extends React.Component {
     
@@ -33,7 +33,7 @@ class FindRental extends React.Component {
     }
 
     componentDidMount = () => {
-
+        
         console.log('comp mo')
 
         const getUData = id => {
@@ -62,15 +62,10 @@ class FindRental extends React.Component {
             console.log('jeb')
         }
 
-
-
-        
-
         console.log(this.state)
     }
 
     setToRent = () => {
-
 
         const tempArr = this.state.toRent;
 
@@ -178,7 +173,6 @@ class FindRental extends React.Component {
             rentID:id
         })
         console.log(this.state)
-
     }
 
     getSpaces = () => {
@@ -201,7 +195,6 @@ class FindRental extends React.Component {
                         .catch(err => console.log(err))
                 })
                 this.setState({ spaces:addressArray })
-                
             })
             .catch(err => console.log(err))
     }
@@ -216,7 +209,6 @@ class FindRental extends React.Component {
             this.setState({ [event.target.name]:event.target.value })
             // console.log(this.state)
         }
-        
     }
 
     render(){
@@ -224,108 +216,116 @@ class FindRental extends React.Component {
             <div className="container" id="solid-bckg">
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
                <div className="grn-hdr"><Header/></div> 
-            
                 <div className="row text-center" id="second-line">
                     <div className="input-group mb-3">
                         <input 
                             name='destAdd'
                             value={this.state.destAdd}
-                            id='search-bar'
+                            id='search-add'
                             onChange={this.updateState}
                             className='form-control'
                             placeholder='Address ex: 123 Internet St, CA'
                         />
-                    
                         <input 
                             type="text" 
                             name='zip'
                             value={this.state.zip}
                             onChange={this.updateState}
                             className="form-control" 
-                            id="search-bar" 
+                            id="search-zip" 
                             placeholder="ZIP Code" 
                             aria-label="Location Search" 
-                            aria-describedby="basic-addon2" />
+                            aria-describedby="basic-addon2" 
+                        />
                         <div className="input-group-append">
-                            <button 
-                                className="btn btn-outline-primary" 
-                                type="button" 
-                                id="search-button"
-                                onClick={() => this.getSpaces()}>
-                                Search
-                            </button>
+                        <button 
+                            className="btn btn-outline-primary" 
+                            type="button" 
+                            id="search-button"
+                            onClick={() => this.getSpaces()}>
+                            Search
+                        </button>
                         </div>
                     </div>
                 </div>
-
-                <input 
-                    name='cDate'
-                    value={this.state.cDate}
-                    id='cDate'
-                    onChange={this.updateState}
-                    type='date'
-                />
-
+                <div className="row text-center" id="third-line">
+                    <div className="input-group mb-3">
+                        <input 
+                            name='cDate'
+                            value={this.state.cDate}
+                            id='cDate'
+                            onChange={this.updateState}
+                            type='date'
+                        /> 
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
                         <div className ="" id="spacer">
-                            {this.state.spaces.length === 0 && <Card>Try searching for a different location!</Card>}
-                            {(
-                                this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
-                                    return (
-                                        <Card outline color="secondary">
-                                            <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
-                                            <CardBody className="text-center">
-                                                <CardTitle>{e.address}</CardTitle>
-                                                <CardSubtitle><b>Distance: </b>{e.coord}</CardSubtitle>
-                                                <ListGroup className="text-left">
-                                                    <ListGroupItem>{e.address}</ListGroupItem>
-                                                    <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
-                                                    <ListGroupItem className="small"><b>Spot Type: </b>{e.shortDesc}</ListGroupItem>
-                                                    <ListGroupItem className="small"><b>Details:</b> {e.longDesc}</ListGroupItem>
-                                                    <ListGroupItem className="small">
-                                                        {(
-                                                            e.availability.map((f, indexDate) => {
-                                                                return(
-                                                                    
-                                                                    <div>
-                                                                        <div>tdate {this.state.tDate.toString()}</div>
-                                                                        <div>{f.day}</div>
-                                                                        {(
-                                                                            //this.state.tDate == f.day && 
-                                                                            <div>
-                                                                            <div></div>
-                                                                            {(
-                                                                                f.times.map((g, indexTime) => {
-                                                                                    let dispClass = g.classn
-                                                                                    
-                                                                                    return(
-                                                                                    <div 
-                                                                                        className={dispClass}
-                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price)}>
-                                                                                        {g.time}
-                                                                                    </div>
-                                                                                ) 
-                                                                                })
-                                                                            )}
-                                                                        </div>)}
-                                                                    </div>
-                                                                ) 
-                                                            })
-                                                        )}
-                                                    </ListGroupItem>
-                                                </ListGroup>
-                                                <br/>
-                                                <Button size="sm" color="info">Add To Favorites</Button>{" "}
-                                                <Button 
-                                                    size="sm" 
-                                                    color="info"
-                                                    onClick={() => this.setToRent()}>Rent</Button>
-                                            </CardBody>
-                                        </Card>
-                                    )
-                                })
-                            )}
+                            <Container className="py-4 full-height" id="rental-card-block">
+                                <h4>Favorites</h4>
+                                {this.state.spaces.length === 0 && <Card id="error-card">Try searching for a different location!</Card>}
+                                {(
+                                    this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
+                                        return (
+                                            <Row className="h-100 justify-content-center full-height align-items-center">
+                                                <Col q className="p-0">
+                                                    <Card className="border">
+                                                        <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
+                                                        <CardBody className="text-center">
+                                                            <CardTitle>{e.address}</CardTitle>
+                                                            <CardSubtitle><b>Distance: </b>{e.coord}</CardSubtitle>
+                                                            <ListGroup className="text-left">
+                                                                <ListGroupItem>{e.address}</ListGroupItem>
+                                                                <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
+                                                                <ListGroupItem className="small"><b>Spot Type: </b>{e.shortDesc}</ListGroupItem>
+                                                                <ListGroupItem className="small"><b>Details:</b> {e.longDesc}</ListGroupItem>
+                                                                <ListGroupItem className="small">
+                                                                    {(
+                                                                        e.availability.map((f, indexDate) => {
+                                                                            return(
+                                                                                
+                                                                                <div>
+                                                                                    <div>tdate {this.state.tDate.toString()}</div>
+                                                                                    <div>{f.day}</div>
+                                                                                    {(
+                                                                                        //this.state.tDate == f.day && 
+                                                                                        <div>
+                                                                                        <div></div>
+                                                                                        {(
+                                                                                            f.times.map((g, indexTime) => {
+                                                                                                let dispClass = g.classn
+                                                                                                
+                                                                                                return(
+                                                                                                <div 
+                                                                                                    className={dispClass}
+                                                                                                    onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price)}>
+                                                                                                    {g.time}
+                                                                                                </div>
+                                                                                            ) 
+                                                                                            })
+                                                                                        )}
+                                                                                    </div>)}
+                                                                                </div>
+                                                                            ) 
+                                                                        })
+                                                                    )}
+                                                                </ListGroupItem>
+                                                            </ListGroup>
+                                                            <br/>
+                                                            <Button size="sm" color="info">Add To Favorites</Button>{" "}
+                                                            <Button 
+                                                                size="sm" 
+                                                                color="info"
+                                                                onClick={() => this.setToRent()}>Rent</Button>
+                                                        </CardBody>
+                                                    </Card>
+                                                </Col>
+                                            </Row> 
+                                        )
+                                    })
+                                )}
+                            </Container>
                         </div>
                     </div>
                 </div>
