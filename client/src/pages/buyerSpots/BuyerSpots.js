@@ -78,20 +78,18 @@ class BuyerSpots extends React.Component {
         return(
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
-                
                 <div className="row justify-content-center">
-                    <div className="col-xs-12 justify-content-center" id="spots-div">
+                    <div className="col-xs-12 justify-content-center" id="buy-spots-div">
                         <div className ="text-center" id="spacer">
                         <Container className="py-4">
                             <h4>Buyer Spots</h4>
                             {this.state.spaces.map((e, index) =>
-                                    <ListGroupCollapse space={e}  />
+                                <ListGroupCollapse space={e} />
                             )}
                         </Container>
                         </div>
                     </div>
                 </div>
-            
                 <Footer/>
             </div>
         )
