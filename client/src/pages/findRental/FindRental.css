@@ -19,6 +19,8 @@
     margin-top: 5px;
     margin-right: 10px;
     margin-left: 10px;
+    max-width: 580px;
+    margin: 0 auto;
 }
     .search-group {
         margin-bottom: 0px !important;
@@ -43,6 +45,7 @@
             padding-left: 10px;
             padding-right: 0px;
             font-size: 13px;
+            color: #495057;
         }
         #search-button {
             color: white;
@@ -63,6 +66,8 @@
     margin-top: 5px;
     margin-right: 10px;
     margin-left: 10px;
+    max-width: 580px;
+    margin: 0 auto;
 }
     #cDate {
         box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
@@ -72,16 +77,21 @@
         margin-top: 5px;
         margin-left: 0px;
         font-size: 13px;
+        color: #495057;
     }
 #search-div {
     margin: 15px;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 250px;
+    width: 100%;
+    max-width: 580px;
 }
     /* #spacer {
-
     } */
+        #spacer h4 {
+            font-size: 40px;
+        }
     /* #rental-card-block {
     } */
         #error-card {
@@ -89,6 +99,9 @@
             /* color: #D04C4C; */
             border: solid 1px #D04C4C;
             padding: 10px;
+            max-width: none;
+            margin: 0 auto;
+            font-size: 14px;
         }
             .error-img {
                 box-shadow: none;
@@ -97,7 +110,7 @@
                 margin-top: 5px;
             }
         .rent-border {
-            margin: 15px;
+            margin: 20px;
             margin-top: 0px;
         }
             #spot-title {
@@ -181,22 +194,266 @@ hr {
 
 /* Largest Devices */
 @media only screen and (min-width : 1200px) {
-   
+    #second-line {
+        margin-top: 10px;
+        margin-right: 15px;
+        /* margin-left: 92px; */
+        margin: 0 auto;
+    }
+        #search-add {
+            font-size: 15px;
+        }
+        #search-zip {
+            font-size: 15px;
+        }
+        #search-button {
+            font-size: 15px;
+        }
+    #third-line {
+        margin-right: 15px;
+        /* margin-left: 92px; */
+        margin: 0 auto;
+    }
+        #cDate {
+            font-size: 15px;
+        }
+    #spacer h4 {
+        font-size: 45px;
+    }
+        #error-card {
+            padding: 15px;
+            font-size: 16px;
+        }       
+        .rent-img {
+            width: 70%;
+        }
+        .crd-bdy {
+            padding: 20px;
+        }
+    hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    } 
+    .scheduling {
+        padding: 20px;
+        padding-bottom: 10px;
+    }     
+        .false {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .true {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .temp {
+            width: 10%;
+            height: 18px;
+            font-size: 12px;
+        }
+    .rnt-btns {
+        font-size: 15px; 
+    }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-    
+    #second-line {
+        margin-top: 10px;
+        margin-right: 15px;
+        /* margin-left: 92px; */
+        margin: 0 auto;
+    }
+        #search-add {
+            font-size: 15px;
+        }
+        #search-zip {
+            font-size: 15px;
+        }
+        #search-button {
+            font-size: 15px;
+        }
+    #third-line {
+        margin-right: 15px;
+        /* margin-left: 92px; */
+        margin: 0 auto;
+    }
+        #cDate {
+            font-size: 15px;
+        }
+    #spacer h4 {
+        font-size: 45px;
+    }
+        #error-card {
+            padding: 15px;
+            font-size: 16px;
+        }       
+        .rent-img {
+            width: 70%;
+        }
+        .crd-bdy {
+            padding: 20px;
+        }
+    hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    } 
+    .scheduling {
+        padding: 20px;
+        padding-bottom: 10px;
+    }     
+        .false {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .true {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .temp {
+            width: 10%;
+            height: 18px;
+            font-size: 12px;
+        }
+    .rnt-btns {
+        font-size: 15px; 
+    }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-    
+    #second-line {
+        margin-top: 10px;
+        margin-right: 15px;
+        /* margin-left: 92px; */
+        margin: 0 auto;
+    }
+        #search-add {
+            font-size: 15px;
+        }
+        #search-zip {
+            font-size: 15px;
+        }
+        #search-button {
+            font-size: 15px;
+        }
+    #third-line {
+        margin-right: 15px;
+        /* margin-left: 92px; */
+        margin: 0 auto;
+    }
+        #cDate {
+            font-size: 15px;
+        }
+    #spacer h4 {
+        font-size: 45px;
+    }
+        #error-card {
+            padding: 15px;
+            font-size: 16px;
+        }       
+        .rent-img {
+            width: 70%;
+        }
+        .crd-bdy {
+            padding: 20px;
+        }
+    hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    } 
+    .scheduling {
+        padding: 20px;
+        padding-bottom: 10px;
+    }     
+        .false {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .true {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .temp {
+            width: 10%;
+            height: 18px;
+            font-size: 12px;
+        }
+    .rnt-btns {
+        font-size: 15px; 
+    }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-    
+    #second-line {
+        margin-top: 10px;
+        margin-right: 15px;
+        margin-left: 15px;
+        margin: 0 auto;
+    }
+        #search-add {
+            font-size: 15px;
+        }
+        #search-zip {
+            font-size: 15px;
+        }
+        #search-button {
+            font-size: 15px;
+        }
+    #third-line {
+        margin-right: 15px;
+        margin-left: 15px;
+        margin: 0 auto;
+    }
+        #cDate {
+            font-size: 15px;
+        }
+    #spacer h4 {
+        font-size: 45px;
+    }
+        #error-card {
+            padding: 15px;
+            font-size: 16px;
+        }       
+        .rent-img {
+            width: 70%;
+        }
+        .crd-bdy {
+            padding: 20px;
+        }
+    hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    } 
+    .scheduling {
+        padding: 20px;
+        padding-bottom: 10px;
+    }     
+        .false {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .true {
+            width: 10%;
+            height: 20px;
+            font-size: 12px;
+        }
+        .temp {
+            width: 10%;
+            height: 18px;
+            font-size: 12px;
+        }
+    .rnt-btns {
+        font-size: 15px; 
+    }
 }
 
 /* Extra Small Devices, Phones */ 
@@ -206,12 +463,86 @@ hr {
         margin-right: 15px;
         margin-left: 15px;
     }
+        #search-add {
+            font-size: 15px;
+        }
+        #search-zip {
+            font-size: 15px;
+        }
+        #search-button {
+            font-size: 15px;
+        }
+    #third-line {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+        #cDate {
+            font-size: 15px;
+        }
+    #search-div {
+        margin: 15px;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 150px;
+    }
+    #spacer h4 {
+        font-size: 45px;
+    }
+        #error-card {
+            padding: 15px;
+            font-size: 16px;
+        }
+        .rent-img {
+            width: 80%;
+        }
+        .crd-bdy {
+            padding: 15px;
+        }
+    hr {
+        margin-top: 8px;
+        margin-bottom: 10px;
+    } 
+    .scheduling {
+        padding: 15px;
+        padding-bottom: 10px;
+    }              
+        .false {
+            width: 10%;
+            height: 18px;
+            /* margin: 2px; */
+            /* padding: 0px; */
+            font-size: 12px;
+        }
+        .true {
+            width: 10%;
+            height: 18px;
+            /* margin: 2px;
+            padding: 0px; */
+            font-size: 12px;
+        }
+        .temp {
+            width: 10%;
+            height: 18px;
+            /* margin: 2px; */
+            /* padding: 0px; */
+            font-size: 12px;
+        }
+    .rnt-btns {
+        font-size: 13px;
+    }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    #second-line {
+        margin-top: 5px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
         .search-group {
             margin-bottom: 0px !important;
         }
             #search-add {
-                box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-                border: white solid 1px;
                 margin-right: 0px;
                 margin-top: 5px;
                 margin-left: 0px;
@@ -221,8 +552,6 @@ hr {
                 width: 80px;
             }
             #search-zip {
-                box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-                border: white solid 1px;
                 margin-right: 0px;
                 margin-top: 5px;
                 margin-left: 0px;
@@ -231,28 +560,15 @@ hr {
                 font-size: 13px;
             }
             #search-button {
-                color: white;
-                border: solid white 1px;
-                box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-                font-family: Roboto, sans-serif;
-                font-weight: bold;
                 font-size: 13px;
-                text-transform: uppercase;
                 margin-top: 5px;
             }
-                #search-button:hover {
-                color: #95CC39;
-                background-color: white;
-                opacity: 0.9;
-                }
     #third-line {
         margin-top: 5px;
-        margin-right: 15px;
-        margin-left: 15px;
+        margin-right: 10px;
+        margin-left: 10px;
     }
         #cDate {
-            box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-            border: white solid 1px;
             margin-right: 0px;
             margin-bottom: 0px;
             margin-top: 5px;
@@ -263,36 +579,28 @@ hr {
         margin: 15px;
         margin-left: 30px;
         margin-right: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 150px;
     }
-        /* #spacer {
-    
-        } */
-        /* #rental-card-block {
-        } */
+            #spacer h4 {
+                font-size: 40px;
+            }
             #error-card {
-                box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-                /* color: #D04C4C; */
-                border: solid 1px #D04C4C;
                 padding: 10px;
+                font-size: 14px;
             }
                 .error-img {
-                    box-shadow: none;
                     width: 40%;
-                    margin: 0 auto;
                     margin-top: 5px;
                 }
             .rent-border {
-                margin: 15px;
+                margin: 20px;
                 margin-top: 0px;
             }
                 #spot-title {
-                    font-weight: bold;
                     font-size: 18px;
                 }        
                 .rent-img {
                     width: 90%;
-                    margin: 0 auto;
                     margin-top: 10px;
                 }
                 .crd-bdy {
@@ -311,58 +619,32 @@ hr {
     .scheduling {
         padding: 15px;
         padding-bottom: 10px;
-    }               
-        .availability {
-            font-size: 13px;
-            }
-            .false {
-                width: 10%;
-                height: 14px;
-                display: inline-block;
-                align-self: center;
-                border-radius: 3px;
-                margin: 2px;
-                padding: 0px;
-                padding-left: 3px;
-                color: white;
-                font-weight: normal;
-                font-size: 10px;
-                background-color: rgb(184, 63, 63);
-            }
-            .true {
-                width: 10%;
-                height: 14px;
-                display: inline-block;
-                align-self: center;
-                border-radius: 3px;
-                margin: 2px;
-                padding: 0px;
-                padding-left: 3px;
-                color: white;
-                font-weight: normal;
-                font-size: 10px;
-                background-color: rgb(64, 170, 58);
-            }
-            .temp {
-                width: 10%;
-                height: 14px;
-                display: inline-block;
-                align-self: center;
-                border-radius: 3px;
-                margin: 2px;
-                padding: 0px;
-                padding-left: 3px;
-                color: white;
-                font-weight: normal;
-                font-size: 10px;
-                background-color: rgb(47, 150, 187);
-            }
+    }        
+        .false {
+            width: 10%;
+            height: 14px;
+            margin: 2px;
+            padding: 0px;
+            padding-left: 3px;
+            font-size: 10px;
+        }
+        .true {
+            width: 10%;
+            height: 14px;
+            margin: 2px;
+            padding: 0px;
+            font-weight: normal;
+            font-size: 10px;
+        }
+        .temp {
+            width: 10%;
+            height: 14px;
+            margin: 2px;
+            padding: 0px;
+            padding-left: 3px;
+            font-size: 10px;
+        }
     .rnt-btns {
         font-size: 11px;
     }
-}
-
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-    
 }
