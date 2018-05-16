@@ -31,7 +31,7 @@ class Header extends React.Component {
     componentDidMount() {
         const token = localStorage.getItem('jwtToken')
         const decoded = jwt_decode(token)
-        console.log(decoded)
+        // console.log(decoded)
         this.setState({ user: decoded.username});
     }
     
