@@ -161,31 +161,33 @@ class FindParking extends React.Component {
                         <Button type="button" className="btn btn-outline-primary h-buttons" href="/favorites">Favorites</Button>
                     </div>
                     </div>
-                    <div className="row">
-                        <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center" id="map-div">
+                    <div className="row justify-content-center">
+                        <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center text-center" id="map-div">
                             <iframe
-                                width="350"
-                                height="250"
+                                className="map"
+                                width="320"
+                                height="200"
                                 frameBorder="0"
                                 src={`https://www.google.com/maps/embed/v1/place?q=${this.state.address}
                                 &key=${this.state.googleKey}`} allowFullScreen>
                             </iframe>
                         </div>
-                        <div className="card-body">
+                        <div className="parking-cards text-center">
+                            <h4>Nearby Parking</h4>
                         {this.state.parkingAddress !=="" && 
                             <div>
-                                <Card>
+                                <Card className="individual-cards">
                                     <CardBody>
-                                        <CardTitle>Park Name: {this.state.parkingName}</CardTitle>
-                                        <CardText>Address: {this.state.parkingAddress}</CardText>
-                                        <CardText>Price: ${this.state.parkingPrice}</CardText>
-                                        <Button onClick={this.findParking}>Find Nearest Parking</Button>
+                                        <CardTitle>{this.state.parkingName}</CardTitle>
+                                        <CardText className="text-left">Address: <small>{this.state.parkingAddress}</small></CardText>
+                                        <CardText className="text-left">Price: $<small>{this.state.parkingPrice}</small></CardText>
+                                        <Button onClick={this.findParking} id="near-park">Find Nearest Parking</Button>
                                     </CardBody>
                                 </Card>
                             </div>
                                 || this.state.parkingAddress == "" &&
 
-                                <h3>Please, search for a parking place.</h3>
+                                <h3 id="instructions">Please, search for a parking location.</h3>
                         }
                         </div>
                     </div>
