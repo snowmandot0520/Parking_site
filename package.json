@@ -24,6 +24,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "^4.1.1",
     "connect-mongo": "^2.0.1",
+    "dateformat": "^3.0.3",
     "express": "^4.15.4",
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.2.1",
