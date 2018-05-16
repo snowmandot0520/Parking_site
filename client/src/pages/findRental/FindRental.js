@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from './../../components/footer/Footer';
 import Header from './../../components/header/Header';
-import { Card, CardImg, CardText, CardBody,
+import { Container, Row, Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, CardLink, Button, ListGroup, 
     ListGroupItem } from 'reactstrap';
 import spacesClient from './../../scripts/spacesClient'
@@ -165,9 +165,6 @@ class FindRental extends React.Component {
         })
         newAdd && createAddress()
 
-    
-
-        
         
         tempUserArr.rentedSpaces = userAv;
         //console.log('tempuserarr')
@@ -261,14 +258,14 @@ class FindRental extends React.Component {
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
                <div className="grn-hdr"><Header/></div> 
                 <div className="row text-center" id="second-line">
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3 search-group">
                         <input 
                             name='destAdd'
                             value={this.state.destAdd}
                             id='search-add'
                             onChange={this.updateState}
                             className='form-control'
-                            placeholder='Address ex: 123 Internet St, CA'
+                            placeholder='Address, State'
                         />
                         <input 
                             type="text" 
@@ -293,7 +290,7 @@ class FindRental extends React.Component {
                     </div>
                 </div>
                 <div className="row text-center" id="third-line">
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3 search-group">
                         <input 
                             name='cDate'
                             value={this.state.cDate}
@@ -305,31 +302,38 @@ class FindRental extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-12 justify-content-center" id="search-div">
-                        <div className ="" id="spacer">
+                        <div className ="text-center" id="spacer">
                             <Container className="py-4 full-height" id="rental-card-block">
-                                <h4>Favorites</h4>
-                                {this.state.spaces.length === 0 && <Card id="error-card">Try searching for a different location!</Card>}
+                                <h4>Available Rentals</h4>
+                                {this.state.spaces.length === 0 && <Card id="error-card">
+                                    <strong>No Data</strong>
+                                    Try searching for a different location!
+                                    <CardImg top width="60%" className="error-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAaQMdCfgZdRK8dYJC8EE7vrEGTrL9KMupwr9bRzsIBluYEdOg" alt="Error image" />
+                                </Card>}
                                 {(
                                     this.state.spaces.length > 1 && this.state.spaces.map((e, index) => {
                                         return (
                                             <Row className="h-100 justify-content-center full-height align-items-center">
                                                 <Col q className="p-0">
                                                     <Card className="border">
-                                                        <CardImg top width="100%" src={e.img} alt="Parking Spot Image" />
+                                                        <CardImg top width="100%" className="rent-img" src={e.img} alt="Parking Spot Image" />
                                                         <CardBody className="text-center">
-                                                            <CardTitle>{e.address}</CardTitle>
-                                                            <CardSubtitle><b>Distance: </b>{e.coord}</CardSubtitle>
-                                                            <ListGroup className="text-left">
-                                                                <ListGroupItem>{e.address}</ListGroupItem>
-                                                                <ListGroupItem>Price Per Hour: ${e.price}.00</ListGroupItem>
-                                                                <ListGroupItem className="small"><b>Spot Type: </b>{e.shortDesc}</ListGroupItem>
-                                                                <ListGroupItem className="small"><b>Details:</b> {e.longDesc}</ListGroupItem>
-                                                                <ListGroupItem className="small">
+                                                            <CardTitle id="spot-title">{e.address}</CardTitle>
+                                                            <CardSubtitle>Distance: {e.coord}</CardSubtitle>
+                                                            <ListGroup className="text-left rental-details">
+                                                                <ListGroupItem>Address: <small>{e.address}</small></ListGroupItem>
+                                                                <ListGroupItem>Price Per Hour: <small>${e.price}.00</small></ListGroupItem>
+                                                                <ListGroupItem>Spot Type: <small>{e.shortDesc}</small></ListGroupItem>
+                                                                <ListGroupItem>Details: <small>{e.longDesc}</small></ListGroupItem>
+                                                                <ListGroupItem className="text-center">
+                                                                    <strong>Availability</strong>
+                                                                    <br/>
+                                                                    <small>Select desired dates & times</small>
+                                                                    <hr/>
                                                                     {(
                                                                         e.availability.map((f, indexDate) => {
                                                                             return(
-                                                                                
-                                                                                <div>
+                                                                                <div className="text-left">
                                                                                     <div>tdate {this.state.tDate.toString()}</div>
                                                                                     <div>{f.day}</div>
                                                                                     {(
@@ -356,7 +360,6 @@ class FindRental extends React.Component {
                                                                     )}
                                                                 </ListGroupItem>
                                                             </ListGroup>
-                                                            <br/>
                                                             <Button size="sm" color="info">Add To Favorites</Button>{" "}
                                                             <Button 
                                                                 size="sm" 
@@ -373,10 +376,6 @@ class FindRental extends React.Component {
                         </div>
                     </div>
                 </div>
-            
-                <div className=" fixed-bottom new-btn-div text-center">
-                    <Button outline color="primary" className="new-btn">View in Map</Button>
-                </div>
                 <Footer/>
             </div>
         )
@@ -384,11 +383,3 @@ class FindRental extends React.Component {
 }
 
 export default FindRental;
-
-
-const buttons = `
-<div className="btn-group" role="group" aria-label="Basic example">
-    <Button type="button" className="btn btn-outline-primary home-buttons">Nearby</Button>
-    <Button type="button" className="btn btn-outline-primary home-buttons">Recent</Button>
-    <Button type="button" className="btn btn-outline-primary home-buttons" href="/favorites">Favorites</Button>
-</div>`

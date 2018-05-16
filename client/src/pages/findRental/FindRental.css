@@ -6,39 +6,6 @@
     margin-bottom: 0px;
     width: 100% !important;
 }
-.false {
-    width: 8%;
-    display: inline-block;
-    background-color: rgb(184, 63, 63);
-    height: 18px;
-    border-radius: 4px;
-    margin: 4px;
-    padding: 4px;
-    color: white;
-    font-weight: bold;
-}
-.true {
-    width: 8%;
-    display: inline-block;
-    background-color: rgb(64, 170, 58);
-    height: 18px;
-    border-radius: 4px;
-    margin: 4px;
-    padding: 4px;
-    color: white;
-    font-weight: bold;
-}
-.temp {
-    width: 8%;
-    display: inline-block;
-    background-color: rgb(47, 150, 187);
-    height: 18px;
-    border-radius: 4px;
-    margin: 4px;
-    padding: 4px;
-    color: white;
-    font-weight: bold;
-}
 .grn-hdr {
     background-color: #95CC39;
     box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
@@ -49,41 +16,51 @@
         color: white;
     }
 #second-line {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 10px;
     margin-left: 10px;
 }
-    #search-add {
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-        border: white solid 1px;
-        margin-right: 0px;
-        margin-top: 5px;
-        margin-left: 0px;
+    .search-group {
+        margin-bottom: 0px !important;
     }
-    #search-zip {
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-        border: white solid 1px;
-        margin-right: 0px;
-        margin-top: 5px;
-        margin-left: 0px;
-    }
-    #search-button {
-        color: white;
-        border: solid white 1px;
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-        font-family: Roboto, sans-serif;
-        font-weight: bold;
-        font-size: 14px;
-        text-transform: uppercase;
-        margin-top: 5px;
-    }
-        #search-button:hover {
-        color: #95CC39;
-        background-color: white;
-        opacity: 0.9;
+        #search-add {
+            box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+            border: white solid 1px;
+            margin-right: 0px;
+            margin-top: 5px;
+            margin-left: 0px;
+            padding-right: 0px;
+            padding-left: 10px;
+            font-size: 13px;
+            width: 80px;
         }
+        #search-zip {
+            box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+            border: white solid 1px;
+            margin-right: 0px;
+            margin-top: 5px;
+            margin-left: 0px;
+            padding-left: 10px;
+            padding-right: 0px;
+            font-size: 13px;
+        }
+        #search-button {
+            color: white;
+            border: solid white 1px;
+            box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+            font-family: Roboto, sans-serif;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+            #search-button:hover {
+            color: #95CC39;
+            background-color: white;
+            opacity: 0.9;
+            }
 #third-line {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -91,64 +68,87 @@
         box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
         border: white solid 1px;
         margin-right: 0px;
+        margin-bottom: 0px;
         margin-top: 5px;
         margin-left: 0px;
+        font-size: 13px;
     }
 #search-div {
     margin: 15px;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 250px;
 }
     #rental-card-block {
-
     }
         #error-card {
-            
+            box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+            /* color: #D04C4C; */
+            border: solid 1px #D04C4C;
+            padding: 10px;
         }
+            .error-img {
+                box-shadow: none;
+                width: 40%;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+        .border {
 
+        }
+            #spot-title {
+                font-weight: bold;
+            }        
+            .rent-img {
 
-.new-btn-div {
-    margin-bottom: 45px !important;
-}
-    .new-btn {
-        color: white;
-        background-color: #95CC39;
-        border: solid white 1px;
-        box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-        padding-left: 80px !important;
-        padding-right: 80px !important;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-family: Roboto, sans-serif;
-        font-weight: bold;
-        font-size: 14px;
-        text-transform: uppercase;
-    }
-    .new-btn:hover {
-        color: white;
-        background-color: transparent; 
-        border: solid white 1px;
-    }
+            }
+            .rental-details {
 
-.option-buttons {
+            }
+/* Availability */
+.false {
+    width: 10%;
+    height: 14px;
+    display: inline-block;
+    align-self: center;
+    border-radius: 3px;
+    margin: 2px;
+    padding: 0px;
+    padding-left: 3px;
     color: white;
-    border: solid white 1px;
-    background-color: #95CC39 !important;
-    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
-    font-family: Roboto, sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 10px;
+    background-color: rgb(184, 63, 63);
 }
-    .option-buttons:hover {
-        color: #95CC39 !important;
-        background-color: transparent !important; 
-        border: solid #95CC39 1px;
-    } 
+.true {
+    width: 10%;
+    height: 14px;
+    display: inline-block;
+    align-self: center;
+    border-radius: 3px;
+    margin: 2px;
+    padding: 0px;
+    padding-left: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 10px;
+    background-color: rgb(64, 170, 58);
+}
+.temp {
+    width: 10%;
+    height: 14px;
+    display: inline-block;
+    align-self: center;
+    border-radius: 3px;
+    margin: 2px;
+    padding: 0px;
+    padding-left: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 10px;
+    background-color: rgb(47, 150, 187);
+}
 
-#date-picker {
-    margin: 10px;
-}
 
 /* ============================================== */
 /* MEDIA QUERIES */
@@ -156,106 +156,30 @@
 
 /* Largest Devices */
 @media only screen and (min-width : 1200px) {
-    .border {
-        max-width: 550px;
-        margin-bottom: 30px;
-    }
-    .dtls-btn {
-        font-size: 12px;
-        margin-bottom: 10px;
-        margin-top: 0px;
-    }
-    .fav-btns {
-        font-size: 14px;
-        margin-bottom: 15px;
-        margin-top: 10px;
-    }
+   
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-    .border {
-        max-width: 550px;
-        margin-bottom: 30px;
-    }
-    .dtls-btn {
-        font-size: 12px;
-        margin-bottom: 10px;
-        margin-top: 0px;
-    }
-    .fav-btns {
-        font-size: 14px;
-        margin-bottom: 15px;
-        margin-top: 10px;
-    }
+    
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-    .border {
-        max-width: 550px;
-        margin-bottom: 30px;
-    }
-    .dtls-btn {
-        font-size: 12px;
-        margin-bottom: 10px;
-        margin-top: 0px;
-    }
-    .fav-btns {
-        font-size: 14px;
-        margin-bottom: 15px;
-        margin-top: 10px;
-    }
+    
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-    .border {
-        max-width: 550px;
-        margin-bottom: 15px;
-    }
-    .dtls-btn {
-        font-size: 12px;
-        margin-bottom: 10px;
-        margin-top: 0px;
-    }
-    .fav-btns {
-        font-size: 14px;
-        margin-bottom: 15px;
-        margin-top: 10px;
-    }
+    
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
-    .border {
-        margin-bottom: 0px;
-    }
-    .dtls-btn {
-        font-size: 9px;
-        margin-bottom: 8px;
-        margin-top: 0px;
-    }
-    .fav-btns {
-        font-size: 10px;
-        margin-bottom: 10px;
-        margin-top: 5px;
-    }
+    
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
-    .border {
-        margin-bottom: 0px;
-    }
-    .dtls-btn {
-        font-size: 9px;
-        margin-bottom: 8px;
-        margin-top: 0px;
-    }
-    .fav-btns {
-        font-size: 10px;
-        margin-bottom: 10px;
-        margin-top: 5px;
-    }
+    
 }
