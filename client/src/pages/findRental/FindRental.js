@@ -281,6 +281,7 @@ class FindRental extends React.Component {
         if(event.target.name === 'cDate'){
             // console.log(event.target.value)
             let newObj = new Date(event.target.value)
+            newObj.setDate(newObj.getDate() + 1)
             // console.log(newObj)
             this.setState({ tDate:newObj, cDate:event.target.value })
         } else {
@@ -320,7 +321,16 @@ class FindRental extends React.Component {
                             placeholder="ZIP Code" 
                             aria-label="Location Search" 
                             aria-describedby="basic-addon2" 
-                        />
+                        />    
+                        <input 
+                            name='cDate'
+                            value={this.state.cDate}
+                            id='cDate'
+                            onChange={this.updateState}
+                            type='date'
+                            className='form-control'
+                            
+                        /> 
                         <div className="input-group-append">
                         <button 
                             className="btn btn-outline-primary" 
@@ -330,17 +340,10 @@ class FindRental extends React.Component {
                             Search
                         </button>
                         </div>
-                    </div>
+                    
                 </div>
                 <div className="row" id="third-line">
-                    <div className="input-group mb-3 search-group">
-                        <input 
-                            name='cDate'
-                            value={this.state.cDate}
-                            id='cDate'
-                            onChange={this.updateState}
-                            type='date'
-                        /> 
+                    
                     </div>
                 </div>
                 <div className="row justify-content-center">
@@ -369,34 +372,39 @@ class FindRental extends React.Component {
                                                                 <ListGroupItem className="dtls">Spot Type: <small>{e.shortDesc}</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Description: <small>{e.longDesc}</small></ListGroupItem>
                                                                 <ListGroupItem className="text-center scheduling">
-                                                                    <strong>Availability</strong>
+                                                                    <strong>AVAILABILITY</strong>
                                                                     <br/>
-                                                                    <small>Select desired dates & times</small>
+                                                                    <small>Select the times you would like to reserve</small>
                                                                     <hr/>
                                                                     {(
                                                                         e.availability.map((f, indexDate) => {
                                                                             return(
                                                                                 <div className="text-left availability">
-                                                                                    <div>tdate {this.state.tDate.toString()}</div>
-                                                                                    <div>{f.day}</div>
+                                                                                    
+                                                                                    {console.log(this.state.tDate.setDate(this.state.tDate.getDate()))}
+                                                                                    
+                                                                                    {console.log('f.day')}
+                                                                                    {console.log(new Date(f.day).setDate(new Date(f.day).getDate() + 1))}
                                                                                     {(
-                                                                                        //this.state.tDate == f.day && 
+                                                                                        this.state.tDate.setDate(this.state.tDate.getDate()).toString() === new Date(f.day).setDate(new Date(f.day).getDate() + 1).toString() &&
                                                                                         <div>
-                                                                                        <div></div>
-                                                                                        {(
-                                                                                            f.times.map((g, indexTime) => {
-                                                                                                let dispClass = g.classn
-                                                                                                
-                                                                                                return(
-                                                                                                <div 
-                                                                                                    className={dispClass}
-                                                                                                    onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price, e.shortDesc, e.longDesc)}>
-                                                                                                    {g.time}
-                                                                                                </div>
-                                                                                            ) 
-                                                                                            })
-                                                                                        )}
-                                                                                    </div>)}
+                                                                                        <div className='dateTitle'>{f.day.slice(0,10)}</div>
+                                                                                            {(
+                                                                                                f.times.map((g, indexTime) => {
+                                                                                                    let dispClass = g.classn
+                                                                                                    
+                                                                                                    return(
+                                                                                                    <div 
+                                                                                                        className={dispClass}
+                                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price, e.shortDesc, e.longDesc)}>
+                                                                                                        {g.time}
+                                                                                                    </div>
+                                                                                                ) 
+                                                                                                })
+                                                                                            )}
+                                                                                        </div>
+                                                                                
+                                                                                    )}
                                                                                 </div>
                                                                             ) 
                                                                         })

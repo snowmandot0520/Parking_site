@@ -22,6 +22,11 @@
     max-width: 580px;
     margin: 0 auto;
 }
+
+.dateTitle {
+    font-weight: bold;
+    color: rgb(43, 43, 43)
+}
     .search-group {
         margin-bottom: 0px !important;
     }
