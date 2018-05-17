@@ -28,8 +28,16 @@ class FindRental extends React.Component {
             tDate: '',
             rentedSpacesUser: [],
             userRentedDB: { },
-            apiKey: 'AIzaSyDz9l4M_Hjs0BXevxJN93Ptep60_0XIVkI'
+            apiKey: 'AIzaSyDz9l4M_Hjs0BXevxJN93Ptep60_0XIVkI',
+            isLoading: false,
+            stripeToken: null
         }
+        this.stripeHandler = window.StripeCheckout.configure({
+        key: "pk_test_iwcqOHORnAsvbAhrEAYnyvjq",
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        token: this.onGetStripeToken.bind(this)
+      });
     }
 
     componentDidMount = () => {
@@ -66,6 +74,31 @@ class FindRental extends React.Component {
         //console.log(this.state)
     }
 
+    onGetStripeToken (token) {
+        // Got Stripe token. This means user's card is valid!
+        // We need to continue the payment process by sending this token to our own server.
+        // More info: https://stripe.com/docs/charges
+        this.setState({stripeToken: token});
+    };
+
+    onClickPay () {
+        
+        this.setState({isLoading: true});
+    
+        const onCheckoutOpened = () => {
+          this.setState({isLoading: false})
+        }
+    
+        // open Stripe Checkout
+        this.stripeHandler.open({
+          name: 'Landing Pad',
+          description: 'Garage Rental',
+          amount: 1000, // 10 USD -> 1000 cents
+          currency: 'usd',
+          opened: onCheckoutOpened.bind(this)
+        });
+    }
+
     justSendIt = () => {
         axios.post(`/spaces/update/${this.state.rentID}`, this.state.toRent)
             .then(data => console.log(data))
@@ -78,6 +111,8 @@ class FindRental extends React.Component {
     }
 
     setToRent = () => {
+
+        this.onClickPay()
 
         const tempArr = this.state.toRent;
 
@@ -92,7 +127,7 @@ class FindRental extends React.Component {
 
     }
 
-    addToUserAcct = (date, time, img, address, price, event) => {
+    addToUserAcct = (date, time, img, address, price, type, desc, event) => {
 
         
         let tempUserArr = this.state.userRentedDB
@@ -111,7 +146,9 @@ class FindRental extends React.Component {
                 img:img,
                 address:address,
                 price:price,
-                times: [time]
+                times: [time],
+                type: type,
+                desc: desc
             }
 
             //console.log('new date ran')
@@ -174,10 +211,10 @@ class FindRental extends React.Component {
    //     console.log(this.state)
     }
 
-    concatSpaces = (index, indexDate, indexTime, id, date, time, img, address, price, event) => {
+    concatSpaces = (index, indexDate, indexTime, id, date, time, img, address, price, type, desc, event) => {
         // console.log(index)
 
-        this.addToUserAcct(date, time, img, address, price)
+        this.addToUserAcct(date, time, img, address, price, type, desc)
 
         let tempArr; 
         this.state.toRent.length > 1 ? tempArr = this.state.toRent : tempArr = this.state.spaces[index]
@@ -244,6 +281,7 @@ class FindRental extends React.Component {
         if(event.target.name === 'cDate'){
             // console.log(event.target.value)
             let newObj = new Date(event.target.value)
+            newObj.setDate(newObj.getDate() + 1)
             // console.log(newObj)
             this.setState({ tDate:newObj, cDate:event.target.value })
         } else {
@@ -253,6 +291,12 @@ class FindRental extends React.Component {
     }
 
     render(){
+        var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10"
+        var buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
+        if (this.state.stripeToken) {
+        buttonText = "Your payment was processed"
+        buttonClassName = "Pay-Now Pay-Now-Disabled"
+        }
         return(
             <div className="container" id="solid-bckg">
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
@@ -277,7 +321,16 @@ class FindRental extends React.Component {
                             placeholder="ZIP Code" 
                             aria-label="Location Search" 
                             aria-describedby="basic-addon2" 
-                        />
+                        />    
+                        <input 
+                            name='cDate'
+                            value={this.state.cDate}
+                            id='cDate'
+                            onChange={this.updateState}
+                            type='date'
+                            className='form-control'
+                            
+                        /> 
                         <div className="input-group-append">
                         <button 
                             className="btn btn-outline-primary" 
@@ -287,17 +340,10 @@ class FindRental extends React.Component {
                             Search
                         </button>
                         </div>
-                    </div>
+                    
                 </div>
                 <div className="row" id="third-line">
-                    <div className="input-group mb-3 search-group">
-                        <input 
-                            name='cDate'
-                            value={this.state.cDate}
-                            id='cDate'
-                            onChange={this.updateState}
-                            type='date'
-                        /> 
+                    
                     </div>
                 </div>
                 <div className="row justify-content-center">
@@ -318,42 +364,47 @@ class FindRental extends React.Component {
                                                     <Card className="rent-border">
                                                         <CardImg top width="100%" className="rent-img" src={e.img} alt="Parking Spot Image" />
                                                         <CardBody className="text-center crd-bdy">
-                                                            <CardTitle id="spot-title">{e.address}</CardTitle>
-                                                            <CardSubtitle>Distance: {e.coord}</CardSubtitle>
+                                                            
                                                             <ListGroup className="text-left list-block">
                                                                 <ListGroupItem className="dtls">Address: <small>{e.address}</small></ListGroupItem>
+                                                                <ListGroupItem className="dtls">Distance: <small>{e.coord}</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Price Per Hour: <small>${e.price}.00</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Spot Type: <small>{e.shortDesc}</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Description: <small>{e.longDesc}</small></ListGroupItem>
                                                                 <ListGroupItem className="text-center scheduling">
-                                                                    <strong>Availability</strong>
+                                                                    <strong>AVAILABILITY</strong>
                                                                     <br/>
-                                                                    <small>Select desired dates & times</small>
+                                                                    <small>Select the times you would like to reserve</small>
                                                                     <hr/>
                                                                     {(
                                                                         e.availability.map((f, indexDate) => {
                                                                             return(
                                                                                 <div className="text-left availability">
-                                                                                    <div>tdate {this.state.tDate.toString()}</div>
-                                                                                    <div>{f.day}</div>
+                                                                                    
+                                                                                    {console.log(this.state.tDate.setDate(this.state.tDate.getDate()))}
+                                                                                    
+                                                                                    {console.log('f.day')}
+                                                                                    {console.log(new Date(f.day).setDate(new Date(f.day).getDate() + 1))}
                                                                                     {(
-                                                                                        //this.state.tDate == f.day && 
+                                                                                        this.state.tDate.setDate(this.state.tDate.getDate()).toString() === new Date(f.day).setDate(new Date(f.day).getDate() + 1).toString() &&
                                                                                         <div>
-                                                                                        <div></div>
-                                                                                        {(
-                                                                                            f.times.map((g, indexTime) => {
-                                                                                                let dispClass = g.classn
-                                                                                                
-                                                                                                return(
-                                                                                                <div 
-                                                                                                    className={dispClass}
-                                                                                                    onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price)}>
-                                                                                                    {g.time}
-                                                                                                </div>
-                                                                                            ) 
-                                                                                            })
-                                                                                        )}
-                                                                                    </div>)}
+                                                                                        <div className='dateTitle'>{f.day.slice(0,10)}</div>
+                                                                                            {(
+                                                                                                f.times.map((g, indexTime) => {
+                                                                                                    let dispClass = g.classn
+                                                                                                    
+                                                                                                    return(
+                                                                                                    <div 
+                                                                                                        className={dispClass}
+                                                                                                        onClick={() => this.concatSpaces(index, indexDate, indexTime, e._id, f.day, g.time, e.img, e.address, e.price, e.shortDesc, e.longDesc)}>
+                                                                                                        {g.time}
+                                                                                                    </div>
+                                                                                                ) 
+                                                                                                })
+                                                                                            )}
+                                                                                        </div>
+                                                                                
+                                                                                    )}
                                                                                 </div>
                                                                             ) 
                                                                         })

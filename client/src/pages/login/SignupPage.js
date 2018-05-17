@@ -102,7 +102,7 @@ class Login extends React.Component {
                                         id="username" 
                                         placeholder="username" 
                                         value={username} 
-                                        onChange={this.onChange} required/>
+                                        onChange={this.onChange} required/> 
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row>
