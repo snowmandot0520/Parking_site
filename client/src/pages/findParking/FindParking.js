@@ -20,17 +20,10 @@ class FindParking extends React.Component {
             parkingAddress:'',
             parkingName:'',
             parkingPrice:'',
-            // isLoading: false,
-            // stripeToken: null
+         
         }
         this.toggle = this.toggle.bind(this);
-          // configure Stripe Checkout
-    //     this.stripeHandler = window.StripeCheckout.configure({
-    //     key: "pk_test_iwcqOHORnAsvbAhrEAYnyvjq",
-    //     image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-    //     locale: 'auto',
-    //     token: this.onGetStripeToken.bind(this)
-    //   });
+   
     };
     
     toggle() {
@@ -94,43 +87,14 @@ class FindParking extends React.Component {
         this.state.address = this.state.parkingAddress +" " + this.state.parkingName;
         this.searchParkingSpot(this.state.parkingAddress, this.state.parkingName)
     }
-    // onGetStripeToken (token) {
-    //     // Got Stripe token. This means user's card is valid!
-    //     // We need to continue the payment process by sending this token to our own server.
-    //     // More info: https://stripe.com/docs/charges
-    //     this.setState({stripeToken: token});
-    // };
-
-    // onClickPay (e) {
-    //     e.preventDefault()
-    //     this.setState({isLoading: true});
     
-    //     const onCheckoutOpened = () => {
-    //       this.setState({isLoading: false})
-    //     }
-    
-    //     // open Stripe Checkout
-    //     this.stripeHandler.open({
-    //       name: 'Landing Pad',
-    //       description: 'Garage Rental',
-    //       amount: 1000, // 10 USD -> 1000 cents
-    //       currency: 'usd',
-    //       opened: onCheckoutOpened.bind(this)
-    //     });
-    // }
 
     render(){
-        // var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10"
-        // var buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
-        // if (this.state.stripeToken) {
-        // buttonText = "Your payment was processed"
-        // buttonClassName = "Pay-Now Pay-Now-Disabled"
-        // }
+       
         return(
             <div className="container" id="solid-bckg">
                 <div className="grn-hdr"><Header/></div> 
-                {/* <button id='jeb' onClick={geocoder.getCoordFromAddress}>Geocoder</button>
-                <button id='jeb2' onClick={geocoder.distanceMatrix}>Distance Matrix</button> */}
+    
                 <div className="row text-center" id="second-line">
                     <div className="input-group mb-3 location-group">
                         <Input 
@@ -191,10 +155,7 @@ class FindParking extends React.Component {
                         }
                         </div>
                     </div>
-                    {/* CAN REMOVE THIS DIV BELOW ONCE PAYMENT IS MOVED */}
-                    <div className=" fixed-bottom new-btn-div text-center">
-                    {/* <a className={buttonClassName} href="#" onClick={this.onClickPay.bind(this)}>{buttonText}</a> */}     
-                </div>
+    
                 <Footer/> 
             </div>
         )

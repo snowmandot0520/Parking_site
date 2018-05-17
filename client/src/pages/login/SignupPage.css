@@ -23,10 +23,10 @@
     border: solid white 1px;
 }
 #sign-in {
-    margin-right: 150px;
+    margin-right: 50%;
 }
 #sign-up {
-    margin-left: 150px;
+    margin-left: 50%;
 }
 .title-description {
     color: white;
@@ -102,10 +102,10 @@
         border: solid white 1px;
     }
     #sign-in {
-        margin-right: 142px;
+        margin-right: 50%;
     }
     #sign-up {
-        margin-left: 142px;
+        margin-left: 50%;
     }
     .mod-body {
         padding-top: 10px;
@@ -130,10 +130,10 @@
         margin-bottom: 65px;
     }
     #sign-in {
-        margin-right: 142px;
+        margin-right: 50%;
     }
     #sign-up {
-        margin-left: 142px;
+        margin-left: 50%;
     }
     .mod-body {
         padding-top: 10px;
@@ -158,10 +158,10 @@
         margin-bottom: 65px;
     }
     #sign-in {
-        margin-right: 135px;
+        margin-right: 50%;
     }
     #sign-up {
-        margin-left: 135px;
+        margin-left: 50%;
     }
     .mod-body {
         padding-top: 10px;
@@ -186,10 +186,10 @@
         margin-bottom: 75px;
     }
     #sign-in {
-        margin-right: 120px;
+        margin-right: 50%;
     }
     #sign-up {
-        margin-left: 120px;
+        margin-left: 50%;
     }
   }
   
@@ -208,11 +208,11 @@
         margin-bottom: 0px;
     }
     #sign-in {
-        margin-right: 120px;
+        margin-right: 50%;
         margin-bottom: 65px;
     }
     #sign-up {
-        margin-left: 120px;
+        margin-left: 50%;
         margin-bottom: 65px;
     }
   }
