@@ -120,17 +120,17 @@ class FindParking extends React.Component {
                         </div>
                     </div>
                     <div className="btn-group three-btns" role="group" aria-label="Basic example">
-                        <Button type="button" className="btn btn-outline-primary h-buttons" href="/findParking">Nearby</Button>
-                        <Button type="button" className="btn btn-outline-primary h-buttons" href="/recent">Recent</Button>
-                        <Button type="button" className="btn btn-outline-primary h-buttons" href="/favorites">Favorites</Button>
+                        <Button type="button" className="btn btn-outline-primary h-butns" href="/findParking">Nearby</Button>
+                        <Button type="button" className="btn btn-outline-primary h-butns" href="/recent">Recent</Button>
+                        <Button type="button" className="btn btn-outline-primary h-butns" href="/favorites">Favorites</Button>
                     </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-xs-12 col-lg-12 col-md-12 justify-content-center text-center" id="map-div">
                             <iframe
                                 className="map"
-                                width="320"
-                                height="200"
+                                // width="320"
+                                // height="200"
                                 frameBorder="0"
                                 src={`https://www.google.com/maps/embed/v1/place?q=${this.state.address}
                                 &key=${this.state.googleKey}`} allowFullScreen>

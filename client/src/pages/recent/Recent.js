@@ -45,11 +45,13 @@ class Recent extends React.Component {
         return(
             <div className="container" id="solid-bckg">
                <div className="grn-hdr"><Header/></div> 
-               <div className="btn-group three-btns" role="group" aria-label="Basic example">
-                    <Button type="button" className="btn btn-outline-primary hm-buttons" href="/findParking">Nearby</Button>
-                    <Button type="button" className="btn btn-outline-primary hm-buttons" href="/recent">Recent</Button>
-                    <Button type="button" className="btn btn-outline-primary hm-buttons" href="/favorites">Favorites</Button>
-                </div>
+               <div className="row justify-content-center">
+                    <div className="btn-group three-btns text-center" role="group" aria-label="Basic example">
+                        <Button type="button" className="btn btn-outline-primary h-butns" href="/findParking">Nearby</Button>
+                        <Button type="button" className="btn btn-outline-primary h-butns" href="/recent">Recent</Button>
+                        <Button type="button" className="btn btn-outline-primary h-butns" href="/favorites">Favorites</Button>
+                    </div>
+                </div>    
                 <div className="row justify-content-center">
                     <div className="col-xs-12 justify-content-center" id="activity-div">
                         <div className ="text-center" id="spacer">

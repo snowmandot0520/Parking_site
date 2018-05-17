@@ -17,8 +17,9 @@
     }
 .three-btns {
     margin: 0 auto;
+    margin-top: 5px;
 }
-    .hm-buttons {
+    .h-butns {
         color: white;
         border: solid white 1px;
         background-color: #95CC39 !important;
@@ -29,7 +30,7 @@
         padding-left: 15px;
         padding-right: 15px;
     }
-        .home-buttons:hover {
+        .h-butns:hover {
             color: white !important;
             background-color: transparent !important; 
             border: solid white 1px;
