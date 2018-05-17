@@ -361,10 +361,10 @@ class FindRental extends React.Component {
                                                     <Card className="rent-border">
                                                         <CardImg top width="100%" className="rent-img" src={e.img} alt="Parking Spot Image" />
                                                         <CardBody className="text-center crd-bdy">
-                                                            <CardTitle id="spot-title">{e.address}</CardTitle>
-                                                            <CardSubtitle>Distance: {e.coord}</CardSubtitle>
+                                                            
                                                             <ListGroup className="text-left list-block">
                                                                 <ListGroupItem className="dtls">Address: <small>{e.address}</small></ListGroupItem>
+                                                                <ListGroupItem className="dtls">Distance: <small>{e.coord}</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Price Per Hour: <small>${e.price}.00</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Spot Type: <small>{e.shortDesc}</small></ListGroupItem>
                                                                 <ListGroupItem className="dtls">Description: <small>{e.longDesc}</small></ListGroupItem>
