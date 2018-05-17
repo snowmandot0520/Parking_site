@@ -128,7 +128,6 @@ class Login extends React.Component {
                     <div className=" fixed-bottom" id="sign-up">
                         <Link to="/signup"><Button outline color="primary" className="simple-btn" onClick={this.showModal.bind(this, "modal2")}>Sign Up</Button></Link>
                     </div>
-
                     <Footer/>
                 </Background>
             </div>

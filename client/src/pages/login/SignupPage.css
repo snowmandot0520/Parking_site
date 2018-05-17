@@ -23,10 +23,10 @@
     border: solid white 1px;
 }
 #sign-in {
-    margin-right: 50%;
+    margin-right: 40%;
 }
 #sign-up {
-    margin-left: 50%;
+    margin-left: 40%;
 }
 .title-description {
     color: white;
@@ -73,6 +73,16 @@
         font-size: 35px; 
         margin: 0;   
     }
+    .simple-btn {
+        padding-left: 27px !important;
+        padding-right: 27px !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 65px;
+        border: solid white 1px;
+    }
     .mod-body {
         padding-top: 10px;
         padding-bottom: 0px;
@@ -101,12 +111,6 @@
         margin-bottom: 65px;
         border: solid white 1px;
     }
-    #sign-in {
-        margin-right: 50%;
-    }
-    #sign-up {
-        margin-left: 50%;
-    }
     .mod-body {
         padding-top: 10px;
         padding-bottom: 0px;
@@ -128,12 +132,6 @@
         font-size: 20px;
         font-weight: 400;
         margin-bottom: 65px;
-    }
-    #sign-in {
-        margin-right: 50%;
-    }
-    #sign-up {
-        margin-left: 50%;
     }
     .mod-body {
         padding-top: 10px;
@@ -157,12 +155,6 @@
         font-weight: 400;
         margin-bottom: 65px;
     }
-    #sign-in {
-        margin-right: 50%;
-    }
-    #sign-up {
-        margin-left: 50%;
-    }
     .mod-body {
         padding-top: 10px;
         padding-bottom: 0px;
@@ -185,12 +177,6 @@
         font-weight: 400;
         margin-bottom: 75px;
     }
-    #sign-in {
-        margin-right: 50%;
-    }
-    #sign-up {
-        margin-left: 50%;
-    }
   }
   
   /* Custom, iPhone Retina */ 
@@ -208,11 +194,9 @@
         margin-bottom: 0px;
     }
     #sign-in {
-        margin-right: 50%;
         margin-bottom: 65px;
     }
     #sign-up {
-        margin-left: 50%;
         margin-bottom: 65px;
     }
   }
