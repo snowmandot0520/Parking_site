@@ -42,5 +42,6 @@
     "react-transition-group": "^2.3.1",
     "reactstrap": "^5.0.0",
     "serve-favicon": "^2.5.0"
-  }
+  },
+  "repository": "git@github.com:bettijung/Parking-Pad.git"
 }
