@@ -2,15 +2,14 @@
 **Crowdsource parking app** that allows users to rent spare parking spaces to other users in order to facilitate stress-free parking in bottleneck areas where parking is a nightmare.
 Users can also view nearby parking (non-rental).
 
+Created with MERN stack.
+
 * Visit the deployed app <a href="https://parking-pad.herokuapp.com/">here</a>.
 
 *Best viewed as a mobile phone application (screen size)*
 
 ## View of the app
 [App Demo](https://drive.google.com/file/d/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/preview)
-
-### Motivation
-To create an app for people wanting to search news articles based on specific topics/words and date ranges, and to do so utilizing MongoDB, Express.js, React.js, and Node.js.
 
 ## Installation
 - Visit the deployed site [here](https://parking-pad.herokuapp.com/) for immediate use.
