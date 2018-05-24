@@ -46,7 +46,11 @@ To create an app for people wanting to search news articles based on specific to
 - Stripe (Payment Processor)
 - HTML5, CSS3, JavaScript
 
-
 ### API Reference
 - [ParkWhiz API](http://www.parkwhiz.com/developers)
 - [Google Maps API](https://developers.google.com/maps/documentation/)
+
+###Contributors
+[Bettina Junghahn](https://github.com/bettijung)
+[Jonathan Callahan](https://github.com/jonathantcallahan)
+[Caglar Panus](https://github.com/caglarpanus)
