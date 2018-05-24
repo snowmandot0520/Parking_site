@@ -52,5 +52,7 @@ To create an app for people wanting to search news articles based on specific to
 
 ### Contributors
 [Bettina Junghahn](https://github.com/bettijung)
+
 [Jonathan Callahan](https://github.com/jonathantcallahan)
+
 [Caglar Panus](https://github.com/caglarpanus)
