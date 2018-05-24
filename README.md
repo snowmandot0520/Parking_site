@@ -50,7 +50,7 @@ To create an app for people wanting to search news articles based on specific to
 - [ParkWhiz API](http://www.parkwhiz.com/developers)
 - [Google Maps API](https://developers.google.com/maps/documentation/)
 
-###Contributors
+### Contributors
 [Bettina Junghahn](https://github.com/bettijung)
 [Jonathan Callahan](https://github.com/jonathantcallahan)
 [Caglar Panus](https://github.com/caglarpanus)
