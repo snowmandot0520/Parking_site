@@ -11,6 +11,8 @@ Visit the deployed app <a href="https://parking-pad.herokuapp.com/">here</a>.
 ### View of the app
 [App Demo](https://drive.google.com/file/d/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/preview)
 
+<img src="Landing Pad App.gif" height="400px" width="350">
+
 ## Installation
 - Visit the deployed site [here](https://parking-pad.herokuapp.com/) for immediate use.
 - Otherwise, **fork** and **clone** the GitHub repo to your local machine.
