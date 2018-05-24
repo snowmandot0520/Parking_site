@@ -8,7 +8,6 @@ Users can also view nearby parking (non-rental).
 
 ## View of the app
 <iframe src="https://drive.google.com/file/d/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/preview" width="640" height="480"></iframe>
-[![App Demo](https://img.youtube.com/vi/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/0.jpg)](https://drive.google.com/file/d/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/preview)
 
 ### Motivation
 To create an app for people wanting to search news articles based on specific topics/words and date ranges, and to do so utilizing MongoDB, Express.js, React.js, and Node.js.
