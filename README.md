@@ -4,11 +4,11 @@ Users can also view nearby parking (non-rental).
 
 Created with MERN stack.
 
-* Visit the deployed app <a href="https://parking-pad.herokuapp.com/">here</a>.
+Visit the deployed app <a href="https://parking-pad.herokuapp.com/">here</a>.
 
-*Best viewed as a mobile phone application (screen size)*
+* *Best viewed as a mobile phone application (screen size)*
 
-## View of the app
+### View of the app
 [App Demo](https://drive.google.com/file/d/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/preview)
 
 ## Installation
