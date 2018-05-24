@@ -3,12 +3,15 @@
 Users can also view nearby parking (non-rental).
 
 * Visit the deployed app <a href="https://parking-pad.herokuapp.com/">here</a>.
+
 *Best viewed as a mobile phone application (screen size)*
 
 ## View of the app
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="https://drive.google.com/file/d/1uBqJQ_O3RTp2kw6PT7S-EY1mBw62GLO4/preview" 
+alt="App Demo"  width="640" height="480 border="10" /></a>
 
-
-## Motivation
+### Motivation
 To create an app for people wanting to search news articles based on specific topics/words and date ranges, and to do so utilizing MongoDB, Express.js, React.js, and Node.js.
 
 ## Installation
@@ -33,7 +36,7 @@ To create an app for people wanting to search news articles based on specific to
 - Parking-Pad runs locally on port 3000. Open your favorite web browser at **localhost:3000**.
 - Remember to view the app as a mobile-size for best experience.
 
-## Technologies Used
+### Technologies Used
 - React.js
 - Node.js
 - NPM Packages: axios, bluebird, dateformat, moment, morgan
@@ -50,7 +53,7 @@ To create an app for people wanting to search news articles based on specific to
 - [ParkWhiz API](http://www.parkwhiz.com/developers)
 - [Google Maps API](https://developers.google.com/maps/documentation/)
 
-### Contributors
+## Contributors
 [Bettina Junghahn](https://github.com/bettijung)
 
 [Jonathan Callahan](https://github.com/jonathantcallahan)
